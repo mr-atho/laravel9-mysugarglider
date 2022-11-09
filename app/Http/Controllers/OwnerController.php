@@ -3,35 +3,70 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\OwnerModel;
 
 class OwnerController extends Controller
 {
     function index()
     {
-        return 'a';
+        $data = [
+            'owners' => OwnerModel::all(),
+        ];
+
+        return view('owners/v_owner', $data);
     }
+
     function create()
     {
-        return 'b';
+        return view('owners/v_owner_create');
     }
-    function store()
+    
+    function store(Request $request)
     {
-        return 'c';
+        OwnerModel::create([
+            'nama'              => $request->nama,
+            'alamat'            => $request->alamat,
+            'telp'              => $request->telp,
+            'user_id'           => '1',
+        ]);
+
+        return redirect()->route('owners')->with('pesan', 'Data berhasil ditambahkan.');
     }
-    function show()
+
+    function show(Request $request, $id)
     {
-        return 'd';
+        $data = [
+            'owner' => OwnerModel::find($id),
+        ];
+
+        return view('owners/v_owner_detail', $data);
     }
-    function edit()
+    function edit($id)
     {
-        return 'e';
+        $data = [
+            'owner' => OwnerModel::findOrFail($id)
+        ];
+
+        return view('owners/v_owner_edit', $data);
     }
-    function update()
+
+    function update(Request $request)
     {
-        return 'f';
+        $owner = OwnerModel::find($request->id);
+;
+        $owner->nama    = Request()->nama;
+        $owner->alamat  = Request()->alamat;
+        $owner->telp    = Request()->telp;
+        $owner->save();
+
+        return redirect()->route('owners')->with('pesan', 'Data berhasil diperbaharui.');
     }
-    function destroy()
+
+    function destroy(Request $request)
     {
-        return 'g';
+        $owner = OwnerModel::findOrFail($request->id);
+        $owner->delete();
+
+        return redirect()->route('owners')->with('pesan', 'Data berhasil dihapus.');
     }
 }
