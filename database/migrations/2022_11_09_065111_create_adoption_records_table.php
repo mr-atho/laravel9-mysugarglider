@@ -13,12 +13,13 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('adopsi', function (Blueprint $table) {
+        Schema::create('adoption_records', function (Blueprint $table) {
             $table->id();
+            $table->string('owner_id');
+            $table->string('adoption_request_id');
             $table->date('tanggal_adopsi');
-            $table->integer('sugarglider_id');
-            $table->integer('pemilik_id');
-            $table->string('keterangan');
+            $table->string('biaya_adopsi')->nullable();
+            $table->string('status');
             $table->timestamps();
         });
     }
@@ -30,6 +31,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('adopsi');
+        Schema::dropIfExists('adoption_records');
     }
 };

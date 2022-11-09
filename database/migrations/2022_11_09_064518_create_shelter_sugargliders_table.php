@@ -13,10 +13,10 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('cages', function (Blueprint $table) {
+        Schema::create('shelter_sugargliders', function (Blueprint $table) {
             $table->id();
-            $table->string('nama');
-            $table->string('kode');
+            $table->string('sugarglider_id');
+            $table->string('shelter_id');
             $table->string('status');
             $table->timestamps();
         });
@@ -29,6 +29,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('cages');
+        Schema::dropIfExists('shelter_sugargliders');
     }
 };

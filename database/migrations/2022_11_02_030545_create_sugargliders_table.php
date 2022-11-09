@@ -27,7 +27,6 @@ return new class extends Migration
             $table->string('indukan_jantan');
             $table->string('gambar')->nullable();
             $table->text('keterangan')->nullable();
-            $table->boolean('adopsi');
             $table->timestamps();
         });
     }

@@ -13,12 +13,9 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('pemilik', function (Blueprint $table) {
+        Schema::create('adoption_requests', function (Blueprint $table) {
             $table->id();
-            $table->string('nama');
-            $table->string('alamat');
-            $table->string('telp');
-            $table->string('email');
+            $table->string('sugarglider_id');
             $table->string('status');
             $table->timestamps();
         });
@@ -31,6 +28,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('pemilik');
+        Schema::dropIfExists('adoption_requests');
     }
 };
