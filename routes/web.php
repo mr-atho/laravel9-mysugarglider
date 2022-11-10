@@ -1,10 +1,10 @@
 <?php
 
-use App\Http\Controllers\PageController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\PageController;
 use App\Http\Controllers\SugargliderController;
 use App\Http\Controllers\OwnerController;
-use App\Models\OwnerModel;
+use App\Http\Controllers\ShelterController;
 
 /*
 |--------------------------------------------------------------------------
@@ -35,3 +35,11 @@ Route::get('/owners/{id}', [OwnerController::class, 'show'])->name('ownerShow');
 Route::get('/owners/{id}/edit', [OwnerController::class, 'edit'])->name('ownerEdit');
 Route::put('/owners/{id}', [OwnerController::class, 'update'])->name('ownerUpdate');
 Route::delete('/owners/{id}', [OwnerController::class, 'destroy'])->name('ownerDestroy');
+
+Route::get('/shelters', [ShelterController::class, 'index'])->name('shelters');
+Route::get('/shelters/create', [ShelterController::class, 'create'])->name('shelterCreate');
+Route::post('/shelters', [ShelterController::class, 'store'])->name('shelterStore');
+Route::get('/shelters/{id}', [ShelterController::class, 'show'])->name('shelterShow');
+Route::get('/shelters/{id}/edit', [ShelterController::class, 'edit'])->name('shelterEdit');
+Route::put('/shelters/{id}', [ShelterController::class, 'update'])->name('shelterUpdate');
+Route::delete('/shelters/{id}', [ShelterController::class, 'destroy'])->name('shelterDestroy');

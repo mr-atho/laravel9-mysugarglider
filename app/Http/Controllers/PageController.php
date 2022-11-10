@@ -15,4 +15,22 @@ class PageController extends Controller
 
         return view('pages/v_home', $data);
     }
+    function create()
+    {
+    }
+    function store()
+    {
+    }
+    function show()
+    {
+    }
+    function edit()
+    {
+    }
+    function update()
+    {
+    }
+    function destroy()
+    {
+    }
 }

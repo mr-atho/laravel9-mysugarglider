@@ -1,6 +1,11 @@
 ## About mySugarGlider
 Website yang melayani penyimpanan Data Sugar Glider.
 
+## Fitur
+- Data Sugar Glider
+- Data Pemilik
+- Data Shelter
+
 ## Requirement
 - Framework Laravel 9
 
@@ -11,6 +16,10 @@ Anda tertarik membantu dengan berkontribusi dalam mengembangkan sistem ini? Jang
 - 
 
 ## Version
-v1.0.1 | 10 November 2022
-- Refactor: Owner controller, model dan view
+v1.2.0 | 11 November 2022
+- Feat: Shelter controller, model dan view
+- FIx: bugs
+
+v1.1.0 | 10 November 2022
+- Feat: Owner controller, model dan view
 - Fix: bugs
