@@ -3,28 +3,70 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\ShelterModel;
 
 class ShelterController extends Controller
 {
     function index()
     {
+        $data = [
+            'shelters' => ShelterModel::all(),
+        ];
+
+        return view('shelters/v_shelter', $data);
     }
+
     function create()
     {
+        return view('shelters/v_shelter_create');
     }
-    function store()
+
+    function store(Request $request)
     {
+        ShelterModel::create([
+            'nama'              => $request->nama,
+            'kode'              => $request->kode,
+            'alamat'            => $request->alamat,
+            'status'            => $request->status,
+        ]);
+
+        return redirect()->route('shelters')->with('pesan', 'Data berhasil ditambahkan.');
     }
-    function show()
+
+    function show(Request $request, $id)
     {
+        $data = [
+            'shelter' => ShelterModel::find($id),
+        ];
+
+        return view('shelters/v_shelter_detail', $data);
     }
-    function edit()
+    function edit($id)
     {
+        $data = [
+            'shelter' => ShelterModel::findOrFail($id)
+        ];
+
+        return view('shelters/v_shelter_edit', $data);
     }
-    function update()
+
+    function update(Request $request)
     {
+        $shelter = ShelterModel::find($request->id);;
+        $shelter->nama    = Request()->nama;
+        $shelter->kode    = Request()->kode;
+        $shelter->alamat  = Request()->alamat;
+        $shelter->status  = Request()->status;
+        $shelter->save();
+
+        return redirect()->route('shelters')->with('pesan', 'Data berhasil diperbaharui.');
     }
-    function destroy()
+
+    function destroy(Request $request)
     {
+        $shelter = ShelterModel::findOrFail($request->id);
+        $shelter->delete();
+
+        return redirect()->route('shelters')->with('pesan', 'Data berhasil dihapus.');
     }
 }
