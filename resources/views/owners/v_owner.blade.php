@@ -67,20 +67,24 @@
                             <td>{{ $owner->nama }}</td>
                             <td>{{ $owner->alamat }}</td>
                             <td>{{ $owner->telp }}</td>
-                            <td>
-                                <a href="{{ route('ownerShow', $owner->id) }}">Detail</a> |
-                                <a href="{{ route('ownerEdit', $owner->id) }}">Edit</a> |
-                                <form method="POST" action="{{ route('ownerDestroy', $owner->id) }}">
-                                    @csrf
-                                    <input type="hidden" name="_method" value="DELETE">
-                                    <input type="hidden" name="id" value="{{ $owner->id }}">
-                                    <button type="submit" class="" id="delete">Delete</button>
-                                </form>
-                            </td>
+                            @if (Auth::user())
+                                <td>
+                                    <a href="{{ route('ownerShow', $owner->id) }}">Detail</a> |
+                                    <a href="{{ route('ownerEdit', $owner->id) }}">Edit</a> |
+                                    <form method="POST" action="{{ route('ownerDestroy', $owner->id) }}">
+                                        @csrf
+                                        <input type="hidden" name="_method" value="DELETE">
+                                        <input type="hidden" name="id" value="{{ $owner->id }}">
+                                        <button type="submit" class="" id="delete">Delete</button>
+                                    </form>
+                                </td>
+                            @endif
                         </tr>
                     @endforeach
                 </table>
-                <a href="{{ route('ownerCreate') }}">Tambah Baru</a>
+                @if (Auth::user())
+                    <a href="{{ route('ownerCreate') }}">Tambah Baru</a>
+                @endif
             </div>
 
         </section>

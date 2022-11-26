@@ -28,6 +28,16 @@
                 <form role="form" action="{{ route('sugargliderStore') }}" method="POST" enctype="multipart/form-data">
                     @csrf
 
+                    <label for="shelter_id" class="">Kandang</label>
+                    <select class="form-control" id="shelter_id" name="shelter_id" value="{{ old('shelter_id') }}">
+                        <option value="">Pilih Kandang</option>
+                        @foreach ($shelters as $shelter)
+                            <option value="{{ $shelter->id }}">
+                                {{ $shelter->nama }}
+                            </option>
+                        @endforeach
+                    </select><br>
+
                     <label for="kode" class="">Kode</label>
                     <input class="form-control" id="kode" name="kode" value="{{ old('kode') }}" placeholder="Kode"
                         required><br>

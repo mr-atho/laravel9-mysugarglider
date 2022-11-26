@@ -12,6 +12,16 @@ class ShelterModel extends Model
     protected $table = "shelters";
     protected $primaryKey = 'id';
     protected $fillable = [
-        'nama', 'kode', 'alamat', 'status'
+        'nama', 'kode', 'alamat', 'status', 'owner_id'
     ];
+
+    public function shelter_owner()
+    {
+        return $this->belongsTo(OwnerModel::class, 'owner_id');
+    }
+
+    public function shelter_sugarglider()
+    {
+        return $this->hasMany(SugargliderModel::class, 'shelter_id');
+    }
 }

@@ -9,6 +9,16 @@
                 <i class="bi bi-phone"></i> +62 857 5533 3232
             </div>
             <div class="d-none d-lg-flex social-links align-items-center">
+                <small>
+                    @if (Auth::check())
+                        {{ Auth::user()->name }}
+                        <a href="{{ route('logout') }}">KELUAR</a>
+                    @else
+                        <a href="{{ route('register') }}">DAFTAR</a>
+                        <a href="{{ route('login') }}">MASUK</a>
+                    @endif
+
+                </small>
                 <a href="#" class="twitter"><i class="bi bi-twitter"></i></a>
                 <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
                 <a href="#" class="instagram"><i class="bi bi-instagram"></i></a>
@@ -31,6 +41,10 @@
                             href="{{ route('home') }}">Beranda</a></li>
                     <li><a class="nav-link scrollto {{ request()->routeIs('sugargliders') ? 'active' : '' }}"
                             href="{{ route('sugargliders') }}">Koleksi</a></li>
+                    <li><a class="nav-link scrollto {{ request()->routeIs('owners') ? 'active' : '' }}"
+                            href="{{ route('owners') }}">Pemilik</a></li>
+                    <li><a class="nav-link scrollto {{ request()->routeIs('shelters') ? 'active' : '' }}"
+                            href="{{ route('shelters') }}">Kandang</a></li>
                     <li><a class="nav-link scrollto {{ request()->routeIs('home') ? 'active' : '' }}"
                             href="{{ route('home') }}#gallery">Galeri</a></li>
                     <li><a class="nav-link scrollto {{ request()->routeIs('home') ? 'active' : '' }}"

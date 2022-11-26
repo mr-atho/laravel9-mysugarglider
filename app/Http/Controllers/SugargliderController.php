@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\SugargliderModel;
+use App\Models\ShelterModel;
 
 class SugargliderController extends Controller
 {
@@ -18,7 +19,10 @@ class SugargliderController extends Controller
 
     function create()
     {
-        return view('sugargliders/v_sugarglider_create');
+        $data = [
+            'shelters' => ShelterModel::where('status', 1)->get(),
+        ];
+        return view('sugargliders/v_sugarglider_create', $data);
     }
 
     function store(Request $request)
@@ -36,13 +40,14 @@ class SugargliderController extends Controller
             'indukan_jantan'    => $request->indukan_jantan,
             'gambar'            => $request->gambar,
             'keterangan'        => $request->keterangan,
+            'shelter_id'        => $request->shelter_id,
             'adopsi'            => $request->adopsi,
         ]);
 
         return redirect()->route('sugargliders')->with('pesan', 'Data berhasil ditambahkan.');
     }
 
-    function show(Request $request, $id)
+    function show($id)
     {
         $data = [
             'sugarglider' => SugargliderModel::find($id),
@@ -54,7 +59,8 @@ class SugargliderController extends Controller
     function edit($id)
     {
         $data = [
-            'sugarglider' => SugargliderModel::findOrFail($id)
+            'sugarglider' => SugargliderModel::findOrFail($id),
+            'shelters' => ShelterModel::where('status', 1)->get(),
         ];
 
         return view('sugargliders/v_sugarglider_edit', $data);
@@ -76,6 +82,7 @@ class SugargliderController extends Controller
         $sugarglider->indukan_jantan    = Request()->indukan_jantan;
         $sugarglider->gambar            = Request()->gambar;
         $sugarglider->keterangan        = Request()->keterangan;
+        $sugarglider->shelter_id        = Request()->shelter_id;
         $sugarglider->adopsi            = Request()->adopsi;
 
         $sugarglider->save();

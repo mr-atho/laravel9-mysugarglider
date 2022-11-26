@@ -12,6 +12,11 @@ class SugargliderModel extends Model
     protected $table = "sugargliders";
     protected $primaryKey = 'id';
     protected $fillable = [
-        'kode', 'nama', 'kelamin', 'oop', 'warna', 'jenis', 'genetika', 'fenotype', 'indukan_betina', 'indukan_jantan', 'gambar', 'keterangan', 'adopsi'
+        'kode', 'nama', 'kelamin', 'oop', 'warna', 'jenis', 'genetika', 'fenotype', 'indukan_betina', 'indukan_jantan', 'gambar', 'keterangan', 'shelter_id', 'adopsi'
     ];
+
+    public function sugarglider_shelter()
+    {
+        return $this->belongsTo(ShelterModel::class, 'shelter_id');
+    }
 }

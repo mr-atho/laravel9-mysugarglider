@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use App\Models\ShelterModel;
 
 class ShelterController extends Controller
@@ -28,12 +29,13 @@ class ShelterController extends Controller
             'kode'              => $request->kode,
             'alamat'            => $request->alamat,
             'status'            => $request->status,
+            'owner_id'          => Auth::user()->id,
         ]);
 
         return redirect()->route('shelters')->with('pesan', 'Data berhasil ditambahkan.');
     }
 
-    function show(Request $request, $id)
+    function show($id)
     {
         $data = [
             'shelter' => ShelterModel::find($id),
@@ -57,6 +59,7 @@ class ShelterController extends Controller
         $shelter->kode    = Request()->kode;
         $shelter->alamat  = Request()->alamat;
         $shelter->status  = Request()->status;
+        $shelter->owner_id  = Auth::user()->id;
         $shelter->save();
 
         return redirect()->route('shelters')->with('pesan', 'Data berhasil diperbaharui.');
