@@ -21,12 +21,15 @@ return new class extends Migration
             $table->date('oop');
             $table->string('warna');
             $table->string('jenis');
-            $table->string('genetika');
-            $table->string('fenotype');
+            $table->string('genetika')->nullable();
+            $table->string('fenotype')->nullable();
             $table->string('indukan_betina');
             $table->string('indukan_jantan');
             $table->string('gambar')->nullable();
             $table->text('keterangan')->nullable();
+            $table->unsignedBigInteger('shelter_id');
+            $table->index('shelter_id');
+            $table->boolean('adopsi');
             $table->timestamps();
         });
     }

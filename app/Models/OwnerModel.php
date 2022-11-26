@@ -19,4 +19,9 @@ class OwnerModel extends Model
     {
         return $this->belongsTo(UserModel::class, 'user_id');
     }
+
+    public function owner_shelter()
+    {
+        return $this->hasMany(ShelterModel::class, 'owner_id');
+    }
 }

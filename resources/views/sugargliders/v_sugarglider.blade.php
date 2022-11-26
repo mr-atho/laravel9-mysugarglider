@@ -59,9 +59,8 @@
                         <th>Kode</th>
                         <th>Nama</th>
                         <th>Kelamin</th>
-                        <th>Warna</th>
                         <th>Jenis</th>
-                        <th>Genetika</th>
+                        <th>Kandang</th>
                         <th>Adopsi</th>
                         <th></th>
                     </tr>
@@ -78,9 +77,8 @@
                                     Jantan
                                 @endif
                             </td>
-                            <td>{{ $sugarglider->warna }}</td>
                             <td>{{ $sugarglider->jenis }}</td>
-                            <td>{{ $sugarglider->genetika }}</td>
+                            <td>{{ $sugarglider->sugarglider_shelter->nama }}</td>
                             <td>
                                 @if ($sugarglider->adopsi == '0')
                                     Tidak Untuk Diadopsi
@@ -88,20 +86,24 @@
                                     Terbuka
                                 @endif
                             </td>
-                            <td>
-                                <a href="{{ route('sugargliderShow', $sugarglider->id) }}">Detail</a> |
-                                <a href="{{ route('sugargliderEdit', $sugarglider->id) }}">Edit</a> |
-                                <form method="POST" action="{{ route('sugargliderDestroy', $sugarglider->id) }}">
-                                    @csrf
-                                    <input type="hidden" name="_method" value="DELETE">
-                                    <input type="hidden" name="id" value="{{ $sugarglider->id }}">
-                                    <button type="submit" class="" id="delete">Delete</button>
-                                </form>
-                            </td>
+                            @if (Auth::user())
+                                <td>
+                                    <a href="{{ route('sugargliderShow', $sugarglider->id) }}">Detail</a> |
+                                    <a href="{{ route('sugargliderEdit', $sugarglider->id) }}">Edit</a> |
+                                    <form method="POST" action="{{ route('sugargliderDestroy', $sugarglider->id) }}">
+                                        @csrf
+                                        <input type="hidden" name="_method" value="DELETE">
+                                        <input type="hidden" name="id" value="{{ $sugarglider->id }}">
+                                        <button type="submit" class="" id="delete">Delete</button>
+                                    </form>
+                                </td>
+                            @endif
                         </tr>
                     @endforeach
                 </table>
-                <a href="{{ route('sugargliderCreate') }}">Tambah Baru</a>
+                @if (Auth::user())
+                    <a href="{{ route('sugargliderCreate') }}">Tambah Baru</a>
+                @endif
             </div>
 
         </section>

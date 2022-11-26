@@ -44,8 +44,13 @@
                         placeholder="Alamat" required><br>
 
                     <label for="status" class="">Status</label>
-                    <input class="form-control" id="status" name="status" value="{{ $shelter->status }}"
-                        placeholder="status" required><br>
+                    <select class="form-control" id="status" name="status" value="{{ $shelter->status }}">
+                        <option value="">Pilih Status</option>
+                        <option value="1" @if ($shelter->status == '1') {{ 'selected' }} @endif>Buka
+                        </option>
+                        <option value="0" @if ($shelter->status == '0') {{ 'selected' }} @endif>Tutup
+                        </option>
+                    </select><br>
 
                     <button type="submit" class="" id="kirim">Simpan</button>
 

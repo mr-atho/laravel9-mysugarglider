@@ -4,13 +4,17 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\SugargliderModel;
+use App\Models\OwnerModel;
+use App\Models\ShelterModel;
 
 class PageController extends Controller
 {
     function index()
     {
         $data = [
-            'sugargliders_count' => SugargliderModel::count(),
+            'count_sugargliders' => SugargliderModel::count(),
+            'count_shelters' => ShelterModel::count(),
+            'count_owners' => OwnerModel::count(),
         ];
 
         return view('pages/v_home', $data);

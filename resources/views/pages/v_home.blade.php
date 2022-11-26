@@ -8,11 +8,10 @@
     <!-- ======= Hero Section ======= -->
     <section id="hero" class="d-flex align-items-center">
         <div class="container">
-            <h1>Welcome <br>to The Farm</h1>
+            <h1>Welcome <br>to Shelter</h1>
             <h2>
                 Selamat datang di website kami. <br>
-                Kami sangat senang membantu Anda. <br>
-                Jangan ragu untuk menghubungi kami.
+                Tempat dimana Sugar Glider berada.
             </h2>
             <a href="#about" class="btn-get-started scrollto">Mulai</a>
         </div>
@@ -85,26 +84,26 @@
                     <div class="col-lg-3 col-md-6">
                         <div class="count-box">
                             <i class="fas fa-user-md"></i>
-                            <span data-purecounter-start="0" data-purecounter-end="{{ $sugargliders_count }}"
+                            <span data-purecounter-start="0" data-purecounter-end="{{ $count_sugargliders }}"
                                 data-purecounter-duration="1" class="purecounter"></span>
-                            <p>Sugar Glider</p>
+                            <p>Koleksi <br>Sugar Glider</p>
                         </div>
                     </div>
 
                     <div class="col-lg-3 col-md-6 mt-5 mt-md-0">
                         <div class="count-box">
                             <i class="far fa-hospital"></i>
-                            <span data-purecounter-start="0" data-purecounter-end="3" data-purecounter-duration="1"
-                                class="purecounter"></span>
-                            <p>Peternak</p>
+                            <span data-purecounter-start="0" data-purecounter-end="{{ $count_shelters }}"
+                                data-purecounter-duration="1" class="purecounter"></span>
+                            <p>Kandang <br>yang dimiliki</p>
                         </div>
                     </div>
 
                     <div class="col-lg-3 col-md-6 mt-5 mt-lg-0">
                         <div class="count-box">
                             <i class="fas fa-flask"></i>
-                            <span data-purecounter-start="0" data-purecounter-end="12" data-purecounter-duration="1"
-                                class="purecounter"></span>
+                            <span data-purecounter-start="0" data-purecounter-end="{{ $count_owners }}"
+                                data-purecounter-duration="1" class="purecounter"></span>
                             <p>Pemilik</p>
                         </div>
                     </div>
@@ -114,7 +113,7 @@
                             <i class="fas fa-award"></i>
                             <span data-purecounter-start="0" data-purecounter-end="2" data-purecounter-duration="1"
                                 class="purecounter"></span>
-                            <p>Penghargaan</p>
+                            <p>Sugar Glider <br> yang telah diadopsi</p>
                         </div>
                     </div>
 

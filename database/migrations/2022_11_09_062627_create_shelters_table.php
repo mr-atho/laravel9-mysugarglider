@@ -17,8 +17,10 @@ return new class extends Migration
             $table->id();
             $table->string('nama');
             $table->string('kode');
-            $table->string('alamat');
-            $table->string('status');
+            $table->string('alamat')->nullable();
+            $table->string('status')->nullable();
+            $table->unsignedBigInteger('owner_id');
+            $table->index('owner_id');
             $table->timestamps();
         });
     }

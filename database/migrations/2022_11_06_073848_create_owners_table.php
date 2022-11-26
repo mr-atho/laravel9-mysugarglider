@@ -16,9 +16,10 @@ return new class extends Migration
         Schema::create('owners', function (Blueprint $table) {
             $table->id();
             $table->string('nama');
-            $table->string('alamat');
-            $table->string('telp');
-            $table->string('user_id');
+            $table->string('alamat')->nullable();
+            $table->string('telp')->nullable();
+            $table->unsignedBigInteger('user_id');
+            $table->index('user_id');
             $table->timestamps();
         });
     }

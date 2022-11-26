@@ -31,6 +31,17 @@
 
                     <input type="hidden" name="_method" value="PUT">
 
+                    <label for="shelter_id" class="">Kandang</label>
+                    <select class="form-control" id="shelter_id" name="shelter_id" value="{{ $sugarglider->shelter_id }}">
+                        <option value="">Pilih Kandang</option>
+                        @foreach ($shelters as $shelter)
+                            <option value="{{ $shelter->id }}"
+                                @if ($shelter->id == $sugarglider->shelter_id) {{ 'selected' }} @endif>
+                                {{ $shelter->nama }}
+                            </option>
+                        @endforeach
+                    </select><br>
+
                     <label for="kode" class="">Kode</label>
                     <input class="form-control" id="kode" name="kode" value="{{ $sugarglider->kode }}"
                         placeholder="Kode" required><br>
@@ -79,8 +90,8 @@
                         placeholder="Gambar"><br>
 
                     <label for="keterangan" class="">Keterangan</label>
-                    <input class="form-control" id="keterangan" name="keterangan" value="{{ $sugarglider->keterangan }}"
-                        placeholder="Keterangan"><br>
+                    <input class="form-control" id="keterangan" name="keterangan"
+                        value="{{ $sugarglider->keterangan }}" placeholder="Keterangan"><br>
 
                     <label for="adopsi" class="">Adopsi</label>
                     <select class="form-control" id="adopsi" name="adopsi" value="{{ $sugarglider->adopsi }}">

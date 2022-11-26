@@ -68,21 +68,32 @@
                             <td>{{ $shelter->nama }}</td>
                             <td>{{ $shelter->kode }}</td>
                             <td>{{ $shelter->alamat }}</td>
-                            <td>{{ $shelter->status }}</td>
                             <td>
-                                <a href="{{ route('shelterShow', $shelter->id) }}">Detail</a> |
-                                <a href="{{ route('shelterEdit', $shelter->id) }}">Edit</a> |
-                                <form method="POST" action="{{ route('shelterDestroy', $shelter->id) }}">
-                                    @csrf
-                                    <input type="hidden" name="_method" value="DELETE">
-                                    <input type="hidden" name="id" value="{{ $shelter->id }}">
-                                    <button type="submit" class="" id="delete">Delete</button>
-                                </form>
+                                @if ($shelter->status == '1')
+                                    Buka
+                                @else
+                                    Tutup
+                                @endif
                             </td>
+
+                            @if (Auth::user())
+                                <td>
+                                    <a href="{{ route('shelterShow', $shelter->id) }}">Detail</a> |
+                                    <a href="{{ route('shelterEdit', $shelter->id) }}">Edit</a> |
+                                    <form method="POST" action="{{ route('shelterDestroy', $shelter->id) }}">
+                                        @csrf
+                                        <input type="hidden" name="_method" value="DELETE">
+                                        <input type="hidden" name="id" value="{{ $shelter->id }}">
+                                        <button type="submit" class="" id="delete">Delete</button>
+                                    </form>
+                                </td>
+                            @endif
                         </tr>
                     @endforeach
                 </table>
-                <a href="{{ route('shelterCreate') }}">Tambah Baru</a>
+                @if (Auth::user())
+                    <a href="{{ route('shelterCreate') }}">Tambah Baru</a>
+                @endif
             </div>
 
         </section>
