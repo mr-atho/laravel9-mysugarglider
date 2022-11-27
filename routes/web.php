@@ -19,13 +19,16 @@ use App\Http\Controllers\ShelterController;
 |
 */
 
-Route::get('register', [LoginController::class, 'register'])->name('register');
+Route::get('/', [PageController::class, 'index'])->name('index');
+Route::get('home', [PageController::class, 'index'])->name('home');
+
+Route::get('register', [LoginController::class, 'register'])->name('userRegister');
+Route::post('register', [LoginController::class, 'store'])->name('userStore');
 Route::get('login', [LoginController::class, 'index'])->name('login');
 Route::post('login', [LoginController::class, 'authenticate'])->name('authenticate');
 Route::get('logout', [LoginController::class, 'logout'])->name('logout');
-
-Route::get('/', [PageController::class, 'index'])->name('index');
-Route::get('home', [PageController::class, 'index'])->name('home');
+Route::get('password', [LoginController::class, 'password'])->name('password');
+Route::post('password', [LoginController::class, 'password_change'])->name('password_change');
 
 Route::get('/sugargliders', [SugargliderController::class, 'index'])->name('sugargliders');
 Route::get('/sugargliders/create', [SugargliderController::class, 'create'])->name('sugargliderCreate')->middleware('auth');

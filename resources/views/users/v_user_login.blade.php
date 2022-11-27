@@ -24,12 +24,12 @@
 
         <section class="inner-page">
             <div class="container">
+                @if ($errors->has('email'))
+                    <span class="text-danger">{{ $errors->first('email') }}</span><br><br>
+                @endif
+
                 <form role="form" action="{{ route('login') }}" method="POST" enctype="multipart/form-data">
                     @csrf
-
-                    @if ($errors->has('email'))
-                        <span class="text-danger">{{ $errors->first('email') }}</span><br>
-                    @endif
 
                     <label for="email" class="">Email</label>
                     <input class="form-control" id="email" name="email" value="{{ old('email') }}"

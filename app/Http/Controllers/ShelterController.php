@@ -59,7 +59,7 @@ class ShelterController extends Controller
         $shelter->kode    = Request()->kode;
         $shelter->alamat  = Request()->alamat;
         $shelter->status  = Request()->status;
-        $shelter->owner_id  = Auth::user()->id;
+        $shelter->owner_id  = Auth::id();
         $shelter->save();
 
         return redirect()->route('shelters')->with('pesan', 'Data berhasil diperbaharui.');

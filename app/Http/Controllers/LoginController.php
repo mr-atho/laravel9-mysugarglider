@@ -15,6 +15,29 @@ class LoginController extends Controller
         return view('users/v_user_login');
     }
 
+    public function register()
+    {
+        return view('users/v_user_register');
+    }
+
+    public function store(Request $request)
+    {
+        $request->validate([
+            'nama'                  =>  'required',
+            'email'                 =>  'required|unique:users,email',
+            'password'              =>  'required',
+            'password_konfirmasi'   =>  'required|same:password',
+        ]);
+
+        User::create([
+            'name'              => $request->nama,
+            'email'             => $request->email,
+            'password'          => Hash::make($request->password),
+        ]);
+
+        return redirect()->route('login')->with('pesan', 'Pengguna berhasil didaftarkan. Silakan masuk.');
+    }
+
     public function authenticate(Request $request)
     {
         $credentials = $request->validate([
@@ -29,18 +52,34 @@ class LoginController extends Controller
         }
 
         return back()->withErrors([
-            'email' => 'The provided credentials do not match our records.',
+            'email' => 'Data yang Anda masukkan tidak sesuai',
         ])->onlyInput('email');
     }
 
     public function logout(Request $request)
     {
         Auth::logout();
-
         $request->session()->invalidate();
-
         $request->session()->regenerateToken();
-
         return redirect('/');
+    }
+
+    public function password()
+    {
+        return view('users/v_user_password_change');
+    }
+
+    public function password_change(Request $request)
+    {
+        $request->validate([
+            'password_new'              =>  'required',
+            'password_new_confirmation' =>  'required|same:password_new',
+        ]);
+
+        $user = User::find(Auth::id());;
+        $user->password = Hash::make(Request()->password_new);
+        $user->save();
+
+        return redirect()->route('password')->with('pesan', 'Password berhasil diubah.');
     }
 }
