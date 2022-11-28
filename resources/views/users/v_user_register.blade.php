@@ -1,7 +1,7 @@
 @extends('layouts.v_main')
 
 @section('title')
-    Daftar
+    Daftar Akun Baru
 @endsection
 
 @section('content')
@@ -15,7 +15,7 @@
                     <h2>Pengguna</h2>
                     <ol>
                         <li><a href="{{ route('home') }}">Home</a></li>
-                        <li>Daftar</li>
+                        <li>Daftar Akun Baru</li>
                     </ol>
                 </div>
 
@@ -23,7 +23,13 @@
         </section><!-- End Breadcrumbs Section -->
 
         <section class="inner-page">
-            <div class="container">
+            <div class="container text-center">
+
+                <div class="section-title">
+                    <h2>Buat Akun Baru</h2>
+                    <p>Masukkan data Anda.</p>
+                </div>
+
                 @if ($errors->any())
                     @foreach ($errors->all() as $err)
                         <span class="text-danger">{{ $err }}</span><br><br>
@@ -33,23 +39,43 @@
                 <form role="form" action="{{ route('userStore') }}" method="POST" enctype="multipart/form-data">
                     @csrf
 
-                    <label for="nama" class="">Nama</label>
-                    <input class="form-control" id="nama" name="nama" value="{{ old('nama') }}" placeholder="Nama"
-                        required><br>
+                    <div class="row">
+                        <div class="col-md-4 offset-md-4 form-group">
+                            <input class="form-control" id="nama" name="nama" value="{{ old('nama') }}"
+                                placeholder="Nama" required><br>
+                        </div>
+                    </div>
 
-                    <label for="nama" class="">Email</label>
-                    <input class="form-control" id="email" name="email" value="{{ old('email') }}" placeholder="Email"
-                        required><br>
+                    <div class="row">
+                        <div class="col-md-4 offset-md-4 form-group">
+                            <input class="form-control" id="email" name="email" value="{{ old('email') }}"
+                                placeholder="Email" required><br>
+                        </div>
+                    </div>
 
-                    <label for="password" class="">Password</label>
-                    <input class="form-control" id="password" name="password" type="password"  required><br>
+                    <div class="row">
+                        <div class="col-md-4 offset-md-4 form-group">
+                            <input class="form-control" id="password" name="password" type="password"
+                                placeholder="Kata Sandi" required><br>
+                        </div>
+                    </div>
 
-                    <label for="password_konfirmasi" class="">Password Konfirmasi</label>
-                    <input class="form-control" id="password_konfirmasi" name="password_konfirmasi" type="password" required><br>
+                    <div class="row">
+                        <div class="col-md-4 offset-md-4 form-group">
+                            <input class="form-control" id="password_konfirmasi" name="password_konfirmasi" type="password"
+                                placeholder="Konfirmasi Kata Sandi" required><br>
+                        </div>
+                    </div>
 
-                    <button type="submit" class="" id="kirim">Kirim</button>
+                    <div class="row">
+                        <div class="col-md-4 offset-md-4 form-group">
+                            <button type="submit" class="btn" id="kirim">Kirim</button>
+                        </div>
+                    </div>
 
                 </form>
+                <br>
+                <a href="{{ route('login') }}">Sudah memiliki akun?</a>
             </div>
 
         </section>

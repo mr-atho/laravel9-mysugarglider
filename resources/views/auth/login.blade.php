@@ -37,7 +37,7 @@
                     <span class="text-success"><strong>SUKSES!</strong> <br>{{ session('pesan') }}</span><br><br>
                 @endif
 
-                <form role="form" action="{{ route('login') }}" method="POST" enctype="multipart/form-data">
+                <form role="form" action="" method="POST" enctype="multipart/form-data">
                     @csrf
 
                     <div class="row">
@@ -63,7 +63,7 @@
                 </form>
                 <br>
                 <a href="{{ route('passwordForget') }}">Lupa Password</a> atau
-                <a href="{{ route('userRegister') }}">Buat Akun Baru</a>
+                <a href="{{ route('register') }}">Buat Akun Baru</a>
 
             </div>
 

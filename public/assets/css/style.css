@@ -25,6 +25,26 @@ h6 {
   font-family: "Raleway", sans-serif;
 }
 
+.btn {
+  font-family: "Raleway", sans-serif;
+  text-transform: uppercase;
+  font-weight: 500;
+  font-size: 14px;
+  letter-spacing: 1px;
+  display: inline-block;
+  padding: 12px 35px;
+  margin-top: 30px;
+  border-radius: 50px;
+  transition: 0.5s;
+  color: #fff;
+  background: #1977cc;
+}
+
+.btn:hover {
+  color: #fff;
+  background: #3291e6;
+}
+
 /*--------------------------------------------------------------
 # Preloader
 --------------------------------------------------------------*/
@@ -1119,15 +1139,15 @@ section {
 /*--------------------------------------------------------------
 # Departments
 --------------------------------------------------------------*/
-.departments {
+.inner-page, .departments {
   overflow: hidden;
 }
 
-.departments .nav-tabs {
+.inner-page .nav-tabs, .departments .nav-tabs {
   border: 0;
 }
 
-.departments .nav-link {
+.inner-page .nav-link, .departments .nav-link {
   border: 0;
   padding: 12px 15px 12px 0;
   transition: 0.3s;
@@ -1138,42 +1158,42 @@ section {
   font-size: 15px;
 }
 
-.departments .nav-link:hover {
+.inner-page .nav-link:hover, .departments .nav-link:hover {
   color: #1977cc;
 }
 
-.departments .nav-link.active {
+.inner-page .nav-link.active, .departments .nav-link.active {
   color: #1977cc;
   border-color: #1977cc;
 }
 
-.departments .tab-pane.active {
+.inner-page .tab-pane.active, .departments .tab-pane.active {
   -webkit-animation: fadeIn 0.5s ease-out;
   animation: fadeIn 0.5s ease-out;
 }
 
-.departments .details h3 {
+.inner-page .details h3, .departments .details h3 {
   font-size: 26px;
   font-weight: 600;
   margin-bottom: 20px;
   color: #2c4964;
 }
 
-.departments .details p {
+.inner-page .details p, .departments .details p {
   color: #777777;
 }
 
-.departments .details p:last-child {
+.inner-page .details p:last-child, .departments .details p:last-child {
   margin-bottom: 0;
 }
 
 @media (max-width: 992px) {
-  .departments .nav-link {
+  .inner-page .nav-link, .departments .nav-link {
     border: 0;
     padding: 15px;
   }
 
-  .departments .nav-link.active {
+  .inner-page .nav-link.active, .departments .nav-link.active {
     color: #fff;
     background: #1977cc;
   }

@@ -15,12 +15,10 @@
             <div class="d-none d-lg-flex social-links align-items-center">
                 <small>
                     @if (Auth::check())
-                        {{ Auth::user()->name }}
-                        <a href="#">Profil</a>
-                        <a href="{{ route('password_change') }}">Ubah Password</a>
+                        <a href="{{ route('profile') }}">{{ Auth::user()->name }}</a>
                         <a href="{{ route('logout') }}">KELUAR</a>
                     @else
-                        <a href="{{ route('userRegister') }}">DAFTAR</a>
+                        <a href="{{ route('register') }}">DAFTAR</a>
                         <a href="{{ route('login') }}">MASUK</a>
                     @endif
                 </small>

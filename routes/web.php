@@ -1,8 +1,9 @@
 <?php
 
-use Illuminate\Auth\Middleware\Authenticate;
-use App\Http\Controllers\LoginController;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Auth\Middleware\Authenticate;
+use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\SugargliderController;
 use App\Http\Controllers\OwnerController;
@@ -22,15 +23,23 @@ use App\Http\Controllers\ShelterController;
 Route::get('/', [PageController::class, 'index'])->name('index');
 Route::get('home', [PageController::class, 'index'])->name('home');
 
-Route::get('register', [LoginController::class, 'register'])->name('userRegister');
-Route::post('register', [LoginController::class, 'store'])->name('userStore');
-Route::get('login', [LoginController::class, 'index'])->name('login');
-Route::post('login', [LoginController::class, 'authenticate'])->name('authenticate');
-Route::get('logout', [LoginController::class, 'logout'])->name('logout');
-Route::get('password', [LoginController::class, 'password'])->name('password');
-Route::post('password', [LoginController::class, 'password_change'])->name('password_change');
+Auth::routes(['verify' => true]);
+
+//Route::get('register', [LoginController::class, 'register'])->name('userRegister')->middleware(['DisableBackBtn', 'guest']);
+//Route::post('register', [LoginController::class, 'store'])->name('userStore')->middleware(['DisableBackBtn', 'guest']);
+//Route::get('login', [LoginController::class, 'index'])->name('login')->middleware(['DisableBackBtn', 'guest']);
+//Route::post('login', [LoginController::class, 'authenticate'])->name('authenticate')->middleware(['DisableBackBtn', 'guest']);
+Route::get('logout', [LoginController::class, 'logout'])->name('logout')->middleware('auth');
+//Route::post('password', [LoginController::class, 'password_change'])->name('passwordChange')->middleware('auth');
+Route::get('password-forget', [LoginController::class, 'password_forget'])->name('passwordForget')->middleware(['DisableBackBtn', 'guest']);
+Route::post('password-link', [LoginController::class, 'password_link'])->name('passwordLink')->middleware('DisableBackBtn', 'guest');
+Route::post('password-reset', [LoginController::class, 'password_reset'])->name('passwordReset')->middleware('guest');
+//Route::get('password-reset/{token}', [LoginController::class, 'password_reset_form'])->name('password.reset')->middleware('guest');
+Route::get('profile', [LoginController::class, 'profile'])->name('profile')->middleware('auth', 'verified');
+//Route::post('profile', [LoginController::class, 'prodile_update'])->name('profileUpdate')->middleware('auth', 'verified');
 
 Route::get('/sugargliders', [SugargliderController::class, 'index'])->name('sugargliders');
+Route::get('/sugargliders/create', [SugargliderController::class, 'create'])->name('sugargliderCreate')->middleware('auth');
 Route::get('/sugargliders/create', [SugargliderController::class, 'create'])->name('sugargliderCreate')->middleware('auth');
 Route::post('/sugargliders/store', [SugargliderController::class, 'store'])->name('sugargliderStore')->middleware('auth');
 Route::get('/sugargliders/{id}', [SugargliderController::class, 'show'])->name('sugargliderShow');

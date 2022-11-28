@@ -1,7 +1,10 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Auth;
 
+use App\Http\Controllers\Controller;
+use App\Providers\RouteServiceProvider;
+use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Support\Facades\Hash;
 use Session;
 use App\Models\User;
@@ -13,32 +16,39 @@ use Illuminate\Support\Str;
 
 class LoginController extends Controller
 {
+    /*
+    |--------------------------------------------------------------------------
+    | Login Controller
+    |--------------------------------------------------------------------------
+    |
+    | This controller handles authenticating users for the application and
+    | redirecting them to your home screen. The controller uses a trait
+    | to conveniently provide its functionality to your applications.
+    |
+    */
+
+    use AuthenticatesUsers;
+
+    /**
+     * Where to redirect users after login.
+     *
+     * @var string
+     */
+    protected $redirectTo = RouteServiceProvider::HOME;
+
+    /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->middleware('guest')->except('logout');
+    }
+
     function index()
     {
         return view('users/v_user_login');
-    }
-
-    public function register()
-    {
-        return view('users/v_user_register');
-    }
-
-    public function store(Request $request)
-    {
-        $request->validate([
-            'nama'                  =>  'required',
-            'email'                 =>  'required|unique:users,email',
-            'password'              =>  'required',
-            'password_konfirmasi'   =>  'required|same:password',
-        ]);
-
-        User::create([
-            'name'              => $request->nama,
-            'email'             => $request->email,
-            'password'          => Hash::make($request->password),
-        ]);
-
-        return redirect()->route('login')->with('pesan', 'Pengguna berhasil didaftarkan. Silakan masuk.');
     }
 
     public function authenticate(Request $request)
@@ -100,8 +110,10 @@ class LoginController extends Controller
             : back()->withErrors(['email' => __($status)]);
     }
 
-    public function password_reset_form(Request $request, $token = null)
-    {
+    public function password_reset_form(
+        Request $request,
+        $token = null
+    ) {
         $data = [
             'token' => $token,
             'email' => $request->email,
@@ -114,7 +126,7 @@ class LoginController extends Controller
         $request->validate([
             'token'                 => 'required',
             'email'                 => 'required|email',
-            'password'              => 'required|confirmed',
+            'password'              => 'required|string|confirmed|min:8',
             'password_confirmation' => 'required|same:password',
         ]);
 
