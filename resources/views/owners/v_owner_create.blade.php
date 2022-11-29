@@ -25,7 +25,7 @@
 
         <section class="inner-page">
             <div class="container">
-                <form role="form" action="{{ route('ownerStore') }}" method="POST" enctype="multipart/form-data">
+                <form role="form" action="{{ route('owner.store') }}" method="POST" enctype="multipart/form-data">
                     @csrf
 
                     <label for="nama" class="">Nama</label>
@@ -37,8 +37,8 @@
                         placeholder="Alamat" required><br>
 
                     <label for="telp" class="">Telp</label>
-                    <input class="form-control" id="telp" name="telp" value="{{ old('telp') }}"
-                        placeholder="Telp" required><br>
+                    <input class="form-control" id="telp" name="telp" value="{{ old('telp') }}" placeholder="Telp"
+                        required><br>
 
                     <button type="submit" class="" id="kirim">Simpan</button>
 

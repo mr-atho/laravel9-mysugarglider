@@ -25,6 +25,26 @@ h6 {
   font-family: "Raleway", sans-serif;
 }
 
+.btn {
+  font-family: "Raleway", sans-serif;
+  text-transform: uppercase;
+  font-weight: 500;
+  font-size: 14px;
+  letter-spacing: 1px;
+  display: inline-block;
+  padding: 12px 35px;
+  margin-top: 30px;
+  border-radius: 50px;
+  transition: 0.5s;
+  color: #fff;
+  background: #1977cc;
+}
+
+.btn:hover {
+  color: #fff;
+  background: #3291e6;
+}
+
 /*--------------------------------------------------------------
 # Preloader
 --------------------------------------------------------------*/
@@ -939,16 +959,16 @@ section {
 }
 
 /*--------------------------------------------------------------
-# Services
+# Shelters
 --------------------------------------------------------------*/
-.services .icon-box {
+.shelters .icon-box {
   text-align: center;
   border: 1px solid #d5e1ed;
   padding: 80px 20px;
   transition: all ease-in-out 0.3s;
 }
 
-.services .icon-box .icon {
+.shelters .icon-box .icon {
   margin: 0 auto;
   width: 64px;
   height: 64px;
@@ -962,12 +982,12 @@ section {
   transform-style: preserve-3d;
 }
 
-.services .icon-box .icon i {
+.shelters .icon-box .icon i {
   color: #fff;
   font-size: 28px;
 }
 
-.services .icon-box .icon::before {
+.shelters .icon-box .icon::before {
   position: absolute;
   content: "";
   left: -8px;
@@ -980,41 +1000,41 @@ section {
   transform: translateZ(-1px);
 }
 
-.services .icon-box h4 {
+.shelters .icon-box h4 {
   font-weight: 700;
   margin-bottom: 15px;
   font-size: 24px;
 }
 
-.services .icon-box h4 a {
+.shelters .icon-box h4 a {
   color: #2c4964;
 }
 
-.services .icon-box p {
+.shelters .icon-box p {
   line-height: 24px;
   font-size: 14px;
   margin-bottom: 0;
 }
 
-.services .icon-box:hover {
+.shelters .icon-box:hover {
   background: #1977cc;
   border-color: #1977cc;
 }
 
-.services .icon-box:hover .icon {
+.shelters .icon-box:hover .icon {
   background: #fff;
 }
 
-.services .icon-box:hover .icon i {
+.shelters .icon-box:hover .icon i {
   color: #1977cc;
 }
 
-.services .icon-box:hover .icon::before {
+.shelters .icon-box:hover .icon::before {
   background: #3291e6;
 }
 
-.services .icon-box:hover h4 a,
-.services .icon-box:hover p {
+.shelters .icon-box:hover h4 a,
+.shelters .icon-box:hover p {
   color: #fff;
 }
 
@@ -1119,15 +1139,15 @@ section {
 /*--------------------------------------------------------------
 # Departments
 --------------------------------------------------------------*/
-.departments {
+.inner-page, .departments {
   overflow: hidden;
 }
 
-.departments .nav-tabs {
+.inner-page .nav-tabs, .departments .nav-tabs {
   border: 0;
 }
 
-.departments .nav-link {
+.inner-page .nav-link, .departments .nav-link {
   border: 0;
   padding: 12px 15px 12px 0;
   transition: 0.3s;
@@ -1138,42 +1158,42 @@ section {
   font-size: 15px;
 }
 
-.departments .nav-link:hover {
+.inner-page .nav-link:hover, .departments .nav-link:hover {
   color: #1977cc;
 }
 
-.departments .nav-link.active {
+.inner-page .nav-link.active, .departments .nav-link.active {
   color: #1977cc;
   border-color: #1977cc;
 }
 
-.departments .tab-pane.active {
+.inner-page .tab-pane.active, .departments .tab-pane.active {
   -webkit-animation: fadeIn 0.5s ease-out;
   animation: fadeIn 0.5s ease-out;
 }
 
-.departments .details h3 {
+.inner-page .details h3, .departments .details h3 {
   font-size: 26px;
   font-weight: 600;
   margin-bottom: 20px;
   color: #2c4964;
 }
 
-.departments .details p {
+.inner-page .details p, .departments .details p {
   color: #777777;
 }
 
-.departments .details p:last-child {
+.inner-page .details p:last-child, .departments .details p:last-child {
   margin-bottom: 0;
 }
 
 @media (max-width: 992px) {
-  .departments .nav-link {
+  .inner-page .nav-link, .departments .nav-link {
     border: 0;
     padding: 15px;
   }
 
-  .departments .nav-link.active {
+  .inner-page .nav-link.active, .departments .nav-link.active {
     color: #fff;
     background: #1977cc;
   }
@@ -1182,43 +1202,43 @@ section {
 /*--------------------------------------------------------------
 # Doctors
 --------------------------------------------------------------*/
-.doctors {
+.owners {
   background: #fff;
 }
 
-.doctors .member {
+.owners .member {
   position: relative;
   box-shadow: 0px 2px 15px rgba(44, 73, 100, 0.08);
   padding: 30px;
   border-radius: 10px;
 }
 
-.doctors .member .pic {
+.owners .member .pic {
   overflow: hidden;
   width: 180px;
   border-radius: 50%;
 }
 
-.doctors .member .pic img {
+.owners .member .pic img {
   transition: ease-in-out 0.3s;
 }
 
-.doctors .member:hover img {
+.owners .member:hover img {
   transform: scale(1.1);
 }
 
-.doctors .member .member-info {
+.owners .member .member-info {
   padding-left: 30px;
 }
 
-.doctors .member h4 {
+.owners .member h4 {
   font-weight: 700;
   margin-bottom: 5px;
   font-size: 20px;
   color: #2c4964;
 }
 
-.doctors .member span {
+.owners .member span {
   display: block;
   font-size: 15px;
   padding-bottom: 10px;
@@ -1226,7 +1246,7 @@ section {
   font-weight: 500;
 }
 
-.doctors .member span::after {
+.owners .member span::after {
   content: "";
   position: absolute;
   display: block;
@@ -1237,19 +1257,19 @@ section {
   left: 0;
 }
 
-.doctors .member p {
+.owners .member p {
   margin: 10px 0 0 0;
   font-size: 14px;
 }
 
-.doctors .member .social {
+.owners .member .social {
   margin-top: 12px;
   display: flex;
   align-items: center;
   justify-content: flex-start;
 }
 
-.doctors .member .social a {
+.owners .member .social a {
   transition: ease-in-out 0.3s;
   display: flex;
   align-items: center;
@@ -1260,17 +1280,17 @@ section {
   background: #a0bcd5;
 }
 
-.doctors .member .social a i {
+.owners .member .social a i {
   color: #fff;
   font-size: 16px;
   margin: 0 2px;
 }
 
-.doctors .member .social a:hover {
+.owners .member .social a:hover {
   background: #1977cc;
 }
 
-.doctors .member .social a+a {
+.owners .member .social a+a {
   margin-left: 8px;
 }
 

@@ -13,14 +13,14 @@ class OwnerController extends Controller
             'owners' => OwnerModel::all(),
         ];
 
-        return view('owners/v_owner', $data);
+        return view('owners.v_owner', $data);
     }
 
     function create()
     {
-        return view('owners/v_owner_create');
+        return view('owners.v_owner_create');
     }
-    
+
     function store(Request $request)
     {
         OwnerModel::create([
@@ -39,7 +39,7 @@ class OwnerController extends Controller
             'owner' => OwnerModel::find($id),
         ];
 
-        return view('owners/v_owner_detail', $data);
+        return view('owners.v_owner_detail', $data);
     }
     function edit($id)
     {
@@ -47,13 +47,12 @@ class OwnerController extends Controller
             'owner' => OwnerModel::findOrFail($id)
         ];
 
-        return view('owners/v_owner_edit', $data);
+        return view('owners.v_owner_edit', $data);
     }
 
     function update(Request $request)
     {
-        $owner = OwnerModel::find($request->id);
-;
+        $owner = OwnerModel::find($request->id);;
         $owner->nama    = Request()->nama;
         $owner->alamat  = Request()->alamat;
         $owner->telp    = Request()->telp;
