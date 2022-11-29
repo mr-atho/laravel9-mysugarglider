@@ -8,7 +8,7 @@
     <!-- ======= Hero Section ======= -->
     <section id="hero" class="d-flex align-items-center">
         <div class="container">
-            <h1>Welcome <br>to The Farm</h1>
+            <h1>Welcome <br>to mySugarGlider.id</h1>
             <h2>
                 Selamat datang di website kami. <br>
                 Kami sangat senang membantu Anda. <br>

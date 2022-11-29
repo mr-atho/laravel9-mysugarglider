@@ -12,9 +12,11 @@ class PageController extends Controller
     function index()
     {
         $data = [
-            'count_sugargliders' => SugargliderModel::count(),
-            'count_shelters' => ShelterModel::count(),
-            'count_owners' => OwnerModel::count(),
+            'count_sugargliders'    => SugargliderModel::count(),
+            'count_shelters'        => ShelterModel::count(),
+            'count_owners'          => OwnerModel::count(),
+            'owners'                => OwnerModel::all(),
+            'shelters'              => ShelterModel::all(),
         ];
 
         return view('pages/v_home', $data);

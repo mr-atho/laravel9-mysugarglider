@@ -31,40 +31,39 @@
                 </div>
 
                 @if ($errors->any())
-                    @foreach ($errors->all() as $err)
-                        <span class="text-danger">{{ $err }}</span><br><br>
-                    @endforeach
+                    <div class="alert alert-danger" role="alert">
+                        <strong>GAGAL</strong><br>
+                        @foreach ($errors->all() as $err)
+                            {{ $err }}<br>
+                        @endforeach
+                    </div>
                 @endif
 
                 <form role="form" action="" method="POST" enctype="multipart/form-data">
                     @csrf
 
-                    <div class="row">
-                        <div class="col-md-4 offset-md-4 form-group">
-                            <input class="form-control" id="nama" name="nama" value="{{ old('nama') }}"
-                                placeholder="Nama" required><br>
-                        </div>
+                    <div class="col-md-4 offset-md-4 form-floating mb-3">
+                        <input class="form-control" id="nama" name="nama" value="{{ old('nama') }}"
+                            placeholder="Nama" required autofocus>
+                        <label for="floatingInput">Nama</label>
                     </div>
 
-                    <div class="row">
-                        <div class="col-md-4 offset-md-4 form-group">
-                            <input class="form-control" id="email" name="email" value="{{ old('email') }}"
-                                placeholder="Email" required><br>
-                        </div>
+                    <div class="col-md-4 offset-md-4 form-floating mb-3">
+                        <input class="form-control" id="email" name="email" value="{{ old('email') }}"
+                            placeholder="Email" required>
+                        <label for="floatingInput">Email</label>
                     </div>
 
-                    <div class="row">
-                        <div class="col-md-4 offset-md-4 form-group">
-                            <input class="form-control" id="password" name="password" type="password"
-                                placeholder="Kata Sandi" required><br>
-                        </div>
+                    <div class="col-md-4 offset-md-4 form-floating mb-3">
+                        <input class="form-control" id="password" name="password" type="password" placeholder="Kata Sandi"
+                            required>
+                        <label for="floatingInput">Kata Sandi</label>
                     </div>
 
-                    <div class="row">
-                        <div class="col-md-4 offset-md-4 form-group">
-                            <input class="form-control" id="password_konfirmasi" name="password_konfirmasi" type="password"
-                                placeholder="Konfirmasi Kata Sandi" required><br>
-                        </div>
+                    <div class="col-md-4 offset-md-4 form-floating mb-3">
+                        <input class="form-control" id="password_konfirmasi" name="password_konfirmasi" type="password"
+                            placeholder="Konfirmasi Kata Sandi" required>
+                        <label for="floatingInput">Konfirmasi Kata Sandi</label>
                     </div>
 
                     <div class="row">

@@ -36,30 +36,28 @@
                     @endforeach
                 @endif
 
-                <form role="form" action="{{ route('passwordReset') }}" method="POST" enctype="multipart/form-data">
+                <form role="form" action="{{ route('password.reset.action') }}" method="POST"
+                    enctype="multipart/form-data">
                     @csrf
 
                     <input type="hidden" name="token" value="{{ $token }}">
 
-                    <div class="row">
-                        <div class="col-md-4 offset-md-4 form-group">
-                            <input class="form-control" id="email" name="email" type="email"
-                                value="{{ $email }}" readonly><br>
-                        </div>
+                    <div class="col-md-4 offset-md-4 form-floating mb-3">
+                        <input class="form-control" id="email" name="email" type="email" value="{{ $email }}"
+                            readonly>
+                        <label for="floatingInput">Email</label>
                     </div>
 
-                    <div class="row">
-                        <div class="col-md-4 offset-md-4 form-group">
-                            <input class="form-control" id="password" name="password" type="password"
-                                placeholder="Kata Sandi Baru" autofocus required><br>
-                        </div>
+                    <div class="col-md-4 offset-md-4 form-floating mb-3">
+                        <input class="form-control" id="password" name="password" type="password"
+                            placeholder="Kata Sandi Baru" autofocus required>
+                        <label for="floatingInput">Password Baru</label>
                     </div>
 
-                    <div class="row">
-                        <div class="col-md-4 offset-md-4 form-group">
-                            <input class="form-control" id="password_konfirmasi" name="password_confirmation"
-                                type="password" placeholder="Konfirmasi Kata Sandi Baru" required><br>
-                        </div>
+                    <div class="col-md-4 offset-md-4 form-floating mb-3">
+                        <input class="form-control" id="password_konfirmasi" name="password_confirmation" type="password"
+                            placeholder="Konfirmasi Kata Sandi Baru" required>
+                        <label for="floatingInput">Konfirmasi Password Baru</label>
                     </div>
 
                     <div class="row">

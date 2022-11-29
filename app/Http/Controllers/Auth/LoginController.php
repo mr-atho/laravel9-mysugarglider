@@ -77,6 +77,12 @@ class LoginController extends Controller
         return redirect('/');
     }
 
+
+    /**
+     * Password
+     * Change, forget, reset
+     * 
+     */
     public function password_change(Request $request)
     {
         $request->validate([
@@ -94,7 +100,7 @@ class LoginController extends Controller
 
     public function password_forget()
     {
-        return view('users/v_user_password_forget');
+        return view('auth.passwords.v_forget');
     }
 
     public function password_link(Request $request)
@@ -110,15 +116,13 @@ class LoginController extends Controller
             : back()->withErrors(['email' => __($status)]);
     }
 
-    public function password_reset_form(
-        Request $request,
-        $token = null
-    ) {
+    public function password_reset_form(Request $request, $token = null)
+    {
         $data = [
             'token' => $token,
             'email' => $request->email,
         ];
-        return view('users/v_user_password_reset', $data);
+        return view('auth.passwords.v_reset', $data);
     }
 
     public function password_reset(Request $request)
@@ -146,23 +150,5 @@ class LoginController extends Controller
         return $status === Password::PASSWORD_RESET
             ? redirect()->route('login')->with('pesan', __('Kata sandi Anda telah berhasil diperbaharui. Silakan masuk.'))
             : back()->withErrors(['email' => [__($status)]]);
-    }
-
-    public function profile()
-    {
-        $data = [
-            'user' => User::find(Auth::id()),
-        ];
-        return view('users/v_user_profile', $data);
-    }
-
-    function profile_update(Request $request)
-    {
-        $user = User::find(Auth::id());
-        $user->name     = Request()->nama;
-        $user->email    = Request()->email;
-        $user->save();
-
-        return redirect()->route('profile')->with('pesan_profile', 'Data berhasil diperbaharui.');
     }
 }

@@ -25,23 +25,23 @@
 
         <section class="inner-page">
             <div class="container">
-                <form role="form" action="{{ route('ownerUpdate', $owner->id) }}" method="POST"
+                <form role="form" action="{{ route('owner.update', $owner->id) }}" method="POST"
                     enctype="multipart/form-data">
                     @csrf
 
                     <input type="hidden" name="_method" value="PUT">
 
                     <label for="nama" class="">Nama</label>
-                    <input class="form-control" id="nama" name="nama" value="{{ $owner->nama }}"
-                        placeholder="Nama" required><br>
+                    <input class="form-control" id="nama" name="nama" value="{{ $owner->nama }}" placeholder="Nama"
+                        required><br>
 
                     <label for="alamat" class="">Alamat</label>
                     <input class="form-control" id="alamat" name="alamat" value="{{ $owner->alamat }}"
                         placeholder="Alamat" required><br>
 
                     <label for="telp" class="">Telp</label>
-                    <input class="form-control" id="telp" name="telp" value="{{ $owner->telp }}"
-                        placeholder="telp" required><br>
+                    <input class="form-control" id="telp" name="telp" value="{{ $owner->telp }}" placeholder="telp"
+                        required><br>
 
                     <button type="submit" class="" id="kirim">Simpan</button>
 

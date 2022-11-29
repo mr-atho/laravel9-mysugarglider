@@ -69,13 +69,17 @@
                             <td>{{ $owner->telp }}</td>
                             @if (Auth::user())
                                 <td>
-                                    <a href="{{ route('ownerShow', $owner->id) }}">Detail</a> |
-                                    <a href="{{ route('ownerEdit', $owner->id) }}">Edit</a> |
-                                    <form method="POST" action="{{ route('ownerDestroy', $owner->id) }}">
+                                    <a href="{{ route('owner.show', $owner->id) }}">Detail</a> |
+
+                                    <a href="{{ route('owner.edit', $owner->id) }}"><i class="bi bi-pencil"></i></a> |
+                                    <form method="POST" action="{{ route('owner.destroy', $owner->id) }}">
                                         @csrf
                                         <input type="hidden" name="_method" value="DELETE">
                                         <input type="hidden" name="id" value="{{ $owner->id }}">
-                                        <button type="submit" class="" id="delete">Delete</button>
+                                        <button type="submit" class="" id="delete"><i
+                                                class="bi bi-trash-fill"></i></span>
+
+                                        </button>
                                     </form>
                                 </td>
                             @endif
@@ -83,7 +87,7 @@
                     @endforeach
                 </table>
                 @if (Auth::user())
-                    <a href="{{ route('ownerCreate') }}">Tambah Baru</a>
+                    <a href="{{ route('owner.create') }}">Tambah Baru</a>
                 @endif
             </div>
 

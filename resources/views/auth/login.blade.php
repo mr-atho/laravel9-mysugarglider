@@ -30,28 +30,31 @@
                 </div>
 
                 @if ($errors->has('email'))
-                    <span class="text-danger">{{ $errors->first('email') }}</span><br><br>
+                    <div class="alert alert-danger" role="alert">
+                        <strong>GAGAL</strong><br>
+                        {{ $errors->first('email') }}
+                    </div>
                 @endif
 
                 @if (session('pesan'))
-                    <span class="text-success"><strong>SUKSES!</strong> <br>{{ session('pesan') }}</span><br><br>
+                    <div class="alert alert-success" role="alert">
+                        <strong>SUKSES</strong><br>
+                        {{ session('pesan') }}
+                    </div>
                 @endif
 
                 <form role="form" action="" method="POST" enctype="multipart/form-data">
                     @csrf
 
-                    <div class="row">
-                        <div class="col-md-4 offset-md-4 form-group">
-                            <input class="form-control" id="email" name="email" value="{{ old('email') }}"
-                                placeholder="Email" placeholder="Email" autofocus required><br>
-                        </div>
+                    <div class="col-md-4 offset-md-4 form-floating mb-3">
+                        <input class="form-control" id="email" name="email" value="{{ old('email') }}"
+                            placeholder="Email" placeholder="Email" autofocus required>
+                        <label for="floatingInput">Email</label>
                     </div>
-
-                    <div class="row">
-                        <div class="col-md-4 offset-md-4 form-group">
-                            <input class="form-control" id="password" name="password" value="{{ old('password') }}"
-                                type="password" placeholder="Kata Sandi" required><br>
-                        </div>
+                    <div class="col-md-4 offset-md-4 form-floating">
+                        <input class="form-control" id="password" name="password" value="{{ old('password') }}"
+                            type="password" placeholder="Kata Sandi" required>
+                        <label for="floatingPassword">Kata Sandi</label>
                     </div>
 
                     <div class="row">
@@ -62,7 +65,7 @@
 
                 </form>
                 <br>
-                <a href="{{ route('passwordForget') }}">Lupa Password</a> atau
+                <a href="{{ route('password.forget') }}">Lupa Password</a> atau
                 <a href="{{ route('register') }}">Buat Akun Baru</a>
 
             </div>

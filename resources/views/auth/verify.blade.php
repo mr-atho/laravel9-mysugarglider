@@ -1,2 +1,0 @@
-Verify
-Akun belum terverifikasi
