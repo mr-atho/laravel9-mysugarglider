@@ -18,6 +18,13 @@ Anda tertarik membantu dengan berkontribusi dalam mengembangkan sistem ini? Jang
 - Konfirmasi Email
 
 ## Version
+v1.4.1 | 30 November 2022
+- Feat: Contact Form
+- Refactor: views
+- Refactor: user profile
+- Refactor: email
+- Fix: bugs
+
 v1.3.2 | 27 November 2022
 - Refactor: User (Register, Change Password)
 
