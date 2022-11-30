@@ -24,7 +24,7 @@ class DashboardController extends Controller
         $user->email    = Request()->email;
         $user->save();
 
-        return redirect()->route('dashboard.index')->with('pesan_profile', 'Data berhasil diperbaharui.');
+        return redirect()->route('dashboard.index')->with('pesan', 'Data berhasil diperbaharui.');
     }
 
     public function password_change(Request $request)

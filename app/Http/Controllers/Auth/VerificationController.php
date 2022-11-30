@@ -7,6 +7,9 @@ use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\VerifiesEmails;
 use Illuminate\Foundation\Auth\RedirectsUsers;
+use Illuminate\Auth\Access\AuthorizationException;
+use Illuminate\Auth\Events\Verified;
+use Illuminate\Http\JsonResponse;
 
 class VerificationController extends Controller
 {
@@ -28,7 +31,8 @@ class VerificationController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = RouteServiceProvider::HOME;
+    //protected $redirectTo = RouteServiceProvider::HOME;
+    protected $redirectTo = '/dashboard';
 
     /**
      * Create a new controller instance.
@@ -53,5 +57,34 @@ class VerificationController extends Controller
         return $request->user()->hasVerifiedEmail()
             ? redirect($this->redirectPath())
             : view('verification.v_notice');
+    }
+
+    public function verify(Request $request)
+    {
+        if (!hash_equals((string) $request->route('id'), (string) $request->user()->getKey())) {
+            throw new AuthorizationException;
+        }
+
+        if (!hash_equals((string) $request->route('hash'), sha1($request->user()->getEmailForVerification()))) {
+            throw new AuthorizationException;
+        }
+
+        if ($request->user()->hasVerifiedEmail()) {
+            return $request->wantsJson()
+                ? new JsonResponse([], 204)
+                : redirect($this->redirectPath());
+        }
+
+        if ($request->user()->markEmailAsVerified()) {
+            event(new Verified($request->user()));
+        }
+
+        if ($response = $this->verified($request)) {
+            return $response;
+        }
+
+        return $request->wantsJson()
+            ? new JsonResponse([], 204)
+            : redirect($this->redirectPath())->with('pesan', 'Email Anda berhasil diverifikasi.');
     }
 }
