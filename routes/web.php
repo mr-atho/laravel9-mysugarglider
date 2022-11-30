@@ -47,13 +47,15 @@ Route::get('/sugargliders/{id}/edit', [SugargliderController::class, 'edit'])->n
 Route::put('/sugargliders/{id}', [SugargliderController::class, 'update'])->name('sugargliderUpdate')->middleware('auth');
 Route::delete('/sugargliders/{id}', [SugargliderController::class, 'destroy'])->name('sugargliderDestroy')->middleware('auth');
 
+
+
 //only authenticated can access this group
 Route::group(['middleware' => ['auth']], function () {
     /**
      * Verification Routes
      */
     Route::get('/email/verify', [VerificationController::class, 'show'])->name('verification.notice');
-    Route::get('/email/verify/{id}/{hash}', [VerificationController::class, 'verify'])->name('verification.verify')->middleware(['signed']);
+    Route::get('/email/verify/{id}/{hash}', [VerificationController::class, 'verify'])->name('verification.verify');
     Route::post('/email/resend', [VerificationController::class, 'resend'])->name('verification.resend');
 
     //only verified account can access with this group

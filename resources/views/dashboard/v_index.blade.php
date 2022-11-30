@@ -38,10 +38,10 @@
                     </div>
                 @endif
 
-                @if (session('pesan_profile'))
+                @if (session('pesan'))
                     <div class="alert alert-success" role="alert">
                         <strong>SUKSES</strong><br>
-                        {{ session('pesan_profile') }}
+                        {{ session('pesan') }}
                     </div>
                 @endif
 
