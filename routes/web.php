@@ -10,6 +10,7 @@ use App\Http\Controllers\SugargliderController;
 use App\Http\Controllers\OwnerController;
 use App\Http\Controllers\ShelterController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\ContactController;
 
 /*
 |--------------------------------------------------------------------------
@@ -47,7 +48,7 @@ Route::get('/sugargliders/{id}/edit', [SugargliderController::class, 'edit'])->n
 Route::put('/sugargliders/{id}', [SugargliderController::class, 'update'])->name('sugargliderUpdate')->middleware('auth');
 Route::delete('/sugargliders/{id}', [SugargliderController::class, 'destroy'])->name('sugargliderDestroy')->middleware('auth');
 
-
+Route::post('/contact', [ContactController::class, 'contactPost'])->name('contact.post');
 
 //only authenticated can access this group
 Route::group(['middleware' => ['auth']], function () {

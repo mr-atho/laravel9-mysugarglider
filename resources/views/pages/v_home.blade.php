@@ -333,36 +333,52 @@
 
                         <div class="col-lg-8 mt-5 mt-lg-0">
 
-                            <form action="forms/contact.php" method="post" role="form" class="php-email-form">
+                            @if (session('pesan'))
+                                <div class="alert alert-success" role="alert">
+                                    <strong>SUKSES</strong><br>
+                                    {{ session('pesan') }}
+                                </div>
+                            @endif
+
+                            <form role="form" action="{{ route('contact.post') }}" method="POST"
+                                enctype="multipart/form-data">
+                                @csrf
+
                                 <div class="row">
                                     <div class="col-md-6 form-group">
-                                        <input type="text" name="name" class="form-control" id="name"
-                                            placeholder="Your Name" required>
+                                        <div class="form-floating">
+                                            <input type="text" name="name" class="form-control" id="name"
+                                                placeholder="Nama" required>
+                                            <label for="name">Nama</label>
+                                        </div>
                                     </div>
-                                    <div class="col-md-6 form-group mt-3 mt-md-0">
-                                        <input type="email" class="form-control" name="email" id="email"
-                                            placeholder="Your Email" required>
+                                    <div class="col-md-6 form-group mt-3 mt-md-0 form-floating">
+                                        <div class="form-floating">
+                                            <input type="email" class="form-control" name="email" id="email"
+                                                placeholder="Email" required>
+                                            <label for="email">Email</label>
+                                        </div>
                                     </div>
                                 </div>
-                                <div class="form-group mt-3">
+
+                                <div class="form-group mt-3 form-floating">
                                     <input type="text" class="form-control" name="subject" id="subject"
-                                        placeholder="Subject" required>
+                                        placeholder="Subjek" required>
+                                    <label for="subject">Subjek</label>
                                 </div>
-                                <div class="form-group mt-3">
-                                    <textarea class="form-control" name="message" rows="5" placeholder="Message" required></textarea>
+
+                                <div class="form-group mt-3 form-floating">
+                                    <textarea class="form-control" name="messages" id="messages" rows="5" placeholder="Pesan"
+                                        style="height: 150px" required></textarea>
+                                    <label for="messages">Pesan</label>
                                 </div>
-                                <div class="my-3">
-                                    <div class="loading">Loading</div>
-                                    <div class="error-message"></div>
-                                    <div class="sent-message">Your message has been sent. Thank you!</div>
+
+                                <div class="text-center">
+                                    <button type="submit" class="btn">{{ __('text.send_message') }}</button>
                                 </div>
-                                <div class="text-center"><button type="submit">Send Message</button></div>
                             </form>
-
                         </div>
-
                     </div>
-
                 </div>
         </section><!-- End Contact Section -->
 
