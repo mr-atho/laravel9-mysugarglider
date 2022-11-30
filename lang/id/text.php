@@ -17,5 +17,6 @@ return [
     'verification_sent'             =>  'Link verifikasi yang baru telah dikirim ke email Anda.',
     'verification_not_receive'      =>  'Jika tidak menerima email, tekan tombol dibawah ini untuk mendapatkan',
     'verification_request'          =>  'link verifikasi yang baru',
+    'send_message'                  =>  'Kirim Pesan',
 
 ];

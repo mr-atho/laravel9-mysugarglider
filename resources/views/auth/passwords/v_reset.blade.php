@@ -45,19 +45,19 @@
                     <div class="col-md-4 offset-md-4 form-floating mb-3">
                         <input class="form-control" id="email" name="email" type="email" value="{{ $email }}"
                             readonly>
-                        <label for="floatingInput">Email</label>
+                        <label for="email">Email</label>
                     </div>
 
                     <div class="col-md-4 offset-md-4 form-floating mb-3">
                         <input class="form-control" id="password" name="password" type="password"
                             placeholder="Kata Sandi Baru" autofocus required>
-                        <label for="floatingInput">Password Baru</label>
+                        <label for="password">Password Baru</label>
                     </div>
 
                     <div class="col-md-4 offset-md-4 form-floating mb-3">
                         <input class="form-control" id="password_konfirmasi" name="password_confirmation" type="password"
                             placeholder="Konfirmasi Kata Sandi Baru" required>
-                        <label for="floatingInput">Konfirmasi Password Baru</label>
+                        <label for="password_konfirmasi">Konfirmasi Password Baru</label>
                     </div>
 
                     <div class="row">

@@ -45,25 +45,25 @@
                     <div class="col-md-4 offset-md-4 form-floating mb-3">
                         <input class="form-control" id="nama" name="nama" value="{{ old('nama') }}"
                             placeholder="Nama" required autofocus>
-                        <label for="floatingInput">Nama</label>
+                        <label for="nama">Nama</label>
                     </div>
 
                     <div class="col-md-4 offset-md-4 form-floating mb-3">
                         <input class="form-control" id="email" name="email" value="{{ old('email') }}"
                             placeholder="Email" required>
-                        <label for="floatingInput">Email</label>
+                        <label for="email">Email</label>
                     </div>
 
                     <div class="col-md-4 offset-md-4 form-floating mb-3">
                         <input class="form-control" id="password" name="password" type="password" placeholder="Kata Sandi"
                             required>
-                        <label for="floatingInput">Kata Sandi</label>
+                        <label for="password">Kata Sandi</label>
                     </div>
 
                     <div class="col-md-4 offset-md-4 form-floating mb-3">
                         <input class="form-control" id="password_konfirmasi" name="password_konfirmasi" type="password"
                             placeholder="Konfirmasi Kata Sandi" required>
-                        <label for="floatingInput">Konfirmasi Kata Sandi</label>
+                        <label for="password_konfirmasi">Konfirmasi Kata Sandi</label>
                     </div>
 
                     <div class="row">

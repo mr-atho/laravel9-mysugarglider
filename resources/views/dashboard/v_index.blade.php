@@ -86,13 +86,13 @@
                                             <div class="col-md-6 form-floating mb-3">
                                                 <input class="form-control" id="nama" name="nama"
                                                     value="{{ $user->name }}" placeholder="Nama" required>
-                                                <label for="floatingInput">Nama</label>
+                                                <label for="nama">Nama</label>
                                             </div>
 
                                             <div class="col-md-6 form-floating mb-3">
                                                 <input class="form-control" id="email" name="email"
                                                     value="{{ $user->email }}" placeholder="Email" required>
-                                                <label for="floatingInput">Email</label>
+                                                <label for="email">Email</label>
                                             </div>
 
                                             <div class="row">
@@ -118,14 +118,14 @@
                                             <div class="col-md-6 form-floating mb-3">
                                                 <input class="form-control" id="password_new" name="password_new"
                                                     type="password" placeholder="Kata Sandi Baru" required>
-                                                <label for="floatingInput">Password Baru</label>
+                                                <label for="password">Password Baru</label>
                                             </div>
 
                                             <div class="col-md-6 form-floating mb-3">
                                                 <input class="form-control" id="password_new_confirmation"
                                                     name="password_new_confirmation" type="password"
                                                     placeholder="Konfirmasi Kata Sandi" required>
-                                                <label for="floatingInput">Konfirmasi Password Baru</label>
+                                                <label for="password_new_confirmation">Konfirmasi Password Baru</label>
                                             </div>
 
                                             <div class="row">

@@ -49,12 +49,12 @@
                     <div class="col-md-4 offset-md-4 form-floating mb-3">
                         <input class="form-control" id="email" name="email" value="{{ old('email') }}"
                             placeholder="Email" placeholder="Email" autofocus required>
-                        <label for="floatingInput">Email</label>
+                        <label for="email">Email</label>
                     </div>
                     <div class="col-md-4 offset-md-4 form-floating">
                         <input class="form-control" id="password" name="password" value="{{ old('password') }}"
                             type="password" placeholder="Kata Sandi" required>
-                        <label for="floatingPassword">Kata Sandi</label>
+                        <label for="password">Kata Sandi</label>
                     </div>
 
                     <div class="row">
