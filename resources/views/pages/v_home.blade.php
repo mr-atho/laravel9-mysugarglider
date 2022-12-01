@@ -312,13 +312,13 @@
                                 <div class="address">
                                     <i class="bi bi-geo-alt"></i>
                                     <h4>Lokasi:</h4>
-                                    <p>Jl. Duren no. 18, Tambaksari, <br>Kota Surabaya, Jawa Timur</p>
+                                    <p>Kota Surabaya, Jawa Timur</p>
                                 </div>
 
                                 <div class="email">
                                     <i class="bi bi-envelope"></i>
                                     <h4>Email:</h4>
-                                    <p>mr.fightto@gmail.com/p>
+                                    <p>info@mysugarglider.id/p>
                                 </div>
 
                                 <div class="phone">
@@ -349,14 +349,14 @@
                                         <div class="form-floating">
                                             <input type="text" name="name" class="form-control" id="name"
                                                 placeholder="Nama" required>
-                                            <label for="name">Nama</label>
+                                            <label for="name">{{ __('text.name') }}</label>
                                         </div>
                                     </div>
                                     <div class="col-md-6 form-group mt-3 mt-md-0 form-floating">
                                         <div class="form-floating">
                                             <input type="email" class="form-control" name="email" id="email"
                                                 placeholder="Email" required>
-                                            <label for="email">Email</label>
+                                            <label for="email">{{ __('text.email') }}</label>
                                         </div>
                                     </div>
                                 </div>
@@ -364,13 +364,13 @@
                                 <div class="form-group mt-3 form-floating">
                                     <input type="text" class="form-control" name="subject" id="subject"
                                         placeholder="Subjek" required>
-                                    <label for="subject">Subjek</label>
+                                    <label for="subject">{{ __('text.subject') }}</label>
                                 </div>
 
                                 <div class="form-group mt-3 form-floating">
                                     <textarea class="form-control" name="messages" id="messages" rows="5" placeholder="Pesan"
                                         style="height: 150px" required></textarea>
-                                    <label for="messages">Pesan</label>
+                                    <label for="messages">{{ __('text.messages') }}</label>
                                 </div>
 
                                 <div class="text-center">

@@ -7,17 +7,15 @@
 
                 <div class="col-lg-3 col-md-6 footer-contact">
                     <h3>MySugarGlider</h3>
-                    <p>
-                        Jl. Duren no. 18 <br>
-                        Tambaksari, Kota Surabaya<br>
+                    <p> Kota Surabaya<br>
                         Jawa Timur, Indonesia <br><br>
                         <strong>Telp:</strong> +62 857 5533 3232<br>
-                        <strong>Email:</strong> mr.fightto@gmail.com<br>
+                        <strong>Email:</strong> info@mysugarglider.id<br>
                     </p>
                 </div>
 
                 <div class="col-lg-2 col-md-6 footer-links">
-                    <h4>Links</h4>
+                    <h4>{{ __('text.links') }}</h4>
                     <ul>
                         <li><i class="bx bx-chevron-right"></i> <a href="{{ route('home') }}">Home</a></li>
                         <li><i class="bx bx-chevron-right"></i> <a href="{{ route('sugargliders') }}">Koleksi</a>
@@ -26,7 +24,7 @@
                 </div>
 
                 <div class="col-lg-3 col-md-6 footer-links">
-                    <h4>Layanan Kami</h4>
+                    <h4>{{ __('text.our_services') }}</h4>
                     <ul>
                         <li><i class="bx bx-chevron-right"></i> <a href="#">Edukasi</a></li>
                         <li><i class="bx bx-chevron-right"></i> <a href="#">Adopsi</a></li>
@@ -63,11 +61,7 @@
             </div>
         </div>
         <div class="social-links text-center text-md-right pt-3 pt-md-0">
-            <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
-            <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
-            <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
-            <a href="#" class="google-plus"><i class="bx bxl-skype"></i></a>
-            <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+            <a href="https://www.instagram.com/mysugarglider.id/" class="instagram"><i class="bx bxl-instagram"></i></a>
         </div>
     </div>
 </footer><!-- End Footer -->

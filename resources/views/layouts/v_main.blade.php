@@ -5,21 +5,19 @@
     <div id="topbar" class="d-flex align-items-center fixed-top">
         <div class="container d-flex justify-content-between">
             <div class="contact-info d-flex social-links align-items-center">
-                <a href="#" class="twitter"><i class="bi bi-twitter"></i></a>
-                <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
-                <a href="#" class="instagram"><i class="bi bi-instagram"></i></a>
-                <a href="#" class="linkedin"><i class="bi bi-linkedin"></i></a>
-                <i class="bi bi-envelope"></i> <a href="mailto:mr.fightto@gmail.com<">mr.fightto@gmail.com</a>
+                <a href="https://www.instagram.com/mysugarglider.id/" class="instagram" name="Instagram"><i
+                        class="bi bi-instagram"></i></a>
+                <i class="bi bi-envelope"></i> <a href="mailto:info@mysugarglider.id<">info@mysugarglider.id</a>
                 <i class="bi bi-phone"></i> +62 857 5533 3232
             </div>
-            <div class="d-none d-lg-flex social-links align-items-center">
+            <div class="d-none d-lg-flex social-links align-items-center text-uppercase">
                 <small>
                     @if (Auth::check())
                         <a href="{{ route('dashboard.index') }}">{{ Auth::user()->name }}</a>
-                        <a href="{{ route('logout') }}">KELUAR</a>
+                        <a href="{{ route('logout') }}">{{ __('text.logout') }}</a>
                     @else
-                        <a href="{{ route('register') }}">DAFTAR</a>
-                        <a href="{{ route('login') }}">MASUK</a>
+                        <a href="{{ route('register') }}">{{ __('text.register') }}</a>
+                        <a href="{{ route('login') }}">{{ __('text.login') }}</a>
                     @endif
                 </small>
 
@@ -38,17 +36,17 @@
             <nav id="navbar" class="navbar order-last order-lg-0">
                 <ul>
                     <li><a class="nav-link scrollto {{ request()->routeIs('home') ? 'active' : '' }}"
-                            href="{{ route('home') }}">Beranda</a></li>
+                            href="{{ route('home') }}">{{ __('text.home') }}</a></li>
                     <li><a class="nav-link scrollto {{ request()->routeIs('sugargliders') ? 'active' : '' }}"
-                            href="{{ route('sugargliders') }}">Koleksi</a></li>
+                            href="{{ route('sugargliders') }}">{{ __('text.collection') }}</a></li>
                     <li><a class="nav-link scrollto {{ request()->routeIs('owners') ? 'active' : '' }}"
-                            href="{{ route('home') }}#owners">Pemilik</a></li>
+                            href="{{ route('home') }}#owners">{{ __('text.owner') }}</a></li>
                     <li><a class="nav-link scrollto {{ request()->routeIs('shelters') ? 'active' : '' }}"
-                            href="{{ route('home') }}#shelters">Kandang</a></li>
+                            href="{{ route('home') }}#shelters">{{ __('text.shelter') }}</a></li>
                     <li><a class="nav-link scrollto {{ request()->routeIs('home') ? 'active' : '' }}"
-                            href="{{ route('home') }}#gallery">Galeri</a></li>
+                            href="{{ route('home') }}#gallery">{{ __('text.gallery') }}</a></li>
                     <li><a class="nav-link scrollto {{ request()->routeIs('home') ? 'active' : '' }}"
-                            href="{{ route('home') }}#contact">Hubungi</a></li>
+                            href="{{ route('home') }}#contact">{{ __('text.contact') }}</a></li>
                 </ul>
                 <i class="bi bi-list mobile-nav-toggle"></i>
             </nav><!-- .navbar -->
