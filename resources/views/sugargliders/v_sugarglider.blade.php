@@ -101,9 +101,6 @@
                         </tr>
                     @endforeach
                 </table>
-                @if (Auth::user())
-                    <a href="{{ route('sugargliderCreate') }}">Tambah Baru</a>
-                @endif
             </div>
 
         </section>

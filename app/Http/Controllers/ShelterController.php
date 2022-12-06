@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\OwnerModel;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\ShelterModel;
@@ -14,7 +15,17 @@ class ShelterController extends Controller
             'shelters' => ShelterModel::all(),
         ];
 
-        return view('shelters/v_shelter', $data);
+        return view('shelters.v_shelter', $data);
+    }
+
+    function dashboard_shelters_index()
+    {
+        $data = [
+            'shelters' => ShelterModel::where('owner_id', Auth::id())->get()
+            //'shelters' => ShelterModel::addSelect(['owner_id' => OwnerModel::select('nama')->whereColumn('owner_id', 'owners.id')])->get()
+        ];
+
+        return view('shelters.v_shelter_dashboard_index', $data);
     }
 
     function create()

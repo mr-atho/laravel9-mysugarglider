@@ -86,9 +86,6 @@
                         </tr>
                     @endforeach
                 </table>
-                @if (Auth::user())
-                    <a href="{{ route('owner.create') }}">Tambah Baru</a>
-                @endif
             </div>
 
         </section>
