@@ -25,7 +25,7 @@ class ContactController extends Controller
                 'messages' => $request->get('messages')
             ],
             function ($message) {
-                $message->from('no-reply@mysugarglider.id');
+                $message->from('info@mysugarglider.id');
                 $message->to('info@mysugarglider.id', 'Webmaster')
                     ->subject('Pesan dari Form Kontak Website');
             }

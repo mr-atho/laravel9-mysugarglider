@@ -17,14 +17,32 @@ class DashboardController extends Controller
         return view('dashboard.v_index', $data);
     }
 
+    public function profile()
+    {
+        $data = [
+            'user' => User::find(Auth::id()),
+        ];
+
+        return view('dashboard.v_profile', $data);
+    }
+
     function profile_update(Request $request)
     {
         $user = User::find(Auth::id());
-        $user->name     = Request()->nama;
+        $user->name     = Request()->name;
         $user->email    = Request()->email;
         $user->save();
 
-        return redirect()->route('dashboard.index')->with('pesan', 'Data berhasil diperbaharui.');
+        return redirect()->route('dashboard.profile')->with('pesan', 'Data berhasil diperbaharui.');
+    }
+
+    public function password()
+    {
+        $data = [
+            'user' => User::find(Auth::id()),
+        ];
+
+        return view('dashboard.v_password', $data);
     }
 
     public function password_change(Request $request)

@@ -91,9 +91,6 @@
                         </tr>
                     @endforeach
                 </table>
-                @if (Auth::user())
-                    <a href="{{ route('shelterCreate') }}">Tambah Baru</a>
-                @endif
             </div>
 
         </section>

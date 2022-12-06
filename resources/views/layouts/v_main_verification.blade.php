@@ -8,7 +8,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}" />
     @stack('meta')
 
-    <title>@yield('title') | mySugarGlider</title>
+    <title>@yield('title') - {{ config('app.name') }}</title>
 
     @stack('styles')
 
