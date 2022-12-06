@@ -107,7 +107,7 @@
                     <div class="col-lg-3 col-md-6 mt-5 mt-lg-0">
                         <div class="count-box">
                             <i class="fas fa-flask"></i>
-                            <span data-purecounter-start="0" data-purecounter-end="{{ $count_owners }}"
+                            <span data-purecounter-start="0" data-purecounter-end=""
                                 data-purecounter-duration="1" class="purecounter"></span>
                             <p>Pemilik</p>
                         </div>
@@ -156,46 +156,7 @@
             </div>
         </section><!-- End Services Section -->
 
-        <!-- ======= Breeder Section ======= -->
-        <section id="owners" class="owners">
-            <div class="container">
 
-                <div class="section-title">
-                    <h2>Breeder</h2>
-                    <p>Beberapa <i>breeder</i> yang terpercaya yang dapat memberikan layanan terbaik bagi Anda.</p>
-                </div>
-
-                <div class="row">
-
-                    @foreach ($owners as $owner)
-                        <div class="col-lg-6 mt-4">
-                            <div class="member d-flex align-items-start">
-                                <div class="pic"><img src="{{ asset('assets/img/doctors/doctors-3.jpg') }}"
-                                        class="img-fluid" alt=""></div>
-                                <div class="member-info">
-                                    <h4>{{ $owner->nama }}</h4>
-                                    <span>{{ $owner->alamat }}</span>
-                                    <p>Quisquam facilis cum velit laborum corrupti fuga rerum quia</p>
-                                    <div class="social">
-                                        <a href=""><i class="ri-twitter-fill"></i></a>
-                                        <a href=""><i class="ri-facebook-fill"></i></a>
-                                        <a href=""><i class="ri-instagram-fill"></i></a>
-                                        <a href=""> <i class="ri-linkedin-box-fill"></i> </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    @endforeach
-                </div>
-
-                <div class="row text-center">
-                    <div class="col-md-4 offset-md-4 form-group">
-                        <a href="{{ route('owners') }}"><span class="btn">Selengkapnya</span></a>
-                    </div>
-                </div>
-
-            </div>
-        </section><!-- End Owners Section -->
 
         <!-- ======= Gallery Section ======= -->
         <section id="gallery" class="gallery">

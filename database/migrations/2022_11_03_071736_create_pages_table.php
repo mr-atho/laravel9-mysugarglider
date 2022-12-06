@@ -19,6 +19,8 @@ return new class extends Migration
             $table->string('kicker');
             $table->string('slug');
             $table->string('isi');
+            $table->unsignedBigInteger('user_id');
+            $table->index('user_id');
             $table->timestamps();
         });
     }

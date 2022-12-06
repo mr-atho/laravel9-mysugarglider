@@ -19,8 +19,8 @@ return new class extends Migration
             $table->string('kode');
             $table->string('alamat')->nullable();
             $table->string('status')->nullable();
-            $table->unsignedBigInteger('owner_id');
-            $table->index('owner_id');
+            $table->unsignedBigInteger('user_id');
+            $table->index('user_id');
             $table->timestamps();
         });
     }

@@ -14,8 +14,6 @@ class PageController extends Controller
         $data = [
             'count_sugargliders'    => SugargliderModel::count(),
             'count_shelters'        => ShelterModel::count(),
-            'count_owners'          => OwnerModel::count(),
-            'owners'                => OwnerModel::all(),
             'shelters'              => ShelterModel::all(),
         ];
 

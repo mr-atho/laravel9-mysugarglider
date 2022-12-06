@@ -56,5 +56,7 @@ return [
     'profile'                       =>  'Profil',
     'change_data'                   =>  'Perbaharuai data Anda',
     'dashboard'                     =>  'Beranda',
+    'address'                       =>  'Alamat',
+    'telp'                          =>  'Telp'
 
 ];

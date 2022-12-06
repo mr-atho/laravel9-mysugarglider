@@ -42,40 +42,112 @@
     @endif
 
     <section class="section">
-        <div class="col-md-6 col-12">
+        <div class="col-md-6">
             <div class="card">
                 <div class="card-header">
-                    <h4 class="card-title">{{ $user->name }}</h4>
+                    <h5 class="card-title">{{ $user->name }}</h5>
                 </div>
                 <div class="card-body">
-                    <form role="form" action="{{ route('dashboard.profile.update') }}" method="POST"
-                        enctype="multipart/form-data">
-                        @csrf
+                    <ul class="nav nav-tabs" id="myTab" role="tablist">
 
-                        <div class="form-body">
-                            <div class="row">
-                                <div class="col-md-4">
-                                    <label>{{ __('text.name') }}</label>
-                                </div>
-                                <div class="col-md-8 form-group">
-                                    <input type="text" id="name" class="form-control" name="name"
-                                        value="{{ $user->name }}" placeholder="{{ __('text.name') }}" />
-                                </div>
-                                <div class="col-md-4">
-                                    <label>{{ __('text.email') }}</label>
-                                </div>
-                                <div class="col-md-8 form-group">
-                                    <input type="email" id="email" class="form-control" name="email"
-                                        value="{{ $user->email }}" placeholder="{{ __('text.email') }}" />
-                                </div>
-                                <div class="col-sm-12 d-flex justify-content-end">
-                                    <button type="submit" class="btn btn-primary me-1 mb-1">
-                                        Submit
-                                    </button>
+                        <li class="nav-item" role="presentation">
+                        <a
+                            class="nav-link active"
+                            id="profile-tab"
+                            data-bs-toggle="tab"
+                            href="#profile"
+                            role="tab"
+                            aria-controls="profile"
+                            aria-selected="false"
+                            >Profil</a
+                        >
+                        </li>
+                        <li class="nav-item" role="presentation">
+                        <a
+                            class="nav-link"
+                            id="user-tab"
+                            data-bs-toggle="tab"
+                            href="#user"
+                            role="tab"
+                            aria-controls="user"
+                            aria-selected="false"
+                            >Akun</a
+                        >
+                        </li>
+                    </ul>
+                    <div class="tab-content" id="myTabContent">
+
+                        <div class="tab-pane fade show active" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+
+                            <p class="mt-2">
+                                <form role="form" action="{{ route('dashboard.profile.update') }}" method="POST"
+                                    enctype="multipart/form-data">
+                                    @csrf
+
+                                    <div class="form-body">
+                                        <div class="row">
+                                            <div class="col-md-4">
+                                                <label>{{ __('text.address') }}</label>
+                                            </div>
+                                            <div class="col-md-8 form-group">
+                                                <input type="text" id="alamat" class="form-control" name="alamat"
+                                                    placeholder="{{ __('text.address') }}" />
+                                            </div>
+                                            <div class="col-md-4">
+                                                <label>{{ __('text.telp') }}</label>
+                                            </div>
+                                            <div class="col-md-8 form-group">
+                                                <input type="text" id="telp" class="form-control" name="telp"
+                                                    placeholder="{{ __('text.telp') }}" />
+                                            </div>
+                                            <div class="col-sm-12 d-flex justify-content-end">
+                                                <button type="submit" class="btn btn-primary me-1 mb-1">
+                                                    Submit
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                            </p>
+                        </div>
+                        <div
+                        class="tab-pane fade"
+                        id="user"
+                        role="tabpanel"
+                        aria-labelledby="user-tab"
+                        >
+                        <p class="mt-2">
+                            <form role="form" action="{{ route('dashboard.profile.update') }}" method="POST"
+                            enctype="multipart/form-data">
+                            @csrf
+
+                            <div class="form-body">
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <label>{{ __('text.name') }}</label>
+                                    </div>
+                                    <div class="col-md-8 form-group">
+                                        <input type="text" id="name" class="form-control" name="name"
+                                            value="{{ $user->name }}" placeholder="{{ __('text.name') }}" />
+                                    </div>
+                                    <div class="col-md-4">
+                                        <label>{{ __('text.email') }}</label>
+                                    </div>
+                                    <div class="col-md-8 form-group">
+                                        <input type="email" id="email" class="form-control" name="email"
+                                            value="{{ $user->email }}" placeholder="{{ __('text.email') }}" />
+                                    </div>
+                                    <div class="col-sm-12 d-flex justify-content-end">
+                                        <button type="submit" class="btn btn-primary me-1 mb-1">
+                                            Submit
+                                        </button>
+                                    </div>
                                 </div>
                             </div>
+                        </form>
+                        </p>
                         </div>
-                    </form>
+                    </div>
                 </div>
             </div>
         </div>

@@ -13,10 +13,12 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('adoption_requests', function (Blueprint $table) {
+        Schema::create('profiles', function (Blueprint $table) {
             $table->id();
-            $table->string('sugarglider_id');
-            $table->string('status');
+            $table->string('alamat')->nullable();
+            $table->string('telp')->nullable();
+            $table->unsignedBigInteger('user_id');
+            $table->index('user_id');
             $table->timestamps();
         });
     }
@@ -28,6 +30,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('adoption_requests');
+        Schema::dropIfExists('profiles');
     }
 };

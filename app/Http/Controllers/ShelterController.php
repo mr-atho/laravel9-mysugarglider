@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\OwnerModel;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\ShelterModel;
+use App\Models\ProfileModel;
 
 class ShelterController extends Controller
 {
@@ -20,12 +20,22 @@ class ShelterController extends Controller
 
     function dashboard_shelters_index()
     {
-        $data = [
-            'shelters' => ShelterModel::where('owner_id', Auth::id())->get()
-            //'shelters' => ShelterModel::addSelect(['owner_id' => OwnerModel::select('nama')->whereColumn('owner_id', 'owners.id')])->get()
-        ];
+        $profile = ProfileModel::find(Auth::id());
 
-        return view('shelters.v_shelter_dashboard_index', $data);
+        if (is_null($profile)) {
+            return view('profiles.v_profile_no');
+
+        }
+        else {
+            $data = [
+                'shelters' => ShelterModel::where('user_id', Auth::id())->get()
+                //'shelters' => ShelterModel::addSelect(['owner_id' => OwnerModel::select('nama')->whereColumn('owner_id', 'owners.id')])->get()
+            ];
+
+            return view('shelters.v_shelter_dashboard_index', $data);
+        }
+
+
     }
 
     function create()
@@ -65,7 +75,7 @@ class ShelterController extends Controller
 
     function update(Request $request)
     {
-        $shelter = ShelterModel::find($request->id);;
+        $shelter = ShelterModel::find($request->id);
         $shelter->nama    = Request()->nama;
         $shelter->kode    = Request()->kode;
         $shelter->alamat  = Request()->alamat;

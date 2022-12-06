@@ -5,11 +5,11 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class OwnerModel extends Model
+class ProfileModel extends Model
 {
     use HasFactory;
 
-    protected $table = "owners";
+    protected $table = "profiles";
     protected $primaryKey = 'id';
     protected $fillable = [
         'nama', 'alamat', 'telp', 'user_id'
@@ -20,8 +20,8 @@ class OwnerModel extends Model
         return $this->belongsTo(UserModel::class, 'user_id');
     }
 
-    public function owner_shelter()
+    public function profile_shelter()
     {
-        return $this->hasMany(ShelterModel::class, 'owner_id');
+        return $this->hasMany(ShelterModel::class, 'profile_id');
     }
 }
