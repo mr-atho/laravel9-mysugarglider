@@ -12,7 +12,7 @@ class ProfileModel extends Model
     protected $table = "profiles";
     protected $primaryKey = 'id';
     protected $fillable = [
-        'nama', 'alamat', 'telp', 'user_id'
+        'alamat', 'telp', 'user_id'
     ];
 
     public function user()

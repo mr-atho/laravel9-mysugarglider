@@ -23,6 +23,11 @@ Anda tertarik membantu dengan berkontribusi dalam mengembangkan sistem ini? Jang
 - Modul Artikel
 
 ## Version
+v1.5.2 | 7 Desember 2022
+- Refactor: Profile
+- Refactor: Data Kandang
+- Fix: bugs
+
 v1.5.1 | 6 Desember 2022
 - Feat: Backend (Mazer Bootstrap Template)
 - Refactor: Modul Kandang

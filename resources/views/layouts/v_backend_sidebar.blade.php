@@ -85,17 +85,10 @@
 
             <li class="sidebar-title">Akun</li>
 
-            <li class="sidebar-item {{ request()->routeIs('dashboard.profile') ? 'active' : '' }}">
-                <a href="{{ route('dashboard.profile') }}" class="sidebar-link">
+            <li class="sidebar-item {{ request()->routeIs('profile') ? 'active' : '' }}">
+                <a href="{{ route('profile') }}" class="sidebar-link">
                     <i class="bi bi-person-badge-fill"></i>
                     <span>{{ __('text.profile') }}</span>
-                </a>
-            </li>
-
-            <li class="sidebar-item {{ request()->routeIs('dashboard.password') ? 'active' : '' }}">
-                <a href="{{ route('dashboard.password') }}" class="sidebar-link">
-                    <i class="bi bi-shield-lock"></i>
-                    <span>{{ __('text.password_change') }}</span>
                 </a>
             </li>
 

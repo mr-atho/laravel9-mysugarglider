@@ -54,6 +54,7 @@ return [
     'links'                         =>  'Link',
     'our_services'                  =>  'Layanan Kami',
     'profile'                       =>  'Profil',
+    'find_no_profile'               =>  'Profil tidak ditemukan.',
     'change_data'                   =>  'Perbaharuai data Anda',
     'dashboard'                     =>  'Beranda',
     'address'                       =>  'Alamat',

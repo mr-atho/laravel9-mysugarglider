@@ -11,6 +11,7 @@ use App\Http\Controllers\OwnerController;
 use App\Http\Controllers\ShelterController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\ProfileController;
 
 /*
 |--------------------------------------------------------------------------
@@ -65,15 +66,19 @@ Route::group(['middleware' => ['auth']], function () {
          * Dashboard Routes
          */
         Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard.index');
-        Route::get('/dashboard/profile', [DashboardController::class, 'profile'])->name('dashboard.profile');
-        Route::post('/dashboard/profile', [DashboardController::class, 'profile_update'])->name('dashboard.profile.update');
-        Route::get('/dashboard/password', [DashboardController::class, 'password'])->name('dashboard.password');
-        Route::post('/dashboard/password', [DashboardController::class, 'password_change'])->name('dashboard.password.change');
+
+        /**
+         * Profile Routes
+         */
+        Route::get('/dashboard/profile', [ProfileController::class, 'show'])->name('profile');
+        Route::post('/dashboard/profile', [ProfileController::class, 'update_profile'])->name('profile.update');
+        Route::post('/dashboard/profile/user', [ProfileController::class, 'update_user'])->name('profile.update.user');
+        Route::post('/dashboard/password', [ProfileController::class, 'password_change'])->name('profile.password.change');
 
         /**
          * Shelter Routes
          */
-        Route::get('dashboard/shelters', [ShelterController::class, 'dashboard_shelters_index'])->name('dashboard.shelter.index');
+        Route::get('/dashboard/shelters', [ShelterController::class, 'dashboard_shelters_index'])->name('dashboard.shelter.index');
 
         Route::get('/shelters/create', [ShelterController::class, 'create'])->name('shelterCreate');
         Route::post('/shelters', [ShelterController::class, 'store'])->name('shelterStore');

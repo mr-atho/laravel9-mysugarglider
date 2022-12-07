@@ -20,13 +20,11 @@ class ShelterController extends Controller
 
     function dashboard_shelters_index()
     {
-        $profile = ProfileModel::find(Auth::id());
+        $profile = ProfileModel::where('user_id', Auth::id())->first();
 
         if (is_null($profile)) {
             return view('profiles.v_profile_no');
-
-        }
-        else {
+        } else {
             $data = [
                 'shelters' => ShelterModel::where('user_id', Auth::id())->get()
                 //'shelters' => ShelterModel::addSelect(['owner_id' => OwnerModel::select('nama')->whereColumn('owner_id', 'owners.id')])->get()
@@ -34,8 +32,6 @@ class ShelterController extends Controller
 
             return view('shelters.v_shelter_dashboard_index', $data);
         }
-
-
     }
 
     function create()
