@@ -18,7 +18,7 @@ class ShelterController extends Controller
         return view('shelters.v_shelter', $data);
     }
 
-    function dashboard_shelters_index()
+    function backend_shelters_index()
     {
         $profile = ProfileModel::where('user_id', Auth::id())->first();
 
@@ -27,16 +27,15 @@ class ShelterController extends Controller
         } else {
             $data = [
                 'shelters' => ShelterModel::where('user_id', Auth::id())->get()
-                //'shelters' => ShelterModel::addSelect(['owner_id' => OwnerModel::select('nama')->whereColumn('owner_id', 'owners.id')])->get()
             ];
 
-            return view('shelters.v_shelter_dashboard_index', $data);
+            return view('shelters.v_backend_shelter_index', $data);
         }
     }
 
     function create()
     {
-        return view('shelters/v_shelter_create');
+        return view('shelters.v_backend_shelter_create');
     }
 
     function store(Request $request)
@@ -46,10 +45,10 @@ class ShelterController extends Controller
             'kode'              => $request->kode,
             'alamat'            => $request->alamat,
             'status'            => $request->status,
-            'owner_id'          => Auth::user()->id,
+            'user_id'           => Auth::id(),
         ]);
 
-        return redirect()->route('shelters')->with('pesan', 'Data berhasil ditambahkan.');
+        return redirect()->route('shelter.index')->with('pesan', 'Data berhasil ditambahkan.');
     }
 
     function show($id)
@@ -66,7 +65,7 @@ class ShelterController extends Controller
             'shelter' => ShelterModel::findOrFail($id)
         ];
 
-        return view('shelters/v_shelter_edit', $data);
+        return view('shelters.v_backend_shelter_edit', $data);
     }
 
     function update(Request $request)
@@ -76,10 +75,10 @@ class ShelterController extends Controller
         $shelter->kode    = Request()->kode;
         $shelter->alamat  = Request()->alamat;
         $shelter->status  = Request()->status;
-        $shelter->owner_id  = Auth::id();
+        $shelter->user_id  = Auth::id();
         $shelter->save();
 
-        return redirect()->route('shelters')->with('pesan', 'Data berhasil diperbaharui.');
+        return redirect()->route('shelter.index')->with('pesan', 'Data berhasil diperbaharui.');
     }
 
     function destroy(Request $request)
@@ -87,6 +86,6 @@ class ShelterController extends Controller
         $shelter = ShelterModel::findOrFail($request->id);
         $shelter->delete();
 
-        return redirect()->route('shelters')->with('pesan', 'Data berhasil dihapus.');
+        return redirect()->route('shelter.index')->with('pesan', 'Data berhasil dihapus.');
     }
 }

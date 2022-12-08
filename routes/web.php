@@ -78,13 +78,13 @@ Route::group(['middleware' => ['auth']], function () {
         /**
          * Shelter Routes
          */
-        Route::get('/dashboard/shelters', [ShelterController::class, 'dashboard_shelters_index'])->name('dashboard.shelter.index');
+        Route::get('/dashboard/shelters', [ShelterController::class, 'backend_shelters_index'])->name('shelter.index');
+        Route::get('/dashboard/shelters/create', [ShelterController::class, 'create'])->name('shelter.create');
+        Route::post('/dashboard/shelters', [ShelterController::class, 'store'])->name('shelter.store');
+        Route::get('/dashboard/shelters/{id}/edit', [ShelterController::class, 'edit'])->name('shelter.edit');
+        Route::put('/dashboard/shelters/{id}', [ShelterController::class, 'update'])->name('shelter.update');
+        Route::delete('/dashboard/shelters/{id}', [ShelterController::class, 'destroy'])->name('shelter.destroy');
 
-        Route::get('/shelters/create', [ShelterController::class, 'create'])->name('shelterCreate');
-        Route::post('/shelters', [ShelterController::class, 'store'])->name('shelterStore');
-        Route::get('/shelters/{id}/edit', [ShelterController::class, 'edit'])->name('shelterEdit');
-        Route::put('/shelters/{id}', [ShelterController::class, 'update'])->name('shelterUpdate');
-        Route::delete('/shelters/{id}', [ShelterController::class, 'destroy'])->name('shelterDestroy');
 
         /**
          * Owner Routes

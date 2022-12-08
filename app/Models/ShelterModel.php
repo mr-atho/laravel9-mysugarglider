@@ -12,7 +12,7 @@ class ShelterModel extends Model
     protected $table = "shelters";
     protected $primaryKey = 'id';
     protected $fillable = [
-        'nama', 'kode', 'alamat', 'status', 'owner_id'
+        'nama', 'kode', 'alamat', 'status', 'user_id'
     ];
 
     public function shelter_owner()

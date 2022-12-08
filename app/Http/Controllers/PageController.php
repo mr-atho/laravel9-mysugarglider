@@ -3,8 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\User;
 use App\Models\SugargliderModel;
-use App\Models\OwnerModel;
 use App\Models\ShelterModel;
 
 class PageController extends Controller
@@ -14,6 +14,7 @@ class PageController extends Controller
         $data = [
             'count_sugargliders'    => SugargliderModel::count(),
             'count_shelters'        => ShelterModel::count(),
+            'count_users'           => User::count(),
             'shelters'              => ShelterModel::all(),
         ];
 

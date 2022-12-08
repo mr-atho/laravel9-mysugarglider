@@ -75,19 +75,6 @@
                                     Tutup
                                 @endif
                             </td>
-
-                            @if (Auth::user())
-                                <td>
-                                    <a href="{{ route('shelterShow', $shelter->id) }}">Detail</a> |
-                                    <a href="{{ route('shelterEdit', $shelter->id) }}">Edit</a> |
-                                    <form method="POST" action="{{ route('shelterDestroy', $shelter->id) }}">
-                                        @csrf
-                                        <input type="hidden" name="_method" value="DELETE">
-                                        <input type="hidden" name="id" value="{{ $shelter->id }}">
-                                        <button type="submit" class="" id="delete">Delete</button>
-                                    </form>
-                                </td>
-                            @endif
                         </tr>
                     @endforeach
                 </table>

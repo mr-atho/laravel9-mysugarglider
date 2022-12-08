@@ -46,6 +46,8 @@ return [
     'password_reset'                =>  'Atur ulang kata sandi',
     'password_reset_subtitle'       =>  'Masukkan kata sandi baru',
     'reset'                         =>  'Atur ulang',
+    'submit'                        =>  'Kirim',
+    'save'                          =>  'Simpan',
     'name'                          =>  'Nama',
     'email'                         =>  'Email',
     'subject'                       =>  'Subjek',
@@ -56,8 +58,18 @@ return [
     'profile'                       =>  'Profil',
     'find_no_profile'               =>  'Profil tidak ditemukan.',
     'change_data'                   =>  'Perbaharuai data Anda',
+    'input_data'                    =>  'Masukkan data Anda',
     'dashboard'                     =>  'Beranda',
     'address'                       =>  'Alamat',
-    'telp'                          =>  'Telp'
-
+    'telp'                          =>  'Telp',
+    'add_new'                       =>  'Tambah Baru',
+    'code'                          =>  'Kode',
+    'status'                        =>  'Status',
+    'open'                          =>  'Buka',
+    'close'                         =>  'Tutup',
+    'delete'                        =>  'Hapus',
+    'delete_data'                   =>  'Hapus Data',
+    'edit'                          =>  'Sunting',
+    'change'                        =>  'Ubah',
+    'close'                         =>  'Tutup'
 ];

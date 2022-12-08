@@ -52,14 +52,14 @@
                 </a>
             </li>
 
-            <li class="sidebar-item has-sub {{ request()->routeIs('dashboard.shelter.index') ? 'active' : '' }}">
+            <li class="sidebar-item has-sub {{ request()->is('*shelters*') ? 'active' : '' }}">
                 <a href="#" class="sidebar-link">
                     <i class="bi bi-grid-1x2-fill"></i>
                     <span>My Sugar Glider</span>
                 </a>
-                <ul class="submenu {{ request()->routeIs('dashboard.shelter.index') ? 'active' : '' }}">
-                    <li class="submenu-item {{ request()->routeIs('dashboard.shelter.index') ? 'active' : '' }}">
-                        <a href="{{ route('dashboard.shelter.index') }}">{{ __('text.shelter_data') }}</a>
+                <ul class="submenu {{ request()->is('*shelters*') ? 'active' : '' }}">
+                    <li class="submenu-item {{ request()->is('*shelters*') ? 'active' : '' }}">
+                        <a href="{{ route('shelter.index') }}">{{ __('text.shelter_data') }}</a>
                     </li>
                     <li class="submenu-item">
                         <a href="#">Data Sugar Glider</a>

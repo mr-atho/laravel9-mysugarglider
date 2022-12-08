@@ -36,13 +36,12 @@
                 </div>
 
                 <footer>
-                    <div class="footer clearfix mb-0 text-muted">
+                    <div class="footer clearfix mb-0 text-muted small">
                         <div class="float-start">
-                            <p>2022-2023 &copy; MySugarGlider.id</p>
+                            <p>2022-2023 &copy; MySugarGlider.id - v1.5.2 </p>
                         </div>
                         <div class="float-end">
-                            <p>Crafted with <span class="text-danger"><i class="bi bi-heart"></i></span> by <a
-                                    href="https://athoria.me">AthoRia.me</a></p>
+                            <p>Developed by <a href="https://athoria.me">AthoRia.me</a></p>
                         </div>
                     </div>
                 </footer>

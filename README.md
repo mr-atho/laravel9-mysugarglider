@@ -17,7 +17,6 @@ Website yang melayani penyimpanan Data Sugar Glider.
 Anda tertarik membantu dengan berkontribusi dalam mengembangkan sistem ini? Jangan ragu untuk menghubungi mr.fightto@gmail.com
 
 ## TO DO List
-- Edit Data Kandang
 - Edit Data Sugar Glider
 - Modul Forum tanya jawab
 - Modul Artikel
@@ -26,6 +25,7 @@ Anda tertarik membantu dengan berkontribusi dalam mengembangkan sistem ini? Jang
 v1.5.2 | 7 Desember 2022
 - Refactor: Profile
 - Refactor: Data Kandang
+- Update: Bahasa Indonesia
 - Fix: bugs
 
 v1.5.1 | 6 Desember 2022

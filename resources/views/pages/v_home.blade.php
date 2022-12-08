@@ -26,10 +26,10 @@
                 <div class="row">
                     <div class="col-lg-4 d-flex align-items-stretch">
                         <div class="content">
-                            <h3>Kenapa <br>mySugarGlider.id?</h3>
+                            <h3>Kenapa <br>MySugarGlider.id?</h3>
                             <p>
                                 Karena kami menyimpan data silsilah Sugar Glider Anda. Dengan data yang akurat, kita
-                                dapat mendapatkan keturunan yang berkualitas.
+                                bisa mendapatkan keturunan yang berkualitas.
                             </p>
                             <div class="text-center">
                                 <a href="#" class="more-btn">Pelajari selengkapnya <i
@@ -45,8 +45,8 @@
                                         <i class="bi bi-diagram-3"></i>
                                         <h4>Silsilah</h4>
                                         <p>
-                                            Kami mencatat silsilah indukan setiap Sugar Glider untuk mendapatkan jenis yang
-                                            terbaik.
+                                            Kami mencatat silsilah indukan setiap Sugar Glider untuk mendapatkan keturunan
+                                            yang terbaik.
                                         </p>
                                     </div>
                                 </div>
@@ -107,9 +107,9 @@
                     <div class="col-lg-3 col-md-6 mt-5 mt-lg-0">
                         <div class="count-box">
                             <i class="fas fa-flask"></i>
-                            <span data-purecounter-start="0" data-purecounter-end=""
+                            <span data-purecounter-start="0" data-purecounter-end="{{ $count_users }}"
                                 data-purecounter-duration="1" class="purecounter"></span>
-                            <p>Pemilik</p>
+                            <p>Pengguna<br>Aplikasi</p>
                         </div>
                     </div>
 
@@ -174,8 +174,7 @@
                     <div class="col-lg-3 col-md-4">
                         <div class="gallery-item">
                             <a href="{{ asset('assets/img/gallery/gallery-1.jpg') }}" class="galelry-lightbox">
-                                <img src="{{ asset('assets/img/gallery/gallery-1.jpg') }}" alt=""
-                                    class="img-fluid">
+                                <img src="{{ asset('assets/img/gallery/gallery-1.jpg') }}" alt="" class="img-fluid">
                             </a>
                         </div>
                     </div>
@@ -183,8 +182,7 @@
                     <div class="col-lg-3 col-md-4">
                         <div class="gallery-item">
                             <a href="{{ asset('assets/img/gallery/gallery-2.jpg') }}" class="galelry-lightbox">
-                                <img src="{{ asset('assets/img/gallery/gallery-2.jpg') }}" alt=""
-                                    class="img-fluid">
+                                <img src="{{ asset('assets/img/gallery/gallery-2.jpg') }}" alt="" class="img-fluid">
                             </a>
                         </div>
                     </div>
