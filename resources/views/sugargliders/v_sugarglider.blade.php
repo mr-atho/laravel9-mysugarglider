@@ -86,18 +86,6 @@
                                     Terbuka
                                 @endif
                             </td>
-                            @if (Auth::user())
-                                <td>
-                                    <a href="{{ route('sugargliderShow', $sugarglider->id) }}">Detail</a> |
-                                    <a href="{{ route('sugargliderEdit', $sugarglider->id) }}">Edit</a> |
-                                    <form method="POST" action="{{ route('sugargliderDestroy', $sugarglider->id) }}">
-                                        @csrf
-                                        <input type="hidden" name="_method" value="DELETE">
-                                        <input type="hidden" name="id" value="{{ $sugarglider->id }}">
-                                        <button type="submit" class="" id="delete">Delete</button>
-                                    </form>
-                                </td>
-                            @endif
                         </tr>
                     @endforeach
                 </table>

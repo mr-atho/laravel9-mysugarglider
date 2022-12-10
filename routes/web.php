@@ -85,6 +85,15 @@ Route::group(['middleware' => ['auth']], function () {
         Route::put('/dashboard/shelters/{id}', [ShelterController::class, 'update'])->name('shelter.update');
         Route::delete('/dashboard/shelters/{id}', [ShelterController::class, 'destroy'])->name('shelter.destroy');
 
+        /**
+         * Collection Sugar Glider Routes
+         */
+        Route::get('/dashboard/sugargliders', [SugargliderController::class, 'backend_sugarglider_index'])->name('sugarglider.index');
+        Route::get('/dashboard/sugargliders/create', [SugargliderController::class, 'create'])->name('sugarglider.create');
+        Route::post('/dashboard/sugargliders', [SugargliderController::class, 'store'])->name('sugarglider.store');
+        Route::get('/dashboard/sugargliders/{id}/edit', [SugargliderController::class, 'edit'])->name('sugarglider.edit');
+        Route::put('/dashboard/sugargliders/{id}', [SugargliderController::class, 'update'])->name('sugarglider.update');
+        Route::delete('/dashboard/sugargliders/{id}', [ugargliderController::class, 'destroy'])->name('sugarglider.destroy');
 
         /**
          * Owner Routes
