@@ -15,12 +15,7 @@ class ShelterModel extends Model
         'nama', 'kode', 'alamat', 'status', 'user_id'
     ];
 
-    public function shelter_owner()
-    {
-        return $this->belongsTo(OwnerModel::class, 'owner_id');
-    }
-
-    public function shelter_sugarglider()
+    public function sugargliders()
     {
         return $this->hasMany(SugargliderModel::class, 'shelter_id');
     }

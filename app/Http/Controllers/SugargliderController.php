@@ -74,6 +74,8 @@ class SugargliderController extends Controller
 
     function edit($id)
     {
+        $this->authorize('update', SugargliderModel::find($id));
+
         $data = [
             'sugarglider' => SugargliderModel::findOrFail($id),
             'shelters' => ShelterModel::where('status', 1)->where('user_id', Auth::id())->get(),

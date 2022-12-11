@@ -78,7 +78,7 @@
                                 @endif
                             </td>
                             <td>{{ $sugarglider->jenis }}</td>
-                            <td>{{ $sugarglider->sugarglider_shelter->nama }}</td>
+                            <td>{{ $sugarglider->shelter->nama }}</td>
                             <td>
                                 @if ($sugarglider->adopsi == '0')
                                     Tidak Untuk Diadopsi

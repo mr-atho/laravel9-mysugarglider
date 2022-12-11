@@ -15,7 +15,7 @@ class SugargliderModel extends Model
         'kode', 'nama', 'kelamin', 'oop', 'warna', 'jenis', 'genetika', 'fenotype', 'indukan_betina', 'indukan_jantan', 'gambar', 'keterangan', 'shelter_id', 'adopsi'
     ];
 
-    public function sugarglider_shelter()
+    public function shelter()
     {
         return $this->belongsTo(ShelterModel::class, 'shelter_id');
     }

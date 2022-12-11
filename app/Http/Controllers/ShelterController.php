@@ -61,6 +61,9 @@ class ShelterController extends Controller
     }
     function edit($id)
     {
+
+        $this->authorize('update', ShelterModel::find($id));
+
         $data = [
             'shelter' => ShelterModel::findOrFail($id)
         ];
