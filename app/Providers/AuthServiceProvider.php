@@ -3,7 +3,13 @@
 namespace App\Providers;
 
 // use Illuminate\Support\Facades\Gate;
+
+
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
+use App\Models\ShelterModel;
+use App\Models\SugargliderModel;
+use App\Policies\ShelterPolicy;
+use App\Policies\SugargliderPolicy;
 
 class AuthServiceProvider extends ServiceProvider
 {
@@ -14,6 +20,8 @@ class AuthServiceProvider extends ServiceProvider
      */
     protected $policies = [
         // 'App\Models\Model' => 'App\Policies\ModelPolicy',
+        ShelterModel::class => ShelterPolicy::class,
+        SugargliderModel::class => SugargliderPolicy::class,
     ];
 
     /**

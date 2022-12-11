@@ -45,7 +45,7 @@
                 Indukan Jantan : {{ $sugarglider->indukan_jantan }}<br>
                 Gambar : {{ $sugarglider->gambar }}<br>
                 Keterangan : {{ $sugarglider->keterangan }}<br>
-                Kandang : {{ $sugarglider->sugarglider_shelter->nama }}<br>
+                Kandang : {{ $sugarglider->shelter->nama }}<br>
                 Adopsi :
                 @if ($sugarglider->adopsi == '0')
                     Tidak Untuk Diadopsi

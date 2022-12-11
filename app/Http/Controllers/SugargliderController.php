@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use App\Models\SugargliderModel;
 use App\Models\ShelterModel;
 
@@ -17,12 +18,27 @@ class SugargliderController extends Controller
         return view('sugargliders/v_sugarglider', $data);
     }
 
+    function backend_sugarglider_index()
+    {
+        $shelter = ShelterModel::where('user_id', Auth::id())->first();
+
+        if (is_null($shelter)) {
+            return view('shelters.v_backend_shelter_no');
+        } else {
+            $data = [
+                'sugargliders' => SugargliderModel::where('shelter_id', $shelter->id)->get()
+            ];
+
+            return view('sugargliders.v_backend_sugarglider_index', $data);
+        }
+    }
+
     function create()
     {
         $data = [
-            'shelters' => ShelterModel::where('status', 1)->get(),
+            'shelters' => ShelterModel::where('status', 1)->where('user_id', Auth::id())->get(),
         ];
-        return view('sugargliders/v_sugarglider_create', $data);
+        return view('sugargliders.v_backend_sugarglider_create', $data);
     }
 
     function store(Request $request)
@@ -44,7 +60,7 @@ class SugargliderController extends Controller
             'adopsi'            => $request->adopsi,
         ]);
 
-        return redirect()->route('sugargliders')->with('pesan', 'Data berhasil ditambahkan.');
+        return redirect()->route('sugarglider.index')->with('pesan', 'Data berhasil ditambahkan.');
     }
 
     function show($id)
@@ -58,12 +74,14 @@ class SugargliderController extends Controller
 
     function edit($id)
     {
+        $this->authorize('update', SugargliderModel::find($id));
+
         $data = [
             'sugarglider' => SugargliderModel::findOrFail($id),
-            'shelters' => ShelterModel::where('status', 1)->get(),
+            'shelters' => ShelterModel::where('status', 1)->where('user_id', Auth::id())->get(),
         ];
 
-        return view('sugargliders/v_sugarglider_edit', $data);
+        return view('sugargliders.v_backend_sugarglider_edit', $data);
     }
 
     function update(Request $request)
@@ -87,7 +105,7 @@ class SugargliderController extends Controller
 
         $sugarglider->save();
 
-        return redirect()->route('sugargliders')->with('pesan', 'Data berhasil diperbaharui.');
+        return redirect()->route('sugarglider.index')->with('pesan', 'Data berhasil diperbaharui.');
     }
 
     function destroy(Request $request)
@@ -95,6 +113,6 @@ class SugargliderController extends Controller
         $sugarglider = SugargliderModel::findOrFail($request->id);
         $sugarglider->delete();
 
-        return redirect()->route('sugargliders')->with('pesan', 'Data berhasil dihapus.');
+        return redirect()->route('sugarglider.index')->with('pesan', 'Data berhasil dihapus.');
     }
 }

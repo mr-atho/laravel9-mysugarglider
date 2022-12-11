@@ -22,6 +22,12 @@ Anda tertarik membantu dengan berkontribusi dalam mengembangkan sistem ini? Jang
 - Modul Artikel
 
 ## Version
+v1.5.3 | 11 Desember 2022
+- Refactor: Data Sugar Glider
+- Refactor: Data Kandang
+- Feat: Policy User, Sugar Glider, Kandang
+- Fix: Bugs
+
 v1.5.2 | 7 Desember 2022
 - Refactor: Profile
 - Refactor: Data Kandang

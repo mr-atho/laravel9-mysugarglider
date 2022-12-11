@@ -3,7 +3,7 @@
         <div class="d-flex justify-content-between align-items-center">
             <div class="logo">
                 <a href="{{ route('index') }}">
-                    <img src="{{ asset('/assets/img/logo/logo.svg') }}" alt="Logo" srcset="">
+                    <img src="{{ asset('/assets/images/logo/logo.svg') }}" alt="Logo" srcset="">
                 </a>
             </div>
             <div class="theme-toggle d-flex gap-2  align-items-center mt-2">
@@ -52,17 +52,17 @@
                 </a>
             </li>
 
-            <li class="sidebar-item has-sub {{ request()->is('*shelters*') ? 'active' : '' }}">
+            <li class="sidebar-item has-sub {{ request()->is(['*shelters*', '*sugargliders*']) ? 'active' : '' }}">
                 <a href="#" class="sidebar-link">
                     <i class="bi bi-grid-1x2-fill"></i>
                     <span>My Sugar Glider</span>
                 </a>
-                <ul class="submenu {{ request()->is('*shelters*') ? 'active' : '' }}">
+                <ul class="submenu {{ request()->is(['*shelters*', '*sugargliders*']) ? 'active' : '' }}">
                     <li class="submenu-item {{ request()->is('*shelters*') ? 'active' : '' }}">
                         <a href="{{ route('shelter.index') }}">{{ __('text.shelter_data') }}</a>
                     </li>
-                    <li class="submenu-item">
-                        <a href="#">Data Sugar Glider</a>
+                    <li class="submenu-item {{ request()->is('*sugargliders*') ? 'active' : '' }}">
+                        <a href="{{ route('sugarglider.index') }}">{{ __('text.sugarglider_data') }}</a>
                     </li>
                 </ul>
             </li>

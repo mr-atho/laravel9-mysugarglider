@@ -33,7 +33,7 @@
 
             <!-- Uncomment below if you prefer to use an image logo -->
             <a href="{{ route('index') }}" class="logo me-auto">
-                <img src="{{ asset('assets/img/logo/logo.png') }}" alt="" class="img-fluid h-20">
+                <img src="{{ asset('assets/images/logo/logo.png') }}" alt="" class="img-fluid h-20">
             </a>
 
             <nav id="navbar" class="navbar order-last order-lg-0">
