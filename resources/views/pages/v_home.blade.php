@@ -13,7 +13,7 @@
                 Selamat datang di website kami. <br>
                 Tempat dimana Sugar Glider berada.
             </h2>
-            <a href="#about" class="btn-get-started scrollto">Mulai</a>
+            <a href="#why-us" class="btn-get-started scrollto">Mulai</a>
         </div>
     </section><!-- End Hero -->
 
@@ -31,10 +31,23 @@
                                 Karena kami menyimpan data silsilah Sugar Glider Anda. Dengan data yang akurat, kita
                                 bisa mendapatkan keturunan yang berkualitas.
                             </p>
-                            <div class="text-center">
-                                <a href="#" class="more-btn">Pelajari selengkapnya <i
-                                        class="bx bx-chevron-right"></i></a>
-                            </div>
+                            <small>
+
+                                @if (Auth::user())
+                                    <div class="text-center">
+                                        <a href="{{ route('dashboard.index') }}" class="more-btn">
+                                            <span class="d-none d-md-inline">Masuk</span> Dashboard
+                                        </a>
+                                    </div>
+                                @else
+                                    <div class="text-center">
+                                        <a href="{{ route('login') }}" class="more-btn">
+                                            <i class="bi bi-chevron-right"></i>
+                                            <span class="d-none d-md-inline">Mulai</span> Bergabung
+                                        </a>
+                                    </div>
+                                @endif
+                            </small>
                         </div>
                     </div>
                     <div class="col-lg-8 d-flex align-items-stretch">
@@ -182,7 +195,8 @@
                     <div class="col-lg-3 col-md-4">
                         <div class="gallery-item">
                             <a href="{{ asset('assets/img/gallery/gallery-2.jpg') }}" class="galelry-lightbox">
-                                <img src="{{ asset('assets/img/gallery/gallery-2.jpg') }}" alt="" class="img-fluid">
+                                <img src="{{ asset('assets/img/gallery/gallery-2.jpg') }}" alt=""
+                                    class="img-fluid">
                             </a>
                         </div>
                     </div>
