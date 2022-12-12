@@ -22,6 +22,9 @@ Anda tertarik membantu dengan berkontribusi dalam mengembangkan sistem ini? Jang
 - Modul Artikel
 
 ## Version
+v1.5.4 | 12 Desember 2022
+- Refactor: Favicon
+
 v1.5.3 | 11 Desember 2022
 - Refactor: Data Sugar Glider
 - Refactor: Data Kandang
