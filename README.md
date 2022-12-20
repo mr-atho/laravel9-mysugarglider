@@ -22,6 +22,11 @@ Anda tertarik membantu dengan berkontribusi dalam mengembangkan sistem ini? Jang
 - Modul Artikel
 
 ## Version
+v1.5.5 | 20 Desember 2022
+- Refactor: Profile (Upload avatar)
+- Refactor: Validation Notice
+- Fix: Bugs
+
 v1.5.4 | 12 Desember 2022
 - Refactor: Favicon
 

@@ -2,11 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
+use App\Models\ProfileModel;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
-use Illuminate\Http\Request;
-use App\Models\ProfileModel;
-use App\Models\User;
+use Intervention\Image\Facades\Image;
 
 class ProfileController extends Controller
 {
@@ -65,5 +66,31 @@ class ProfileController extends Controller
         Auth::logout();
 
         return redirect()->route('login')->with('pesan', 'Password berhasil diubah. Silakan masuk kembali.');
+    }
+
+    public function update_avatar(Request $request)
+    {
+        if ($request->hasFile('avatar')) {
+
+            // Only allow .jpg, .bmp and .png file types.
+            $request->validate([
+                'avatar' => 'mimes:jpg,jpeg,bmp,png'
+            ]);
+
+            $file = $request->file('avatar');
+            $filename = 'avatar-' . Auth::id() . '.' . $file->extension();
+
+            //Image::make($file)->resize(150, 150)->save(public_path('upload/avatars/' . $filename));
+            //$thumbnailpath = public_path('upload/avatars/' . $filename);
+            Image::make($file)->resize(150, 150)->save(public_path('upload/avatars/' . $filename));
+
+            //$request->avatar->storeAs('avatars', $name, 'public');
+
+            $user = User::find(Auth::id());
+            $user->avatar = $filename;
+            $user->save();
+        }
+
+        return redirect()->route('profile')->with('pesan', 'Avatar berhasil diperbaharui.');
     }
 }
