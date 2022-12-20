@@ -4,6 +4,10 @@
     Profil
 @endsection
 
+@push('scripts')
+    <link rel="stylesheet" href="{{ asset('assets/extensions/filepond/filepond.css') }}">
+@endpush
+
 @section('content')
     <div class="page-title">
         <div class="row">
@@ -40,9 +44,8 @@
             @endforeach
         </div>
     @endif
-
-    <section class="section">
-        <div class="col-md-6">
+    <section id="basic-horizontal-layouts">
+        <div class="col-md-6 col-12">
             <div class="card">
                 <div class="card-header">
                     <h5 class="card-title">{{ Auth::user()->name }}</h5>
@@ -57,8 +60,15 @@
                             </a>
                         </li>
                         <li class="nav-item" role="presentation">
+                            <a class="nav-link" id="avatar-tab" data-bs-toggle="tab" href="#avatar" role="tab"
+                                aria-controls="avatar" aria-selected="false"><i class="bi bi-person-bounding-box"></i>
+                                Avatar
+                            </a>
+                        </li>
+                        <li class="nav-item" role="presentation">
                             <a class="nav-link" id="user-tab" data-bs-toggle="tab" href="#user" role="tab"
-                                aria-controls="user" aria-selected="false"><i class="bi bi-person-circle"></i> Akun
+                                aria-controls="user" aria-selected="false"><i class="bi bi-gear-fill"></i>
+                                Akun
                             </a>
                         </li>
                         <li class="nav-item" role="presentation">
@@ -69,6 +79,8 @@
                     </ul>
 
                     <div class="tab-content" id="myTabContent">
+
+
                         <div class="tab-pane fade show active" id="profile" role="tabpanel" aria-labelledby="profile-tab">
                             <p class="mt-5">
                             <form role="form" action="{{ route('profile.update') }}" method="POST"
@@ -93,7 +105,7 @@
                                                 value="{{ $profile->telp ?? '' }}" placeholder="{{ __('text.telp') }}"
                                                 required />
                                         </div>
-                                        <div class="col-sm-12 d-flex justify-content-end">
+                                        <div class="col-sm-12 d-flex justify-content-start">
                                             <button type="submit" class="btn btn-primary me-1 mb-1">
                                                 {{ __('text.submit') }}
                                             </button>
@@ -102,6 +114,31 @@
                                 </div>
                             </form>
                             </p>
+                        </div>
+
+                        <div class="tab-pane fade" id="avatar" role="tabpanel" aria-labelledby="avatar-tab">
+                            <p class="mt-5">
+                                <img src="{{ asset('/upload/avatars/' . Auth::user()->avatar) }} " height="150"
+                                    class="avatar avatar-xl" />
+                            <form role="form" enctype="multipart/form-data"
+                                action="{{ route('profile.update.avatar') }}" method="POST">
+                                @csrf
+                                <div class="mb-3">
+                                    <label for="avatar" class="form-label">Ubah avatar <small
+                                            class="text-muted "><i>(Ukuran file Avatar: 150px x 150px)</i></small></label>
+                                    <input type="file" class="form-control form-control-sm" id="avatar"
+                                        name="avatar">
+
+                                </div>
+
+                                <div class="col-sm-12 d-flex justify-content-start">
+                                    <button type="submit" class="btn btn-primary me-1 mb-1">
+                                        {{ __('text.submit') }}
+                                    </button>
+                                </div>
+                            </form>
+                            </p>
+
                         </div>
 
                         <div class="tab-pane fade" id="user" role="tabpanel" aria-labelledby="user-tab">
@@ -126,7 +163,7 @@
                                             <input type="email" id="email" class="form-control" name="email"
                                                 value="{{ $user->email }}" placeholder="{{ __('text.email') }}" />
                                         </div>
-                                        <div class="col-sm-12 d-flex justify-content-end">
+                                        <div class="col-sm-12 d-flex justify-content-start">
                                             <button type="submit" class="btn btn-primary me-1 mb-1">
                                                 {{ __('text.submit') }}
                                             </button>
@@ -161,7 +198,7 @@
                                                 name="password_new_confirmation"
                                                 placeholder="{{ __('text.password_new_confirmation') }}" />
                                         </div>
-                                        <div class="col-sm-12 d-flex justify-content-end">
+                                        <div class="col-sm-12 d-flex justify-content-start">
                                             <button type="submit" class="btn btn-primary me-1 mb-1">
                                                 {{ __('text.submit') }}
                                             </button>
@@ -176,5 +213,11 @@
                 </div>
             </div>
         </div>
+        </div>
     </section>
 @endsection
+
+@push('scripts')
+    <script src="{{ asset('assets/extensions/filepond/filepond.js') }}"></script>
+    <script src="{{ asset('assets/js/filepond.js') }}"></script>
+@endpush

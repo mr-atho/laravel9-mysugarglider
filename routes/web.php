@@ -74,6 +74,7 @@ Route::group(['middleware' => ['auth']], function () {
         Route::post('/dashboard/profile', [ProfileController::class, 'update_profile'])->name('profile.update');
         Route::post('/dashboard/profile/user', [ProfileController::class, 'update_user'])->name('profile.update.user');
         Route::post('/dashboard/password', [ProfileController::class, 'password_change'])->name('profile.password.change');
+        Route::post('/dashboard/profile/avatar', [ProfileController::class, 'update_avatar'])->name('profile.update.avatar');
 
         /**
          * Shelter Routes

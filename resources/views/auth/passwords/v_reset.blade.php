@@ -4,6 +4,10 @@
     Atur Ulang Kata Sandi
 @endsection
 
+@push('styles')
+    <link rel="stylesheet" href="{{ asset('assets/css/style-auth.css') }}" type="text/css" />
+@endpush
+
 @section('content')
 
     <h1 class="auth-title">{{ __('text.password_reset') }}.</h1>

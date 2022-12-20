@@ -38,7 +38,11 @@
                         </div>
                         <div class="user-img d-flex align-items-center">
                             <div class="avatar avatar-md">
-                                <img src="{{ asset('/assets/images/faces/1.jpg') }}" />
+                                @if (Auth::user()->avatar)
+                                    <img src="{{ asset('/upload/avatars/' . Auth::user()->avatar) }} " />
+                                @else
+                                    <img src="{{ asset('/assets/images/avatars/default.jpg') }}" />
+                                @endif
                             </div>
                         </div>
                     </div>

@@ -4,6 +4,10 @@
     Masuk
 @endsection
 
+@push('styles')
+    <link rel="stylesheet" href="{{ asset('assets/css/style-auth.css') }}" type="text/css" />
+@endpush
+
 @section('content')
     <h1 class="auth-title">{{ __('text.login') }}.</h1>
     <p class="auth-subtitle mb-5">{{ __('text.login_subtitle') }}</p>

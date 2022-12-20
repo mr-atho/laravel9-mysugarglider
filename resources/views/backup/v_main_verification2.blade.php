@@ -12,11 +12,12 @@
 
     @stack('styles')
 
+    <link rel="stylesheet" href="{{ asset('assets/css/style-app.css') }}" type="text/css" />
+    <link rel="stylesheet" href="{{ asset('assets/css/style-app-dark.css') }}" type="text/css" />
 
     <!-- Favicons -->
-    <link href="{{ asset('assets/img/favicon.png') }}" rel="icon">
-    <link href="{{ asset('assets/img/apple-touch-icon.png') }}" rel="apple-touch-icon">
-
+    <link href="{{ asset('assets/images/favicon.png') }}" rel="image/png">
+    <link href="{{ asset('assets/images/apple-touch-icon.png') }}" rel="apple-touch-icon">
 
     <!-- Google fonts-->
     <link rel="preconnect" href="https://fonts.gstatic.com" />

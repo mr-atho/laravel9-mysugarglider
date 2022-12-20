@@ -4,6 +4,10 @@
     Lupa Kata Sandi
 @endsection
 
+@push('styles')
+    <link rel="stylesheet" href="{{ asset('assets/css/style-auth.css') }}" type="text/css" />
+@endpush
+
 @section('content')
     <h1 class="auth-title">{{ __('text.forget_password') }}.</h1>
     <p class="auth-subtitle mb-5">
