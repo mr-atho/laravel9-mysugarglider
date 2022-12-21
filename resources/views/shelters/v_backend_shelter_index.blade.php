@@ -58,17 +58,27 @@
                             <table class="table table-hover mb-0">
                                 <thead>
                                     <tr>
+                                        <th style="width: 40px"></th>
                                         <th>NAMA</th>
                                         <th>KODE</th>
                                         <th>ALAMAT</th>
                                         <th>STATUS</th>
-                                        <th>ACTION</th>
+                                        <th></th>
                                     </tr>
                                 </thead>
                                 <tbody>
 
                                     @foreach ($shelters as $shelter)
                                         <tr>
+                                            <td>
+
+                                                @if ($shelter->image)
+                                                    <img src="{{ asset('/upload/shelters/' . $shelter->image) }}"
+                                                        height="40px">
+                                                @else
+                                                    <img src="{{ asset('/assets/images/no-image.png') }}" height="40px">
+                                                @endif
+                                            </td>
                                             <td class="text-bold-500">{{ $shelter->nama }}</td>
                                             <td>{{ $shelter->kode }}</td>
                                             <td class="text-bold-500">{{ $shelter->alamat }}</td>
@@ -79,18 +89,20 @@
                                                     {{ __('text.close') }}
                                                 @endif
                                             </td>
-                                            <td class="buttons d-flex">
+                                            <td>
                                                 <a href="{{ route('shelter.edit', $shelter->id) }}"
                                                     class="btn icon btn-primary" title="{{ __('text.edit') }}"><i
                                                         class="bi bi-pencil"></i></a>
 
+
                                                 <button type="button" class="btn btn-danger" data-bs-toggle="modal"
-                                                    data-bs-target="#danger">
+                                                    data-bs-target="#delete{{ $shelter->id }}">
                                                     <i class="bi bi-trash"></i>
                                                 </button>
 
-                                                <div class="modal fade text-left" id="danger" tabindex="-1"
-                                                    role="dialog" aria-labelledby="myModalLabel120" aria-hidden="true">
+                                                <div class="modal fade text-left" id="delete{{ $shelter->id }}"
+                                                    tabindex="-1" role="dialog"
+                                                    aria-labelledby="myModalLabel{{ $shelter->id }}" aria-hidden="true">
                                                     <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable"
                                                         role="document">
                                                         <div class="modal-content">
@@ -133,7 +145,6 @@
                                                         </div>
                                                     </div>
                                                 </div>
-
 
                                             </td>
                                         </tr>

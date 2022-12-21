@@ -15,9 +15,15 @@ class DashboardController extends Controller
     {
         $shelter = ShelterModel::where('user_id', Auth::id())->first();
 
+        if ($shelter) {
+            $count_sugargliders = SugargliderModel::where('shelter_id', $shelter->id)->count();
+        } else {
+            $count_sugargliders = '0';
+        }
+
         $data = [
             'user' => User::find(Auth::id()),
-            'count_sugargliders'    => SugargliderModel::where('shelter_id', $shelter->id)->count(),
+            'count_sugargliders'    => $count_sugargliders,
             'count_shelters'        => ShelterModel::where('user_id', Auth::id())->count(),
             //'count_users'           => User::count(),
             //'shelters'              => ShelterModel::all(),

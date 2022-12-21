@@ -17,11 +17,16 @@ Website yang melayani penyimpanan Data Sugar Glider.
 Anda tertarik membantu dengan berkontribusi dalam mengembangkan sistem ini? Jangan ragu untuk menghubungi mr.fightto@gmail.com
 
 ## TO DO List
-- Edit Data Sugar Glider
 - Modul Forum tanya jawab
 - Modul Artikel
 
 ## Version
+v1.5.6 | 21 Desember 2022
+- Refactor: Dashboard
+- Refactor: Sugar Glider image
+- Refactor: Shelter image
+- Refactor: Profile image
+
 v1.5.5 | 20 Desember 2022
 - Refactor: Profile (Upload avatar)
 - Refactor: Validation Notice

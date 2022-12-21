@@ -137,8 +137,7 @@
                                         </div>
                                         <div class="col-md-8 form-group">
                                             <input type="text" id="genetika" class="form-control" name="genetika"
-                                                value="{{ old('genetika') }}" placeholder="{{ __('text.genetics') }}"
-                                                required />
+                                                value="{{ old('genetika') }}" placeholder="{{ __('text.genetics') }}" />
                                         </div>
 
                                         <div class="col-md-4">
@@ -179,8 +178,11 @@
                                             <label for="gambar">{{ __('text.image') }}</label>
                                         </div>
                                         <div class="col-md-8 form-group">
-                                            <input class="form-control" type="file" id="gambar" name="gambar"
-                                                value="{{ old('gambar') }}">
+                                            <input class="form-control form-control-sm" type="file" id="gambar"
+                                                name="gambar" value="{{ old('gambar') }}">
+                                            <small class="text-muted ">
+                                                <i>(Ukuran file gambar: 150px x 150px)</i>
+                                            </small>
                                         </div>
 
                                         <div class="col-md-4">

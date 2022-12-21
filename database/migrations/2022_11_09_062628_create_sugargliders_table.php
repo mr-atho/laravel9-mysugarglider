@@ -17,19 +17,19 @@ return new class extends Migration
             $table->id();
             $table->string('kode');
             $table->string('nama');
-            $table->boolean('kelamin');
-            $table->date('oop');
-            $table->string('warna');
-            $table->string('jenis');
+            $table->boolean('kelamin')->nullable();
+            $table->date('oop')->nullable();
+            $table->string('warna')->nullable();
+            $table->string('jenis')->nullable();
             $table->string('genetika')->nullable();
             $table->string('fenotype')->nullable();
-            $table->string('indukan_betina');
-            $table->string('indukan_jantan');
+            $table->string('indukan_betina')->nullable();
+            $table->string('indukan_jantan')->nullable();
             $table->string('gambar')->nullable();
             $table->text('keterangan')->nullable();
-            $table->unsignedBigInteger('shelter_id');
-            $table->index('shelter_id');
-            $table->boolean('adopsi');
+            $table->unsignedBigInteger('shelter_id')->nullable();
+            $table->foreign('shelter_id')->references('id')->on('shelters')->onDelete('cascade');
+            $table->boolean('adopsi')->nullable();
             $table->timestamps();
         });
     }

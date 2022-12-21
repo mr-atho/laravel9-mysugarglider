@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Intervention\Image\Facades\Image;
 use App\Models\SugargliderModel;
 use App\Models\ShelterModel;
 
@@ -43,6 +44,26 @@ class SugargliderController extends Controller
 
     function store(Request $request)
     {
+        if ($request->hasFile('gambar')) {
+
+            // Only allow .jpg, .bmp and .png file types.
+            $request->validate([
+                'gambar' => 'mimes:jpg,jpeg,bmp,png'
+            ]);
+
+            $image = $request->file('gambar');
+            $imagename = 'sg-' . $request->shelter_id . '-' . $request->kode . '.' . $image->extension();
+
+            Image::make($image)->fit(
+                150,
+                150,
+                function ($constraint) {
+                    //$constraint->aspectRatio();
+                    $constraint->upsize();
+                }
+            )->save(public_path('upload/sugargliders/' . $imagename));
+        }
+
         SugargliderModel::create([
             'kode'              => $request->kode,
             'nama'              => $request->nama,
@@ -54,7 +75,7 @@ class SugargliderController extends Controller
             'fenotype'          => $request->fenotype,
             'indukan_betina'    => $request->indukan_betina,
             'indukan_jantan'    => $request->indukan_jantan,
-            'gambar'            => $request->gambar,
+            'gambar'            => $imagename,
             'keterangan'        => $request->keterangan,
             'shelter_id'        => $request->shelter_id,
             'adopsi'            => $request->adopsi,
@@ -98,10 +119,31 @@ class SugargliderController extends Controller
         $sugarglider->fenotype          = Request()->fenotype;
         $sugarglider->indukan_betina    = Request()->indukan_betina;
         $sugarglider->indukan_jantan    = Request()->indukan_jantan;
-        $sugarglider->gambar            = Request()->gambar;
         $sugarglider->keterangan        = Request()->keterangan;
         $sugarglider->shelter_id        = Request()->shelter_id;
         $sugarglider->adopsi            = Request()->adopsi;
+
+        if ($request->hasFile('gambar')) {
+
+            // Only allow .jpg, .bmp and .png file types.
+            $request->validate([
+                'gambar' => 'mimes:jpg,jpeg,bmp,png'
+            ]);
+
+            $image = $request->file('gambar');
+            $imagename = 'sg-' . $request->shelter_id . '-' . $request->kode . '.' . $image->extension();
+
+            Image::make($image)->fit(
+                150,
+                150,
+                function ($constraint) {
+                    //$constraint->aspectRatio();
+                    $constraint->upsize();
+                }
+            )->save(public_path('upload/sugargliders/' . $imagename));
+
+            $sugarglider->gambar = $imagename;
+        }
 
         $sugarglider->save();
 

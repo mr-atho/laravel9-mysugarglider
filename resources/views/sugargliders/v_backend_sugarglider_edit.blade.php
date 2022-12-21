@@ -166,24 +166,40 @@
                                             <label for="fenotype">{{ __('text.fenotype') }}</label>
                                         </div>
                                         <div class="col-md-8 form-group">
-                                            <textarea class="form-control" id="fenotype" rows="3" value="{{ $sugarglider->fenotype }}"
-                                                placeholder="{{ __('text.fenotype') }}"></textarea>
+                                            <textarea class="form-control" id="fenotype" name="fenotype" rows="3"
+                                                placeholder="{{ __('text.fenotype') }}">{{ $sugarglider->fenotype }}</textarea>
                                         </div>
 
                                         <div class="col-md-4">
                                             <label for="keterangan">{{ __('text.description') }}</label>
                                         </div>
                                         <div class="col-md-8 form-group">
-                                            <textarea class="form-control" id="keterangan" rows="3" name="keterangan"
-                                                value="{{ $sugarglider->keterangan }}" placeholder="{{ __('text.description') }}"></textarea>
+                                            <textarea class="form-control" id="keterangan" name="keterangan" rows="3"
+                                                placeholder="{{ __('text.description') }}">{{ $sugarglider->keterangan }}</textarea>
                                         </div>
 
                                         <div class="col-md-4">
                                             <label for="gambar">{{ __('text.image') }}</label>
                                         </div>
                                         <div class="col-md-8 form-group">
-                                            <input class="form-control" type="file" id="gambar" name="gambar"
-                                                value="{{ old('gambar') }}">
+                                            @if ($sugarglider->gambar)
+                                                <p>
+                                                    <img
+                                                        src="{{ asset('/upload/sugargliders/' . $sugarglider->gambar) }}">
+                                                </p>
+
+                                                <input type="file" class="form-control form-control-sm" id="gambar"
+                                                    name="gambar">
+                                                <small class="text-muted ">
+                                                    <i>(Ukuran file logo: 150px x 150px)</i>
+                                                </small>
+                                            @else
+                                                <input type="file" class="form-control form-control-sm" id="gambar"
+                                                    name="gambar">
+                                                <small class="text-muted ">
+                                                    <i>(Ukuran file logo: 150px x 150px)</i>
+                                                </small>
+                                            @endif
                                         </div>
 
                                         <div class="col-md-4">

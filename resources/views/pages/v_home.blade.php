@@ -153,9 +153,15 @@
                     @foreach ($shelters as $shelter)
                         <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4">
                             <div class="icon-box">
-                                <div class="icon"><i class="bi bi-house-heart-fill"></i></div>
-                                <h4><a href="">{{ $shelter->nama }}</a></h4>
-                                <p>{{ $shelter->alamat }}</p>
+                                <a href="{{ route('shelters') }}/{{ $shelter->id }}">
+                                    @if ($shelter->image)
+                                        <img src="{{ asset('/upload/shelters/' . $shelter->image) }}">
+                                    @else
+                                        <div class="icon"><i class="bi bi-house-heart-fill"></i></div>
+                                    @endif
+                                    <h4>{{ $shelter->nama }}</h4>
+                                    <p>{{ $shelter->alamat }}</p>
+                                </a>
                             </div>
                         </div>
                     @endforeach
@@ -187,7 +193,8 @@
                     <div class="col-lg-3 col-md-4">
                         <div class="gallery-item">
                             <a href="{{ asset('assets/img/gallery/gallery-1.jpg') }}" class="galelry-lightbox">
-                                <img src="{{ asset('assets/img/gallery/gallery-1.jpg') }}" alt="" class="img-fluid">
+                                <img src="{{ asset('assets/img/gallery/gallery-1.jpg') }}" alt=""
+                                    class="img-fluid">
                             </a>
                         </div>
                     </div>

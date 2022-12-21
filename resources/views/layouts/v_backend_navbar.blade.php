@@ -41,7 +41,8 @@
                                 @if (Auth::user()->avatar)
                                     <img src="{{ asset('/upload/avatars/' . Auth::user()->avatar) }} " />
                                 @else
-                                    <img src="{{ asset('/assets/images/avatars/default.jpg') }}" />
+                                    <img src="{{ asset('/assets/images/no-image.png') }}" height="150"
+                                        class="avatar avatar-xl" />
                                 @endif
                             </div>
                         </div>

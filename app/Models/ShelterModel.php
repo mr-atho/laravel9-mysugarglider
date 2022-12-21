@@ -4,6 +4,8 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
 
 class ShelterModel extends Model
 {
@@ -12,7 +14,7 @@ class ShelterModel extends Model
     protected $table = "shelters";
     protected $primaryKey = 'id';
     protected $fillable = [
-        'nama', 'kode', 'alamat', 'status', 'user_id'
+        'nama', 'kode', 'alamat', 'status', 'user_id', 'image'
     ];
 
     public function sugargliders()

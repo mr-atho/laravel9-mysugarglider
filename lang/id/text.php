@@ -93,5 +93,6 @@ return [
     'open_adopted'                  =>  'Terbuka untuk diadopsi',
     'not_adopted'                   =>  'Tidak diadopsi',
     'yes'                           =>  'Ya',
-    'no'                            =>  'Tidak'
+    'no'                            =>  'Tidak',
+    'logo'                          =>  'Logo'
 ];
