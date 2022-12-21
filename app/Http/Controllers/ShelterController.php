@@ -136,9 +136,9 @@ class ShelterController extends Controller
     {
         $shelter = ShelterModel::findOrFail($request->id);
 
-        //if ($shelter->sugargliders()->count()) {
-        //    return back()->withErrors('Tidak dapat menghapus. Kandang memiliki data sugar glider.');
-        //}
+        if ($shelter->sugargliders()->count()) {
+            return back()->withErrors('Tidak dapat menghapus. Kandang memiliki data sugar glider.');
+        }
 
         $shelter->delete();
 
