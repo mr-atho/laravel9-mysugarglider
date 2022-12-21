@@ -62,6 +62,8 @@ class SugargliderController extends Controller
                     $constraint->upsize();
                 }
             )->save(public_path('upload/sugargliders/' . $imagename));
+        } else {
+            $imagename = null;
         }
 
         SugargliderModel::create([

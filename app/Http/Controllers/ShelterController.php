@@ -60,6 +60,8 @@ class ShelterController extends Controller
                     $constraint->upsize();
                 }
             )->save(public_path('upload/shelters/' . $imagename));
+        } else {
+            $imagename = null;
         }
 
         ShelterModel::create([
