@@ -1,7 +1,7 @@
 @extends('layouts.v_backend')
 
 @section('title')
-    Tambah Baru Data Kandang
+    Tambah Baru Data Sugar Glider
 @endsection
 
 @section('content')

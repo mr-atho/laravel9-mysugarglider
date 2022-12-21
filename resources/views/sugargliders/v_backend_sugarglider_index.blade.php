@@ -1,7 +1,7 @@
 @extends('layouts.v_backend')
 
 @section('title')
-    Data Kandang
+    Data Sugar Glider
 @endsection
 
 @section('content')
