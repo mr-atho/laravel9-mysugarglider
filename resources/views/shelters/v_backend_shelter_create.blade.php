@@ -73,6 +73,17 @@
                                         </div>
 
                                         <div class="col-md-4">
+                                            <label for="image">{{ __('text.logo') }}</label>
+                                        </div>
+                                        <div class="col-md-8 form-group">
+                                            <input type="file" class="form-control form-control-sm" id="image"
+                                                name="image">
+                                            <small class="text-muted ">
+                                                <i>(Ukuran file logo: 150px x 150px)</i>
+                                            </small>
+                                        </div>
+
+                                        <div class="col-md-4">
                                             <label for="status">{{ __('text.status') }}</label>
                                         </div>
                                         <div class="col-md-8 form-group">

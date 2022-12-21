@@ -24,7 +24,7 @@
                 <footer>
                     <div class="footer clearfix mb-0 text-muted small">
                         <div class="float-start">
-                            <p>2022-2023 &copy; MySugarGlider.id - v1.5.2 </p>
+                            <p>2022-2023 &copy; {{ config('app.name') }} - v{{ config('app.version') }} </p>
                         </div>
                         <div class="float-end">
                             <p>Developed by <a href="https://athoria.me">AthoRia.me</a></p>

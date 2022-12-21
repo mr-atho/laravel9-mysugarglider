@@ -15,7 +15,7 @@ class PageController extends Controller
             'count_sugargliders'    => SugargliderModel::count(),
             'count_shelters'        => ShelterModel::count(),
             'count_users'           => User::count(),
-            'shelters'              => ShelterModel::all(),
+            'shelters'              => ShelterModel::where('status', '1')->get(),
         ];
 
         return view('pages/v_home', $data);

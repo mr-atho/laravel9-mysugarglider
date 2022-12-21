@@ -118,8 +118,14 @@
 
                         <div class="tab-pane fade" id="avatar" role="tabpanel" aria-labelledby="avatar-tab">
                             <p class="mt-5">
-                                <img src="{{ asset('/upload/avatars/' . Auth::user()->avatar) }} " height="150"
-                                    class="avatar avatar-xl" />
+                                @if (Auth::user()->avatar)
+                                    <img src="{{ asset('/upload/avatars/' . Auth::user()->avatar) }} " height="150"
+                                        class="avatar avatar-xl" />
+                                @else
+                                    <img src="{{ asset('/assets/images/no-image.png') }}" height="150"
+                                        class="avatar avatar-xl" />
+                                @endif
+
                             <form role="form" enctype="multipart/form-data"
                                 action="{{ route('profile.update.avatar') }}" method="POST">
                                 @csrf
@@ -128,7 +134,6 @@
                                             class="text-muted "><i>(Ukuran file Avatar: 150px x 150px)</i></small></label>
                                     <input type="file" class="form-control form-control-sm" id="avatar"
                                         name="avatar">
-
                                 </div>
 
                                 <div class="col-sm-12 d-flex justify-content-start">

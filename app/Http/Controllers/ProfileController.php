@@ -77,17 +77,20 @@ class ProfileController extends Controller
                 'avatar' => 'mimes:jpg,jpeg,bmp,png'
             ]);
 
-            $file = $request->file('avatar');
-            $filename = 'avatar-' . Auth::id() . '.' . $file->extension();
+            $image = $request->file('avatar');
+            $imagename = 'avatar-' . Auth::id() . '.' . $image->extension();
 
-            //Image::make($file)->resize(150, 150)->save(public_path('upload/avatars/' . $filename));
-            //$thumbnailpath = public_path('upload/avatars/' . $filename);
-            Image::make($file)->resize(150, 150)->save(public_path('upload/avatars/' . $filename));
-
-            //$request->avatar->storeAs('avatars', $name, 'public');
+            Image::make($image)->fit(
+                150,
+                150,
+                function ($constraint) {
+                    //$constraint->aspectRatio();
+                    $constraint->upsize();
+                }
+            )->save(public_path('upload/avatars/' . $imagename));
 
             $user = User::find(Auth::id());
-            $user->avatar = $filename;
+            $user->avatar = $imagename;
             $user->save();
         }
 

@@ -58,6 +58,7 @@
                             <table class="table table-hover mb-0">
                                 <thead>
                                     <tr>
+                                        <th style="width: 40px"></th>
                                         <th>NAMA</th>
                                         <th>KODE</th>
                                         <th>JENIS</th>
@@ -69,6 +70,15 @@
 
                                     @foreach ($sugargliders as $sugarglider)
                                         <tr>
+                                            <td>
+                                                @if ($sugarglider->gambar)
+                                                    <img src="{{ asset('/upload/sugargliders/' . $sugarglider->gambar) }}"
+                                                        height="40px">
+                                                @else
+                                                    <img src="{{ asset('/assets/images/no-image.png') }}" height="40px">
+                                                @endif
+                                            </td>
+
                                             <td class="text-bold-500">{{ $sugarglider->nama }}</td>
                                             <td>{{ $sugarglider->kode }}</td>
                                             <td class="text-bold-500">{{ $sugarglider->jenis }}</td>
@@ -79,18 +89,19 @@
                                                     {{ __('text.no') }}
                                                 @endif
                                             </td>
-                                            <td class="buttons d-flex">
+                                            <td>
                                                 <a href="{{ route('sugarglider.edit', $sugarglider->id) }}"
                                                     class="btn icon btn-primary" title="{{ __('text.edit') }}"><i
                                                         class="bi bi-pencil"></i></a>
 
                                                 <button type="button" class="btn btn-danger" data-bs-toggle="modal"
-                                                    data-bs-target="#danger">
+                                                    data-bs-target="#delete{{ $sugarglider->id }}">
                                                     <i class="bi bi-trash"></i>
                                                 </button>
 
-                                                <div class="modal fade text-left" id="danger" tabindex="-1"
-                                                    role="dialog" aria-labelledby="myModalLabel120" aria-hidden="true">
+                                                <div class="modal fade text-left" id="delete{{ $sugarglider->id }}"
+                                                    tabindex="-1" role="dialog" aria-labelledby="myModalLabel120"
+                                                    aria-hidden="true">
                                                     <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable"
                                                         role="document">
                                                         <div class="modal-content">
