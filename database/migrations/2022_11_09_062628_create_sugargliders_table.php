@@ -22,7 +22,7 @@ return new class extends Migration
             $table->string('warna')->nullable();
             $table->string('jenis')->nullable();
             $table->string('genetika')->nullable();
-            $table->string('fenotype')->nullable();
+            $table->text('fenotype')->nullable();
             $table->string('indukan_betina')->nullable();
             $table->string('indukan_jantan')->nullable();
             $table->string('gambar')->nullable();

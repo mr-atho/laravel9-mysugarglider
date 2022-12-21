@@ -141,7 +141,7 @@
                                         <div class="col-md-8 form-group">
                                             <input type="text" id="genetika" class="form-control" name="genetika"
                                                 value="{{ $sugarglider->genetika }}"
-                                                placeholder="{{ __('text.genetics') }}" required />
+                                                placeholder="{{ __('text.genetics') }}" />
                                         </div>
 
                                         <div class="col-md-4">
