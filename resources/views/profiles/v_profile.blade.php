@@ -119,7 +119,7 @@
                         <div class="tab-pane fade" id="avatar" role="tabpanel" aria-labelledby="avatar-tab">
                             <p class="mt-5">
                                 @if (Auth::user()->avatar)
-                                    <img src="{{ asset('/upload/avatars/' . Auth::user()->avatar) }} " height="150"
+                                    <img src="{{ asset('/upload/avatars/' . Auth::user()->avatar) }}" height="150"
                                         class="avatar avatar-xl" />
                                 @else
                                     <img src="{{ asset('/assets/images/no-image.png') }}" height="150"

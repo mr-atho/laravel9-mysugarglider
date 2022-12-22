@@ -94,5 +94,6 @@ return [
     'not_adopted'                   =>  'Tidak diadopsi',
     'yes'                           =>  'Ya',
     'no'                            =>  'Tidak',
-    'logo'                          =>  'Logo'
+    'logo'                          =>  'Logo',
+    'unknown'                       =>  'Tidak diketahui',
 ];

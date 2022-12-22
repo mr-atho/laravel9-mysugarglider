@@ -38,6 +38,8 @@ class SugargliderController extends Controller
     {
         $data = [
             'shelters' => ShelterModel::where('status', 1)->where('user_id', Auth::id())->get(),
+            'sugarglidermales' => SugargliderModel::where('kelamin', 1)->get(),
+            'sugargliderfemales' => SugargliderModel::where('kelamin', 0)->get(),
         ];
         return view('sugargliders.v_backend_sugarglider_create', $data);
     }
@@ -102,6 +104,8 @@ class SugargliderController extends Controller
         $data = [
             'sugarglider' => SugargliderModel::findOrFail($id),
             'shelters' => ShelterModel::where('status', 1)->where('user_id', Auth::id())->get(),
+            'sugarglidermales' => SugargliderModel::where('kelamin', 1)->get(),
+            'sugargliderfemales' => SugargliderModel::where('kelamin', 0)->get(),
         ];
 
         return view('sugargliders.v_backend_sugarglider_edit', $data);

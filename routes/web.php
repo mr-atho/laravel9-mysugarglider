@@ -29,30 +29,19 @@ Route::get('/home', [PageController::class, 'index'])->name('home');
 
 Auth::routes(['verify' => true]);
 
-//Route::get('register', [LoginController::class, 'register'])->name('userRegister')->middleware(['DisableBackBtn', 'guest']);
-//Route::post('register', [LoginController::class, 'store'])->name('userStore')->middleware(['DisableBackBtn', 'guest']);
-//Route::get('login', [LoginController::class, 'index'])->name('login')->middleware(['DisableBackBtn', 'guest']);
-//Route::post('login', [LoginController::class, 'authenticate'])->name('authenticate')->middleware(['DisableBackBtn', 'guest']);
-Route::get('/logout', [LoginController::class, 'logout'])->name('logout')->middleware('auth');
-
 Route::get('/password-forget', [LoginController::class, 'password_forget'])->name('password.forget')->middleware(['DisableBackBtn', 'guest']);
 Route::post('/password-link', [LoginController::class, 'password_link'])->name('password.link')->middleware('DisableBackBtn', 'guest');
 Route::get('/password-reset/{token}', [LoginController::class, 'password_reset_form'])->name('password.reset')->middleware('guest');
 Route::post('/password-reset', [LoginController::class, 'password_reset'])->name('password.reset.action')->middleware('guest');
 
-Route::get('/sugargliders', [SugargliderController::class, 'index'])->name('sugargliders');
-Route::get('/sugargliders/create', [SugargliderController::class, 'create'])->name('sugargliderCreate')->middleware('auth');
-Route::get('/sugargliders/create', [SugargliderController::class, 'create'])->name('sugargliderCreate')->middleware('auth');
-Route::post('/sugargliders/store', [SugargliderController::class, 'store'])->name('sugargliderStore')->middleware('auth');
-Route::get('/sugargliders/{id}', [SugargliderController::class, 'show'])->name('sugargliderShow');
-Route::get('/sugargliders/{id}/edit', [SugargliderController::class, 'edit'])->name('sugargliderEdit')->middleware('auth');
-Route::put('/sugargliders/{id}', [SugargliderController::class, 'update'])->name('sugargliderUpdate')->middleware('auth');
-Route::delete('/sugargliders/{id}', [SugargliderController::class, 'destroy'])->name('sugargliderDestroy')->middleware('auth');
-
-Route::post('/contact', [ContactController::class, 'contactPost'])->name('contact.post');
-
 //only authenticated can access this group
 Route::group(['middleware' => ['auth']], function () {
+
+    /**
+     * Logout Routes
+     */
+    Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
+
     /**
      * Verification Routes
      */
@@ -96,15 +85,6 @@ Route::group(['middleware' => ['auth']], function () {
         Route::put('/dashboard/sugargliders/{id}', [SugargliderController::class, 'update'])->name('sugarglider.update');
         Route::delete('/dashboard/sugargliders/{id}', [ugargliderController::class, 'destroy'])->name('sugarglider.destroy');
 
-        /**
-         * Owner Routes
-         */
-
-        Route::get('/owners/create', [OwnerController::class, 'create'])->name('owner.create');
-        Route::post('/owners', [OwnerController::class, 'store'])->name('owner.store');
-        Route::get('/owners/{id}/edit', [OwnerController::class, 'edit'])->name('owner.edit');
-        Route::put('/owners/{id}', [OwnerController::class, 'update'])->name('owner.update');
-        Route::delete('/owners/{id}', [OwnerController::class, 'destroy'])->name('owner.destroy');
     });
 });
 
@@ -112,5 +92,7 @@ Route::group(['middleware' => ['auth']], function () {
 Route::get('/shelters', [ShelterController::class, 'index'])->name('shelters');
 Route::get('/shelters/{id}', [ShelterController::class, 'show'])->name('shelterShow');
 
-Route::get('/owners', [OwnerController::class, 'index'])->name('owners');
-Route::get('/owners/{id}', [OwnerController::class, 'show'])->name('owner.show');
+Route::get('/sugargliders', [SugargliderController::class, 'index'])->name('sugargliders');
+Route::get('/sugargliders/{id}', [SugargliderController::class, 'show'])->name('sugargliderShow');
+
+Route::post('/contact', [ContactController::class, 'contactPost'])->name('contact.post');
