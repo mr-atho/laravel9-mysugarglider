@@ -4,6 +4,10 @@
     Edit Data Sugar Glider
 @endsection
 
+@push('styles')
+    <link href="{{ asset('assets/css/choices.css') }}" rel="stylesheet">
+@endpush
+
 @section('content')
     <div class="page-title">
         <div class="row">
@@ -259,3 +263,8 @@
         </div>
     </section>
 @endsection
+
+@push('scripts')
+    <script src="{{ asset('assets/js/choices.js') }}"></script>
+    <script src="{{ asset('assets/js/form-element-select.js') }}"></script>
+@endpush
