@@ -1,33 +1,31 @@
-## About mySugarGlider
+# MySugarGlider.id
 
-Website yang melayani penyimpanan Data Sugar Glider.
+Karena Sugar Glider Anda begitu penting.
+
+## Tentang
+
+Aplikasi berbasis website untuk berinteraksi dan memproses data secara efisien. Membuat silsilah peliharaan sugar glider Anda dengan mudah. Menyimpan data sugar glider Anda. Anda tidak akan lagi kesusahan dalam menyimpan data silsilah sugar glider Anda.
+
+## Demo
+
+https://www.mysugarglider.id - Daftar gratis pengguna
 
 ## Fitur
 
+-   Pengguna Profil
+-   Data Kandang Anda
 -   Data Sugar Glider
--   Data Pemilik Sugar Glider
--   Data Shelter Sugar Glider
--   Silsilah Sugar Glider
--   Pengguna
--   Forum Tanya Jawab
--   Artikel
 
-## Requirement
+## Persyaratan
 
 -   Framework Laravel 9
 
-## Contributing
+## Kontribusi
 
-Anda tertarik membantu dengan berkontribusi dalam mengembangkan sistem ini? Jangan ragu untuk menghubungi mr.fightto@gmail.com
-
-# Kontributor
-
-<a href = "https://github.com/mr-atho/laravel9-mysugarglider/graphs/contributors">
-  <img src = "https://contrib.rocks/image?repo=mr-atho/laravel9-sugarglider"/>
-</a>
+Anda tertarik membantu dengan berkontribusi dalam mengembangkan aplikasi ini? Jangan ragu untuk menghubungi mr.fightto@gmail.com
 
 ## TO DO List
 
--   Modul Forum tanya jawab
--   Modul Artikel
--   Silsilah
+-   Silsilah Sugar Glider
+-   Forum Tanya Jawab
+-   Artikel
