@@ -4,6 +4,10 @@
     Tambah Baru Data Sugar Glider
 @endsection
 
+@push('styles')
+    <link href="{{ asset('assets/css/choices.css') }}" rel="stylesheet">
+@endpush
+
 @section('content')
     <div class="page-title">
         <div class="row">
@@ -144,18 +148,36 @@
                                             <label for="indukan_jantan">{{ __('text.parent_male') }}</label>
                                         </div>
                                         <div class="col-md-8 form-group">
-                                            <input type="text" id="indukan_jantan" class="form-control"
-                                                name="indukan_jantan" value="{{ old('indukan_jantan') }}"
-                                                placeholder="{{ __('text.parent_male') }}" required />
+                                            <fieldset class="form-group">
+                                                <select class="choices form-select" id="indukan_jantan"
+                                                    name="indukan_jantan" value="{{ old('indukan_jantan') }}" required>
+                                                    <option value="">{{ __('text.parent_male') }}</option>
+                                                    <option value="0">{{ __('text.unknown') }}</option>
+                                                    @foreach ($sugarglidermales as $male)
+                                                        <option value="{{ $male->id }}">
+                                                            {{ $male->nama }} - {{ $male->jenis }}
+                                                        </option>
+                                                    @endforeach
+                                                </select>
+                                            </fieldset>
                                         </div>
 
                                         <div class="col-md-4">
                                             <label for="indukan_betina">{{ __('text.parent_female') }}</label>
                                         </div>
                                         <div class="col-md-8 form-group">
-                                            <input type="text" id="indukan_betina" class="form-control"
-                                                name="indukan_betina" value="{{ old('indukan_betina') }}"
-                                                placeholder="{{ __('text.parent_female') }}" required />
+                                            <fieldset class="form-group">
+                                                <select class="choices form-select" id="indukan_betina"
+                                                    name="indukan_betina" value="{{ old('indukan_betina') }}" required>
+                                                    <option value="">{{ __('text.parent_female') }}</option>
+                                                    <option value="0">{{ __('text.unknown') }}</option>
+                                                    @foreach ($sugargliderfemales as $female)
+                                                        <option value="{{ $female->id }}">
+                                                            {{ $female->nama }} - {{ $female->jenis }}
+                                                        </option>
+                                                    @endforeach
+                                                </select>
+                                            </fieldset>
                                         </div>
 
                                         <div class="col-md-4">
@@ -220,3 +242,8 @@
         </div>
     </section>
 @endsection
+
+@push('scripts')
+    <script src="{{ asset('assets/js/choices.js') }}"></script>
+    <script src="{{ asset('assets/js/form-element-select.js') }}"></script>
+@endpush

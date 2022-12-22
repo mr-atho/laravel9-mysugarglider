@@ -11,7 +11,7 @@
             <div class="col-lg-5 col-12">
                 <div id="auth-left">
                     <div class="auth-logo">
-                        <a href="{{ route('index') }}"><img src="{{ asset('assets/img/logo/logo.svg') }}"
+                        <a href="{{ route('index') }}"><img src="{{ asset('assets/images/logo/logo.svg') }}"
                                 alt="Logo"></a>
                     </div>
 
