@@ -38,4 +38,14 @@ class PageController extends Controller
     function destroy()
     {
     }
+
+    function about() {
+        $data = [
+            'count_sugargliders'    => SugargliderModel::count(),
+            'count_shelters'        => ShelterModel::count(),
+            'count_users'           => User::count(),
+            'shelters'              => ShelterModel::where('status', '1')->get(),
+        ];
+        return view('pages/v_about', $data);
+    }
 }

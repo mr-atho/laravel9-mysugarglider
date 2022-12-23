@@ -7,7 +7,6 @@ use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\VerificationController;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\SugargliderController;
-use App\Http\Controllers\OwnerController;
 use App\Http\Controllers\ShelterController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\ContactController;
@@ -95,4 +94,5 @@ Route::get('/shelters/{id}', [ShelterController::class, 'show'])->name('shelterS
 Route::get('/sugargliders', [SugargliderController::class, 'index'])->name('sugargliders');
 Route::get('/sugargliders/{id}', [SugargliderController::class, 'show'])->name('sugargliderShow');
 
+Route::get('/about', [PageController::class, 'about'])->name('about');
 Route::post('/contact', [ContactController::class, 'contactPost'])->name('contact.post');

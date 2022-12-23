@@ -11,7 +11,7 @@ use Intervention\Image\Facades\Image;
 
 class ProfileController extends Controller
 {
-    public function show()
+    function show()
     {
         $data = [
             'user' => User::where('id', Auth::id())->first(),
@@ -53,7 +53,7 @@ class ProfileController extends Controller
         return redirect()->route('profile')->with('pesan', 'Data berhasil diperbaharui.');
     }
 
-    public function password_change(Request $request)
+    function password_change(Request $request)
     {
         $request->validate([
             'password_new'              =>  'required',
@@ -68,7 +68,7 @@ class ProfileController extends Controller
         return redirect()->route('login')->with('pesan', 'Password berhasil diubah. Silakan masuk kembali.');
     }
 
-    public function update_avatar(Request $request)
+    function update_avatar(Request $request)
     {
         if ($request->hasFile('avatar')) {
 

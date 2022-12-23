@@ -5,6 +5,8 @@ v1.5.7 | 23 Desember 2022
 - Refactor: Dashboard
 - Refactor: Folder image
 - Refactor: Home view
+- Refactor: About view
+- Refactor: Navigation
 
 v1.5.6 | 21 Desember 2022
 - Refactor: Dashboard
