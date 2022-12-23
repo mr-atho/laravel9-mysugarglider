@@ -28,7 +28,7 @@ class ShelterController extends Controller
             return view('profiles.v_profile_no');
         } else {
             $data = [
-                'shelters' => ShelterModel::where('user_id', Auth::id())->get()
+                'shelters' => ShelterModel::where('user_id', Auth::id())->paginate(10)
             ];
 
             return view('shelters.v_backend_shelter_index', $data);

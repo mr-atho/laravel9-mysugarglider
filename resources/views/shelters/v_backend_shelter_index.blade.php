@@ -156,6 +156,10 @@
                             </table>
                         </div>
                     </div>
+
+                    <div class="card-footer">
+                        {{ $shelters->links('pagination::v_pagination') }}
+                    </div>
                 </div>
             </div>
         </div>
