@@ -27,7 +27,7 @@ class SugargliderController extends Controller
             return view('shelters.v_backend_shelter_no');
         } else {
             $data = [
-                'sugargliders' => SugargliderModel::where('shelter_id', $shelter->id)->get()
+                'sugargliders' => SugargliderModel::where('shelter_id', $shelter->id)->paginate(10)
             ];
 
             return view('sugargliders.v_backend_sugarglider_index', $data);

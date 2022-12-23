@@ -67,7 +67,6 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-
                                     @foreach ($sugargliders as $sugarglider)
                                         <tr>
                                             <td>
@@ -149,12 +148,13 @@
                                             </td>
                                         </tr>
                                     @endforeach
-
-
-
                                 </tbody>
                             </table>
                         </div>
+                    </div>
+
+                    <div class="card-footer">
+                        {{ $sugargliders->links('pagination::v_pagination') }}
                     </div>
                 </div>
             </div>

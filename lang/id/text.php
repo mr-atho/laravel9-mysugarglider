@@ -98,4 +98,8 @@ return [
     'logo'                          =>  'Logo',
     'unknown'                       =>  'Tidak diketahui',
     'pedigree'                      =>  'Silsilah',
+    'showing'                       =>  'Menampilkan',
+    'to'                            =>  '-',
+    'of'                            =>  'dari',
+    'data'                          =>  'data'
 ];
