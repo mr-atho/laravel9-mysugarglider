@@ -11,6 +11,7 @@ return [
     |
     */
     'home'                          =>  'Beranda',
+    'about'                         =>  'Tentang',
     'collection'                    =>  'Koleksi',
     'owner'                         =>  'Pemilik',
     'shelter'                       =>  'Kandang',
@@ -96,4 +97,5 @@ return [
     'no'                            =>  'Tidak',
     'logo'                          =>  'Logo',
     'unknown'                       =>  'Tidak diketahui',
+    'pedigree'                      =>  'Silsilah',
 ];

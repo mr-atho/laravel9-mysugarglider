@@ -43,8 +43,8 @@ class User extends Authenticatable implements MustVerifyEmail
         'email_verified_at' => 'datetime',
     ];
 
-    public function owner()
+    public function profile()
     {
-        return $this->hasOne(OwnerModel::class, 'user_id');
+        return $this->hasOne(ProfileModel::class, 'user_id');
     }
 }

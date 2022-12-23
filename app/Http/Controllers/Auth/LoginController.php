@@ -77,7 +77,7 @@ class LoginController extends Controller
     /**
      * Password
      * Change, forget, reset
-     * 
+     *
      */
     public function password_change(Request $request)
     {

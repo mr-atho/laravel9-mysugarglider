@@ -40,14 +40,21 @@
                 <ul>
                     <li><a class="nav-link scrollto {{ request()->routeIs('home') ? 'active' : '' }}"
                             href="{{ route('home') }}">{{ __('text.home') }}</a></li>
-                    <li><a class="nav-link scrollto {{ request()->routeIs('sugargliders') ? 'active' : '' }}"
-                            href="{{ route('sugargliders') }}">{{ __('text.collection') }}</a></li>
-                    <li><a class="nav-link scrollto {{ request()->routeIs('owners') ? 'active' : '' }}"
-                            href="{{ route('home') }}#owners">{{ __('text.owner') }}</a></li>
-                    <li><a class="nav-link scrollto {{ request()->routeIs('shelters') ? 'active' : '' }}"
-                            href="{{ route('home') }}#shelters">{{ __('text.shelter') }}</a></li>
-                    <li><a class="nav-link scrollto {{ request()->routeIs('home') ? 'active' : '' }}"
-                            href="{{ route('home') }}#gallery">{{ __('text.gallery') }}</a></li>
+                    <li><a class="nav-link scrollto {{ request()->routeIs('about') ? 'active' : '' }}"
+                            href="{{ route('about') }}">{{ __('text.about') }}</a></li>
+                    <li class="dropdown">
+                        <a href="#"><span>Sugar Glider</span><i class="bi bi-chevron-down"></i></a>
+                        <ul>
+                            <li><a class="nav-link scrollto {{ request()->routeIs('sugargliders') ? 'active' : '' }}"
+                                    href="{{ route('sugargliders') }}">{{ __('text.collection') }}</a></li>
+                            <li><a class="nav-link scrollto {{ request()->routeIs('shelters') ? 'active' : '' }}"
+                                    href="{{ route('home') }}#shelters">{{ __('text.shelter') }}</a></li>
+                            <li><a class="nav-link scrollto {{ request()->routeIs('home') ? 'active' : '' }}"
+                                    href="{{ route('home') }}#gallery">{{ __('text.gallery') }}</a></li>
+                        </ul>
+                    </li>
+                    <li><a class="nav-link scrollto {{ request()->routeIs('pedigree') ? 'active' : '' }}"
+                            href="{{ route('home') }}">{{ __('text.pedigree') }}</a></li>
                     <li><a class="nav-link scrollto {{ request()->routeIs('home') ? 'active' : '' }}"
                             href="{{ route('home') }}#contact">{{ __('text.contact') }}</a></li>
                 </ul>

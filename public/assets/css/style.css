@@ -1034,9 +1034,10 @@ section {
 }
 
 .about .video-box {
-  background: url("../images/about.jpg") center center no-repeat;
-  background-size: cover;
-  min-height: 500px;
+    background: url("../images/logo/logo.png") top center no-repeat;
+    background-size: contain;
+    min-height: 100px;
+    margin: 50px 0 0 0;
 }
 
 .about .play-btn {

@@ -79,8 +79,8 @@
                                         <i class="bi bi-cash"></i>
                                         <h4>Biaya</h4>
                                         <p>
-                                            Kami menawarkan berbagai jenis varian Sugar Glider yang terbaik
-                                            dengan biaya adopsi yang terjangkau.
+                                            Kami menawarkan berbagai jenis varian Sugar Glider yang terbaik dari peternak
+                                            terbaik dengan biaya adopsi yang terjangkau.
                                         </p>
                                     </div>
                                 </div>
@@ -298,7 +298,7 @@
                                 <div class="email">
                                     <i class="bi bi-envelope"></i>
                                     <h4>Email:</h4>
-                                    <p>info@mysugarglider.id/p>
+                                    <p>info@mysugarglider.id</p>
                                 </div>
 
                                 <div class="phone">

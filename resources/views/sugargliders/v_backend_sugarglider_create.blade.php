@@ -149,14 +149,16 @@
                                         </div>
                                         <div class="col-md-8 form-group">
                                             <fieldset class="form-group">
-                                                <select class="choices form-select" id="indukan_jantan"
-                                                    name="indukan_jantan" value="{{ old('indukan_jantan') }}" required>
+                                                <select class="form-select" id="indukan_jantan" name="indukan_jantan"
+                                                    value="{{ old('indukan_jantan') }}" required>
                                                     <option value="">{{ __('text.parent_male') }}</option>
                                                     <option value="0">{{ __('text.unknown') }}</option>
-                                                    @foreach ($sugarglidermales as $male)
-                                                        <option value="{{ $male->id }}">
-                                                            {{ $male->nama }} - {{ $male->jenis }}
-                                                        </option>
+                                                    @foreach ($sugargliders as $sg)
+                                                        @if ($sg->kelamin == 1)
+                                                            <option value="{{ $sg->id }}">
+                                                                {{ $sg->nama }} - {{ $sg->jenis }}
+                                                            </option>
+                                                        @endif
                                                     @endforeach
                                                 </select>
                                             </fieldset>
@@ -167,14 +169,16 @@
                                         </div>
                                         <div class="col-md-8 form-group">
                                             <fieldset class="form-group">
-                                                <select class="choices form-select" id="indukan_betina"
-                                                    name="indukan_betina" value="{{ old('indukan_betina') }}" required>
+                                                <select class="form-select" id="indukan_betina" name="indukan_betina"
+                                                    value="{{ old('indukan_betina') }}" required>
                                                     <option value="">{{ __('text.parent_female') }}</option>
                                                     <option value="0">{{ __('text.unknown') }}</option>
-                                                    @foreach ($sugargliderfemales as $female)
-                                                        <option value="{{ $female->id }}">
-                                                            {{ $female->nama }} - {{ $female->jenis }}
-                                                        </option>
+                                                    @foreach ($sugargliders as $sg)
+                                                        @if ($sg->kelamin == 0)
+                                                            <option value="{{ $sg->id }}">
+                                                                {{ $sg->nama }} - {{ $sg->jenis }}
+                                                            </option>
+                                                        @endif
                                                     @endforeach
                                                 </select>
                                             </fieldset>
