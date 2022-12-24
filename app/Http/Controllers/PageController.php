@@ -15,7 +15,7 @@ class PageController extends Controller
             'count_sugargliders'    => SugargliderModel::count(),
             'count_shelters'        => ShelterModel::count(),
             'count_users'           => User::count(),
-            'shelters'              => ShelterModel::where('status', '1')->get(),
+            'shelters'              => ShelterModel::where('status', '1')->inRandomOrder()->limit(4)->get(),
         ];
 
         return view('pages/v_home', $data);
@@ -39,7 +39,8 @@ class PageController extends Controller
     {
     }
 
-    function about() {
+    function about()
+    {
         $data = [
             'count_sugargliders'    => SugargliderModel::count(),
             'count_shelters'        => ShelterModel::count(),

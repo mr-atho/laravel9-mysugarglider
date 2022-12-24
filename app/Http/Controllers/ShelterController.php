@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Auth;
 use Intervention\Image\Facades\Image;
 use App\Models\ShelterModel;
 use App\Models\ProfileModel;
+use App\Models\SugargliderModel;
 
 class ShelterController extends Controller
 {
@@ -14,7 +15,7 @@ class ShelterController extends Controller
     {
         $data = [
             //'shelters' => ShelterModel::all(),
-            'shelters' => ShelterModel::with('sugargliders')->get()
+            'shelters' => ShelterModel::with('sugargliders')->paginate(10)
         ];
 
         return view('shelters.v_shelter', $data);
@@ -71,6 +72,7 @@ class ShelterController extends Controller
             'status'            => $request->status,
             'user_id'           => Auth::id(),
             'image'             => $imagename,
+            'keterangan'        => $request->keterangan,
         ]);
 
         return redirect()->route('shelter.index')->with('pesan', 'Data berhasil ditambahkan.');
@@ -80,10 +82,12 @@ class ShelterController extends Controller
     {
         $data = [
             'shelter' => ShelterModel::find($id),
+            'sugargliders' => SugargliderModel::where('shelter_id', $id)->paginate(10)
         ];
 
         return view('shelters/v_shelter_detail', $data);
     }
+
     function edit($id)
     {
 
@@ -104,6 +108,7 @@ class ShelterController extends Controller
         $shelter->alamat  = Request()->alamat;
         $shelter->status  = Request()->status;
         $shelter->user_id  = Auth::id();
+        $shelter->keterangan  = Request()->keterangan;
 
         if ($request->hasFile('image')) {
 

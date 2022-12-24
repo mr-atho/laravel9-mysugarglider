@@ -5,7 +5,7 @@
     <div id="topbar" class="d-flex align-items-center fixed-top">
         <div class="container d-flex justify-content-between">
             <div class="contact-info d-flex social-links align-items-center">
-                <a href="https://www.instagram.com/mysugarglider.id/" class="instagram" name="Instagram"><i
+                <a href="https://www.instagram.com/mysugarglider.id/" class="instagram" name="Instagram" target="_blank"><i
                         class="bi bi-instagram"></i></a>
                 <i class="bi bi-envelope"></i> <a href="mailto:info@mysugarglider.id">info@mysugarglider.id</a>
                 <i class="bi bi-phone"></i> +62 857 5533 3232
@@ -40,8 +40,8 @@
                 <ul>
                     <li><a class="nav-link scrollto {{ request()->routeIs('home') ? 'active' : '' }}"
                             href="{{ route('home') }}">{{ __('text.home') }}</a></li>
-                    <li><a class="nav-link scrollto {{ request()->routeIs('about') ? 'active' : '' }}"
-                            href="{{ route('about') }}">{{ __('text.about') }}</a></li>
+                    <li><a class="nav-link scrollto {{ request()->routeIs('home') ? 'active' : '' }}"
+                            href="{{ route('home') }}#about-us">{{ __('text.about') }}</a></li>
                     <li class="dropdown">
                         <a href="#"><span>Sugar Glider</span><i class="bi bi-chevron-down"></i></a>
                         <ul>

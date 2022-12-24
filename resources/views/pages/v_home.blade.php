@@ -13,16 +13,15 @@
                 Selamat datang di website kami. <br>
                 Tempat dimana Sugar Glider berada.
             </h2>
-            <a href="#why-us" class="btn-get-started scrollto">Mulai</a>
+            <a href="#about-us" class="btn-get-started scrollto">Mulai</a>
         </div>
     </section><!-- End Hero -->
 
     <main id="main">
 
-        <!-- ======= Why Us Section ======= -->
-        <section id="why-us" class="why-us">
+        <!-- ======= Home About Section ======= -->
+        <section id="about-us" class="about-us">
             <div class="container">
-
                 <div class="row">
                     <div class="col-lg-4 d-flex align-items-stretch">
                         <div class="content">
@@ -32,21 +31,11 @@
                                 bisa mendapatkan keturunan yang berkualitas.
                             </p>
                             <small>
-
-                                @if (Auth::user())
-                                    <div class="text-center">
-                                        <a href="{{ route('dashboard.index') }}" class="more-btn">
-                                            <span class="d-none d-md-inline">Masuk</span> Dashboard
-                                        </a>
-                                    </div>
-                                @else
-                                    <div class="text-center">
-                                        <a href="{{ route('login') }}" class="more-btn">
-                                            <i class="bi bi-chevron-right"></i>
-                                            <span class="d-none d-md-inline">Mulai</span> Bergabung
-                                        </a>
-                                    </div>
-                                @endif
+                                <div class="text-center">
+                                    <a href="{{ route('about') }}" class="more-btn">
+                                        <span class="d-none d-md-inline">{{ __('text.more') }}</span>
+                                    </a>
+                                </div>
                             </small>
                         </div>
                     </div>
@@ -96,7 +85,6 @@
         <!-- ======= Counts Section ======= -->
         <section id="counts" class="counts">
             <div class="container">
-
                 <div class="row">
 
                     <div class="col-lg-3 col-md-6">
@@ -104,7 +92,9 @@
                             <i class="fas fa-user-md"></i>
                             <span data-purecounter-start="0" data-purecounter-end="{{ $count_sugargliders }}"
                                 data-purecounter-duration="1" class="purecounter"></span>
-                            <p>Koleksi <br>Sugar Glider</p>
+                            <a href="{{ route('sugargliders') }}">
+                                <p>Koleksi <br>Sugar Glider</p>
+                            </a>
                         </div>
                     </div>
 
@@ -113,7 +103,9 @@
                             <i class="far fa-hospital"></i>
                             <span data-purecounter-start="0" data-purecounter-end="{{ $count_shelters }}"
                                 data-purecounter-duration="1" class="purecounter"></span>
-                            <p>Kandang <br>yang dimiliki</p>
+                            <a href="{{ route('shelters') }}">
+                                <p>Kandang <br>yang dimiliki</p>
+                            </a>
                         </div>
                     </div>
 
@@ -143,7 +135,6 @@
         <!-- ======= Shelter Section ======= -->
         <section id="shelters" class="shelters">
             <div class="container">
-
                 <div class="section-title">
                     <h2>Kandang</h2>
                     <p>Telusuri setiap kandang untuk melihat koleksi Sugar Glider yang dimiliki.</p>
@@ -151,31 +142,28 @@
 
                 <div class="row">
                     @foreach ($shelters as $shelter)
-                        <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4">
-                            <div class="icon-box">
-                                <a href="{{ route('shelters') }}/{{ $shelter->id }}">
-                                    @if ($shelter->image)
-                                        <img src="{{ asset('/upload/shelters/' . $shelter->image) }}">
-                                    @else
-                                        <div class="icon"><i class="bi bi-house-heart-fill"></i></div>
-                                    @endif
-                                    <h4>{{ $shelter->nama }}</h4>
-                                    <p>{{ $shelter->alamat }}</p>
-                                </a>
+                        <div class="col-lg-6 mt-4 mt-lg-4 mb-1">
+                            <div class="member d-flex align-items-start">
+                                <div class="pic"><img src="{{ asset('/upload/shelters/' . $shelter->image) }}"
+                                        class="img-fluid" alt=""></div>
+                                <div class="member-info">
+                                    <a href="{{ route('shelters') }}/{{ $shelter->id }}">
+                                        <h4>{{ $shelter->nama }}</h4>
+                                    </a>
+                                    <span>{{ $shelter->alamat }}</span>
+                                    <p>{{ $shelter->keterangan }}</p>
+                                </div>
                             </div>
                         </div>
                     @endforeach
-                </div>
-                <div class="row text-center">
-                    <div class="col-md-4 offset-md-4 form-group">
-                        <a href="{{ route('shelters') }}"><span class="btn">Selengkapnya</span></a>
+                    <div class="row text-center">
+                        <div class="col-md-4 offset-md-4 form-group">
+                            <a href="{{ route('shelters') }}"><span class="btn">Selengkapnya</span></a>
+                        </div>
                     </div>
                 </div>
-
             </div>
-        </section><!-- End Services Section -->
-
-
+        </section><!-- End Shelter Section -->
 
         <!-- ======= Gallery Section ======= -->
         <section id="gallery" class="gallery">

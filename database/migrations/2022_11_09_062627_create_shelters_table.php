@@ -22,6 +22,7 @@ return new class extends Migration
             $table->unsignedBigInteger('user_id')->nullable();
             $table->index('user_id');
             $table->string('image')->nullable();
+            $table->text('keterangan')->nullable();
             $table->timestamps();
         });
     }

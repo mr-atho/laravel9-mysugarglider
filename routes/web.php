@@ -83,7 +83,6 @@ Route::group(['middleware' => ['auth']], function () {
         Route::get('/dashboard/sugargliders/{id}/edit', [SugargliderController::class, 'edit'])->name('sugarglider.edit');
         Route::put('/dashboard/sugargliders/{id}', [SugargliderController::class, 'update'])->name('sugarglider.update');
         Route::delete('/dashboard/sugargliders/{id}', [ugargliderController::class, 'destroy'])->name('sugarglider.destroy');
-
     });
 });
 
@@ -93,6 +92,7 @@ Route::get('/shelters/{id}', [ShelterController::class, 'show'])->name('shelterS
 
 Route::get('/sugargliders', [SugargliderController::class, 'index'])->name('sugargliders');
 Route::get('/sugargliders/{id}', [SugargliderController::class, 'show'])->name('sugargliderShow');
+Route::get('/sugargliders/{id}', [SugargliderController::class, 'show'])->name('sugarglider.show');
 
 Route::get('/about', [PageController::class, 'about'])->name('about');
 Route::post('/contact', [ContactController::class, 'contactPost'])->name('contact.post');
