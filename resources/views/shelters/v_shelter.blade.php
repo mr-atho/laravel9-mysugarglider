@@ -9,27 +9,6 @@
     Kandang
 @endsection
 
-@push('styles')
-    <style>
-        table {
-            font-family: arial, sans-serif;
-            border-collapse: collapse;
-            width: 100%;
-        }
-
-        td,
-        th {
-            border: 1px solid #dddddd;
-            text-align: left;
-            padding: 2px;
-        }
-
-        tr:nth-child(even) {
-            background-color: #dddddd;
-        }
-    </style>
-@endpush
-
 @section('content')
     <main id="main">
 
@@ -48,40 +27,33 @@
             </div>
         </section><!-- End Breadcrumbs Section -->
 
-        <section class="inner-page">
+        <section class="inner-page shelters" id="shelters">
             <div class="container">
-                @if (session('pesan'))
-                    <strong>SUKSES!</strong> <br>{{ session('pesan') }}<br><br>
-                @endif
-                <table>
-                    <tr>
-                        <th>No.</th>
-                        <th>Nama</th>
-                        <th>Kode</th>
-                        <th>Alamat</th>
-                        <th>Status</th>
-                        <th></th>
-                    </tr>
+
+                <div class="row">
                     @foreach ($shelters as $shelter)
-                        <tr>
-                            <td>{{ $shelter->id }}</td>
-                            <td>{{ $shelter->nama }}</td>
-                            <td>{{ $shelter->kode }}</td>
-                            <td>{{ $shelter->alamat }}</td>
-                            <td>
-                                @if ($shelter->status == '1')
-                                    Buka
-                                @else
-                                    Tutup
-                                @endif
-                            </td>
-                        </tr>
+                        <div class="col-lg-6 mt-4 mt-lg-4 mb-1">
+                            <div class="member d-flex align-items-start">
+                                <div class="pic"><img src="{{ asset('/upload/shelters/' . $shelter->image) }}"
+                                        class="img-fluid" alt=""></div>
+                                <div class="member-info">
+                                    <a href="{{ route('shelters') }}/{{ $shelter->id }}">
+                                        <h4>{{ $shelter->nama }}</h4>
+                                    </a>
+                                    <span>{{ $shelter->alamat }}</span>
+                                    <p>{{ $shelter->keterangan }}</p>
+                                </div>
+                            </div>
+                        </div>
                     @endforeach
-                </table>
+                </div>
+
+                <div class="card-footer mt-4">
+                    {{ $shelters->links('pagination::v_pagination') }}
+                </div>
+
             </div>
-
         </section>
-
 
     </main><!-- End #main -->
 @endsection

@@ -99,6 +99,14 @@
                                         </div>
 
                                         <div class="col-md-4">
+                                            <label for="keterangan">{{ __('text.description') }}</label>
+                                        </div>
+                                        <div class="col-md-8 form-group">
+                                            <textarea class="form-control" id="keterangan" name="keterangan" rows="3"
+                                                placeholder="{{ __('text.description') }}">{{ $shelter->keterangan }}</textarea>
+                                        </div>
+
+                                        <div class="col-md-4">
                                             <label for="status">{{ __('text.status') }}</label>
                                         </div>
                                         <div class="col-md-8 form-group">

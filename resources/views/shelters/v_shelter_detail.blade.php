@@ -23,16 +23,36 @@
             </div>
         </section><!-- End Breadcrumbs Section -->
 
-        <section class="inner-page">
+        <section id="inner-page collection" class="collection">
             <div class="container">
-                Nama : {{ $shelter->nama }}<br>
-                Alamat : {{ $shelter->kode }}<br>
-                Alamat : {{ $shelter->alamat }}<br>
-                Status : {{ $shelter->status }}<br>
+                <div class="collection-wrap">
+                    <div class="collection-item">
+                        <img src="{{ asset('/upload/shelters/' . $shelter->image) }}" class="collection-img" alt="">
+                        <h2>{{ $shelter->nama }}</h2>
+                        <h4>{{ $shelter->alamat }}</h4>
+                        <p>
+                            <i class="bx bxs-quote-alt-left quote-icon-left"></i>
+                            {{ $shelter->keterangan }}
+                            <i class="bx bxs-quote-alt-right quote-icon-right"></i>
+                        </p>
+
+                        <h3>Koleksi</h3>
+                        <ol>
+                            @foreach ($sugargliders as $sugarglider)
+                                {{ ($sugargliders->currentPage() - 1) * $sugargliders->links('pagination::v_pagination')->paginator->perPage() + $loop->iteration }}.
+                                <a href="{{ route('sugarglider.show', $sugarglider->id) }}">
+                                    {{ $sugarglider->nama }}
+                                    ({{ $sugarglider->jenis }})
+                                </a>
+                                <br>
+                            @endforeach
+                            <div class="card-footer mt-4">
+                                {{ $sugargliders->links('pagination::v_pagination') }}
+                            </div>
+                        </ol>
+                    </div>
+                </div>
             </div>
-
         </section>
-
-
     </main><!-- End #main -->
 @endsection

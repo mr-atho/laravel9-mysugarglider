@@ -21,13 +21,17 @@ class SugargliderController extends Controller
 
     function backend_sugarglider_index()
     {
-        $shelter = ShelterModel::where('user_id', Auth::id())->first();
+        $shelters = ShelterModel::where('user_id', Auth::id())->get();
 
-        if (is_null($shelter)) {
+        if (is_null($shelters)) {
             return view('shelters.v_backend_shelter_no');
         } else {
             $data = [
-                'sugargliders' => SugargliderModel::where('shelter_id', $shelter->id)->paginate(10)
+                //'sugargliders' => SugargliderModel::whereIn('shelter_id', [1, 2, 3])->paginate(10)
+                'sugargliders' => SugargliderModel::addSelect([
+                    'shelter_id' => ShelterModel::select('id')
+                        ->whereColumn('shelter_id', 'id')
+                ])->paginate(10)
             ];
 
             return view('sugargliders.v_backend_sugarglider_index', $data);

@@ -54,14 +54,15 @@
 
         <div class="me-md-auto text-center text-md-start">
             <div class="copyright">
-                &copy; Copyright 2022 <strong><span>MySugarGlider.id </span></strong> All Rights Reserved
+                &copy; Copyright 2022-2003 <strong><span>{{ config('app.name') }}</span></strong>. All Rights Reserved
             </div>
             <div class="credits">
                 Developed by <a href="https://athoria.me/" target="_blank">athoria.me</a>
             </div>
         </div>
         <div class="social-links text-center text-md-right pt-3 pt-md-0">
-            <a href="https://www.instagram.com/mysugarglider.id/" class="instagram"><i class="bx bxl-instagram"></i></a>
+            <a href="https://www.instagram.com/mysugarglider.id/" class="instagram" target="_blank"><i
+                    class="bx bxl-instagram"></i></a>
         </div>
     </div>
 </footer><!-- End Footer -->

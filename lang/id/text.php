@@ -101,5 +101,6 @@ return [
     'showing'                       =>  'Menampilkan',
     'to'                            =>  '-',
     'of'                            =>  'dari',
-    'data'                          =>  'data'
+    'data'                          =>  'data',
+    'more'                          =>  'Selengkapnya'
 ];
