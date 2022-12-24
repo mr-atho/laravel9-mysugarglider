@@ -28,6 +28,7 @@ Route::get('/home', [PageController::class, 'index'])->name('home');
 
 Auth::routes(['verify' => true]);
 
+Route::post('/login', [LoginController::class, 'authenticate'])->name('login.authenticate');
 Route::get('/password-forget', [LoginController::class, 'password_forget'])->name('password.forget')->middleware(['DisableBackBtn', 'guest']);
 Route::post('/password-link', [LoginController::class, 'password_link'])->name('password.link')->middleware('DisableBackBtn', 'guest');
 Route::get('/password-reset/{token}', [LoginController::class, 'password_reset_form'])->name('password.reset')->middleware('guest');
