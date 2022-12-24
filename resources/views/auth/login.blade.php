@@ -43,7 +43,7 @@
             </div>
         </div>
         <div class="form-check form-check-lg d-flex align-items-end">
-            <input type="checkbox" class="form-check-input me-2" value="true" id="rememberme" name="rememberme">
+            <input type="checkbox" class="form-check-input me-2" value="1" id="rememberme" name="rememberme">
             <label class="form-check-label text-gray-600" for="rememberme">
                 {{ __('text.logged_in') }}
             </label>
