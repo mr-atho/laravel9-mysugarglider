@@ -28,8 +28,10 @@
                 <div class="collection-wrap">
                     <div class="collection-item">
                         @if ($sugarglider->gambar)
-                            <img src="{{ asset('/upload/sugargliders/' . $sugarglider->gambar) }}" class="collection-img"
-                                alt="{{ $sugarglider->nama }}">
+                            <a href="{{ asset('/upload/sugargliders/' . $sugarglider->gambar) }}" class="galelry-lightbox">
+                                <img src="{{ asset('/upload/sugargliders/' . $sugarglider->gambar) }}"
+                                    class="collection-img" alt="{{ $sugarglider->nama }}">
+                            </a>
                         @endif
 
                         <h2>{{ $sugarglider->nama }}</h2>
