@@ -27,9 +27,15 @@
             <div class="container">
                 <div class="collection-wrap">
                     <div class="collection-item">
-                        <img src="{{ asset('/upload/shelters/' . $shelter->image) }}" class="collection-img" alt="">
+                        @if ($shelter->image)
+                            <img src="{{ asset('/upload/shelters/' . $shelter->image) }}" class="collection-img"
+                                alt="{{ $shelter->nama }}">
+                        @endif
                         <h2>{{ $shelter->nama }}</h2>
-                        <h4>{{ $shelter->alamat }}</h4>
+                        <h4>
+                            {{ $shelter->user->profile->telp }} |
+                            {{ $shelter->user->email }} |
+                            {{ $shelter->alamat }}</h4>
                         <p>
                             <i class="bx bxs-quote-alt-left quote-icon-left"></i>
                             {{ $shelter->keterangan }}

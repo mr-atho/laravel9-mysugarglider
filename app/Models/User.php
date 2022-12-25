@@ -47,4 +47,9 @@ class User extends Authenticatable implements MustVerifyEmail
     {
         return $this->hasOne(ProfileModel::class, 'user_id');
     }
+
+    public function shelters()
+    {
+        return $this->hasMany(ShelterModel::class, 'shelter_id');
+    }
 }

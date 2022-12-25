@@ -14,3 +14,16 @@
 <!-- Favicons -->
 <link href="{{ asset('assets/images/favicon.png') }}" rel="icon">
 <link href="{{ asset('assets/images/apple-touch-icon.png') }}" rel="apple-touch-icon">
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-CYDZGQKYFF"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+        dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
+
+    gtag('config', 'G-CYDZGQKYFF');
+</script>

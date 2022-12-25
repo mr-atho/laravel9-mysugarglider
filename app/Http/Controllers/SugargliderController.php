@@ -13,7 +13,7 @@ class SugargliderController extends Controller
     function index()
     {
         $data = [
-            'sugargliders' => SugargliderModel::all(),
+            'sugargliders' => SugargliderModel::paginate(15),
         ];
 
         return view('sugargliders/v_sugarglider', $data);
@@ -93,8 +93,28 @@ class SugargliderController extends Controller
 
     function show($id)
     {
+        $sugarglider = SugargliderModel::find($id);
+
+        if ($sugarglider->indukan_betina != 0)
+        {
+            $betina = SugargliderModel::select('nama')->where('id', $sugarglider->indukan_betina)->first();
+        }
+        else {
+            $betina = $sugarglider->indukan_betina;
+        }
+
+        if ($sugarglider->indukan_jantan != 0)
+        {
+            $jantan = SugargliderModel::select('nama')->where('id', $sugarglider->indukan_jantan)->first();
+        }
+        else {
+            $jantan = $sugarglider->indukan_jantan;
+        }
+
         $data = [
-            'sugarglider' => SugargliderModel::find($id),
+            'sugarglider' => $sugarglider,
+            'betina' => $betina,
+            'jantan' => $jantan,
         ];
 
         return view('sugargliders/v_sugarglider_detail', $data);

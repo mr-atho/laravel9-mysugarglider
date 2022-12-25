@@ -90,6 +90,7 @@ Route::group(['middleware' => ['auth']], function () {
 
 Route::get('/shelters', [ShelterController::class, 'index'])->name('shelters');
 Route::get('/shelters/{id}', [ShelterController::class, 'show'])->name('shelterShow');
+Route::get('/shelters/{id}', [ShelterController::class, 'show'])->name('shelter.show');
 
 Route::get('/sugargliders', [SugargliderController::class, 'index'])->name('sugargliders');
 Route::get('/sugargliders/{id}', [SugargliderController::class, 'show'])->name('sugargliderShow');

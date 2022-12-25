@@ -9,27 +9,6 @@
     Daftar Sugar Glider
 @endsection
 
-@push('styles')
-    <style>
-        table {
-            font-family: arial, sans-serif;
-            border-collapse: collapse;
-            width: 100%;
-        }
-
-        td,
-        th {
-            border: 1px solid #dddddd;
-            text-align: left;
-            padding: 2px;
-        }
-
-        tr:nth-child(even) {
-            background-color: #dddddd;
-        }
-    </style>
-@endpush
-
 @section('content')
     <main id="main">
 
@@ -50,47 +29,67 @@
 
         <section class="inner-page">
             <div class="container">
-                @if (session('pesan'))
-                    <strong>SUKSES!</strong> <br>{{ session('pesan') }}<br><br>
-                @endif
-                <table>
-                    <tr>
-                        <th>NO.</th>
-                        <th>Kode</th>
-                        <th>Nama</th>
-                        <th>Kelamin</th>
-                        <th>Jenis</th>
-                        <th>Kandang</th>
-                        <th>Adopsi</th>
-                        <th></th>
-                    </tr>
-                    @foreach ($sugargliders as $sugarglider)
-                        <tr>
-                            <td>{{ $sugarglider->id }}</td>
-                            <td><a href="{{ route('sugargliders') }}/{{ $sugarglider->id }}">{{ $sugarglider->kode }}</a>
-                            </td>
-                            <td>{{ $sugarglider->nama }}</td>
-                            <td>
-                                @if ($sugarglider->kelamin == '0')
-                                    Betina
-                                @else
-                                    Jantan
-                                @endif
-                            </td>
-                            <td>{{ $sugarglider->jenis }}</td>
-                            <td>{{ $sugarglider->shelter->nama }}</td>
-                            <td>
-                                @if ($sugarglider->adopsi == '0')
-                                    Tidak Untuk Diadopsi
-                                @else
-                                    Terbuka
-                                @endif
-                            </td>
-                        </tr>
-                    @endforeach
-                </table>
-            </div>
 
+                <div class="table-responsive">
+                    <table class="table table-striped table-hover">
+                        <thead class="table-light">
+                            <tr>
+                                <th scope="col" class="d-none d-sm-none d-md-block">NO</th>
+                                <th scope="col">KODE</th>
+                                <th scope="col">NAMA</th>
+                                <th scope="col">KELAMIN</th>
+                                <th scope="col">JENIS</th>
+                                <th scope="col">KANDANG</th>
+                                <th scope="col">STATUS</th>
+                            </tr>
+                        </thead>
+                        <tbody class="table-group-divider">
+                            @foreach ($sugargliders as $sugarglider)
+                                <tr>
+                                    <th scope="row" class="d-none d-sm-none d-md-block">
+                                        {{ ($sugargliders->currentPage() - 1) * $sugargliders->links('pagination::v_pagination')->paginator->perPage() + $loop->iteration }}
+                                    </th>
+                                    <td>
+                                        <a href="{{ route('sugargliders') }}/{{ $sugarglider->id }}">
+                                            {{ $sugarglider->kode }}
+                                        </a>
+                                    </td>
+                                    <td>
+                                        <a href="{{ route('sugargliders') }}/{{ $sugarglider->id }}">
+                                            {{ $sugarglider->nama }}
+                                        </a>
+                                    </td>
+                                    <td>
+                                        @if ($sugarglider->kelamin == '0')
+                                            Betina
+                                        @else
+                                            Jantan
+                                        @endif
+                                    </td>
+                                    <td>{{ $sugarglider->jenis }}</td>
+                                    <td>
+                                        <a href="{{ route('shelter.show', $sugarglider->shelter->id) }}">
+                                            {{ $sugarglider->shelter->nama }}
+                                        </a>
+                                    </td>
+                                    <td>
+                                        @if ($sugarglider->adopsi == '0')
+                                            Tidak Untuk Diadopsi
+                                        @else
+                                            Terbuka
+                                        @endif
+                                    </td>
+                                </tr>
+                            @endforeach
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="card-footer mt-4">
+                    {{ $sugargliders->links('pagination::v_pagination') }}
+                </div>
+
+            </div>
         </section>
 
 
