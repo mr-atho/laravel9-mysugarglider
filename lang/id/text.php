@@ -102,5 +102,12 @@ return [
     'to'                            =>  '-',
     'of'                            =>  'dari',
     'data'                          =>  'data',
-    'more'                          =>  'Selengkapnya'
+    'more'                          =>  'Selengkapnya',
+    'search'                        =>  'Cari',
+    'search_data'                   =>  'Cari data yang Anda ingin lihat.',
+    'unknown'                       =>  'Tidak diketahaui',
+    'parents'                       =>  'Indukan',
+    'grandparents'                  =>  'Kakek Nenek',
+    'great_grandparents'            =>  'Moyang',
+    'great_great_grandparents'      =>  'Buyut',
 ];

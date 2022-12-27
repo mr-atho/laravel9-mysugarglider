@@ -19,8 +19,8 @@
                 <div class="d-flex justify-content-between align-items-center">
                     <h2>Database Sugar Glider</h2>
                     <ol>
-                        <li><a href="{{ route('home') }}">Home</a></li>
-                        <li>Koleksi</li>
+                        <li><a href="{{ route('home') }}">{{ __('text.home') }}</a></li>
+                        <li>{{ __('text.collection') }}</li>
                     </ol>
                 </div>
 
@@ -33,15 +33,15 @@
                 <div class="table-responsive">
                     <table class="table table-striped table-hover">
                         <thead class="table-light">
-                            <tr>
+                            <tr class="text-uppercase">
                                 <th scope="col" class="d-none d-sm-none d-md-block">NO</th>
-                                <th scope="col">KODE</th>
-                                <th scope="col">NAMA</th>
-                                <th scope="col">KELAMIN</th>
-                                <th scope="col">JENIS</th>
-                                <th scope="col">KANDANG</th>
-                                <th scope="col">STATUS</th>
-                                <th scope="col">SILSILAH</th>
+                                <th scope="col">{{ __('text.code') }}</th>
+                                <th scope="col">{{ __('text.name') }}</th>
+                                <th scope="col">{{ __('text.gender') }}</th>
+                                <th scope="col">{{ __('text.type') }}</th>
+                                <th scope="col">{{ __('text.shelter') }}</th>
+                                <th scope="col">{{ __('text.status') }}</th>
+                                <th scope="col">{{ __('text.pedigree') }}</th>
                             </tr>
                         </thead>
                         <tbody class="table-group-divider">
@@ -62,9 +62,9 @@
                                     </td>
                                     <td>
                                         @if ($sugarglider->kelamin == '0')
-                                            Betina
+                                            {{ __('text.female') }}
                                         @else
-                                            Jantan
+                                            {{ __('text.male') }}
                                         @endif
                                     </td>
                                     <td>{{ $sugarglider->jenis }}</td>
@@ -75,9 +75,9 @@
                                     </td>
                                     <td>
                                         @if ($sugarglider->adopsi == '0')
-                                            Tidak Untuk Diadopsi
+                                            {{ __('text.not_adopted') }}
                                         @else
-                                            Terbuka
+                                            {{ __('text.open_adopted') }}
                                         @endif
                                     </td>
                                     <td>

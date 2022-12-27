@@ -54,12 +54,12 @@
                                     <div class="table-responsive">
                                         <table class="table table-bordered align-middle">
                                             <thead class="table-light text-center">
-                                                <tr>
+                                                <tr class="text-uppercase">
                                                     <th scope="col">SUGAR GLIDER</th>
-                                                    <th scope="col">INDUKAN</th>
-                                                    <th scope="col">KAKEK-NENEK</th>
-                                                    <th scope="col">MOYANG</th>
-                                                    <th scope="col">BUYUT</th>
+                                                    <th scope="col">{{ __('text.parents') }}</th>
+                                                    <th scope="col">{{ __('text.grandparents') }}</th>
+                                                    <th scope="col">{{ __('text.great_grandparents') }}</th>
+                                                    <th scope="col">{{ __('text.great_great_grandparents') }}</th>
                                                 </tr>
                                             </thead>
                                             <tbody class="table-group-divider">
@@ -76,10 +76,10 @@
 
                                                                 {{ $silsilah->nama }}
                                                                 <br>
-                                                                {{ $silsilah->jenis ?? 'Tidak diketahui' }}
+                                                                {{ $silsilah->jenis ?? __('text.unknown') }}
                                                             </a>
                                                         @else
-                                                            Tidak diketahui
+                                                            {{ __('text.unknown') }}
                                                         @endif
                                                     </td>
                                                     <td rowspan="8" class="table-primary">
@@ -88,9 +88,9 @@
                                                                 &#9794; {{ $silsilah->mNama }}
                                                             </a>
                                                             <br>
-                                                            {{ $silsilah->mJenis ?? 'Tidak diketahui' }}
+                                                            {{ $silsilah->mJenis ?? __('text.unknown') }}
                                                         @else
-                                                            &#9794; Tidak diketahui
+                                                            &#9794; {{ __('text.unknown') }}
                                                         @endif
                                                     </td>
                                                     <td rowspan="4" class="table-primary">
@@ -99,9 +99,9 @@
                                                                 &#9794; {{ $silsilah->mmNama }}
                                                             </a>
                                                             <br>
-                                                            {{ $silsilah->mmJenis ?? 'Tidak diketahui' }}
+                                                            {{ $silsilah->mmJenis ?? __('text.unknown') }}
                                                         @else
-                                                            &#9794; Tidak diketahui
+                                                            &#9794; {{ __('text.unknown') }}
                                                         @endif
                                                     </td>
                                                     <td rowspan="2" class="table-primary">
@@ -110,9 +110,9 @@
                                                                 &#9794; {{ $silsilah->mmmNama }}
                                                             </a>
                                                             <br>
-                                                            {{ $silsilah->mmmJenis ?? 'Tidak diketahui' }}
+                                                            {{ $silsilah->mmmJenis ?? __('text.unknown') }}
                                                         @else
-                                                            &#9794; Tidak diketahui
+                                                            &#9794; {{ __('text.unknown') }}
                                                         @endif
                                                     </td>
                                                     <td class="table-primary">
@@ -121,9 +121,9 @@
                                                                 &#9794; {{ $silsilah->mmmmNama }}
                                                             </a>
                                                             <br>
-                                                            {{ $silsilah->mmmmJenis ?? 'Tidak diketahui' }}
+                                                            {{ $silsilah->mmmmJenis ?? __('text.unknown') }}
                                                         @else
-                                                            &#9794; Tidak diketahui
+                                                            &#9794; {{ __('text.unknown') }}
                                                         @endif
                                                     </td>
                                                 </tr>
@@ -134,9 +134,9 @@
                                                                 &#9792; {{ $silsilah->mmmfNama }}
                                                             </a>
                                                             <br>
-                                                            {{ $silsilah->mmmfJenis ?? 'Tidak diketahui' }}
+                                                            {{ $silsilah->mmmfJenis ?? __('text.unknown') }}
                                                         @else
-                                                            &#9792; Tidak diketahui
+                                                            &#9792; {{ __('text.unknown') }}
                                                         @endif
                                                     </td>
                                                 </tr>
@@ -147,9 +147,9 @@
                                                                 &#9792; {{ $silsilah->mmfNama }}
                                                             </a>
                                                             <br>
-                                                            {{ $silsilah->mmfJenis ?? 'Tidak diketahui' }}
+                                                            {{ $silsilah->mmfJenis ?? __('text.unknown') }}
                                                         @else
-                                                            &#9792; Tidak diketahui
+                                                            &#9792; {{ __('text.unknown') }}
                                                         @endif
                                                     </td>
                                                     <td class="table-primary">
@@ -158,9 +158,9 @@
                                                                 &#9794; {{ $silsilah->mmfmNama }}
                                                             </a>
                                                             <br>
-                                                            {{ $silsilah->mmfmJenis ?? 'Tidak diketahui' }}
+                                                            {{ $silsilah->mmfmJenis ?? __('text.unknown') }}
                                                         @else
-                                                            &#9794; Tidak diketahui
+                                                            &#9794; {{ __('text.unknown') }}
                                                         @endif
                                                     </td>
                                                 </tr>
@@ -171,9 +171,9 @@
                                                                 &#9792; {{ $silsilah->mmffNama }}
                                                             </a>
                                                             <br>
-                                                            {{ $silsilah->mmffJenis ?? 'Tidak diketahui' }}
+                                                            {{ $silsilah->mmffJenis ?? __('text.unknown') }}
                                                         @else
-                                                            &#9792; Tidak diketahui
+                                                            &#9792; {{ __('text.unknown') }}
                                                         @endif
                                                     </td>
                                                 </tr>
@@ -184,9 +184,9 @@
                                                                 &#9792; {{ $silsilah->mfNama }}
                                                             </a>
                                                             <br>
-                                                            {{ $silsilah->mfJenis ?? 'Tidak Diketahui' }}
+                                                            {{ $silsilah->mfJenis ?? __('text.unknown') }}
                                                         @else
-                                                            &#9792; Tidak diketahui
+                                                            &#9792; {{ __('text.unknown') }}
                                                         @endif
                                                     </td>
                                                     <td rowspan="2" class="table-primary">
@@ -195,9 +195,9 @@
                                                                 &#9794; {{ $silsilah->mfmNama }}
                                                             </a>
                                                             <br>
-                                                            {{ $silsilah->mfmJenis ?? 'Tidak diketahui' }}
+                                                            {{ $silsilah->mfmJenis ?? __('text.unknown') }}
                                                         @else
-                                                            &#9794; Tidak diketahui
+                                                            &#9794; {{ __('text.unknown') }}
                                                         @endif
                                                     </td>
                                                     <td class="table-primary">
@@ -206,9 +206,9 @@
                                                                 &#9794; {{ $silsilah->mfmmNama }}
                                                             </a>
                                                             <br>
-                                                            {{ $silsilah->mfmmJenis ?? 'Tidak diketahui' }}
+                                                            {{ $silsilah->mfmmJenis ?? __('text.unknown') }}
                                                         @else
-                                                            &#9794; Tidak diketahui
+                                                            &#9794; {{ __('text.unknown') }}
                                                         @endif
                                                     </td>
                                                 </tr>
@@ -219,9 +219,9 @@
                                                                 &#9792; {{ $silsilah->mfmfNama }}
                                                             </a>
                                                             <br>
-                                                            {{ $silsilah->mfmfJenis ?? 'Tidak diketahui' }}
+                                                            {{ $silsilah->mfmfJenis ?? __('text.unknown') }}
                                                         @else
-                                                            &#9792; Tidak diketahui
+                                                            &#9792; {{ __('text.unknown') }}
                                                         @endif
                                                     </td>
                                                 </tr>
@@ -232,9 +232,9 @@
                                                                 &#9792; {{ $silsilah->mffNama }}
                                                             </a>
                                                             <br>
-                                                            {{ $silsilah->mffJenis ?? 'Tidak diketahui' }}
+                                                            {{ $silsilah->mffJenis ?? __('text.unknown') }}
                                                         @else
-                                                            &#9792; Tidak diketahui
+                                                            &#9792; {{ __('text.unknown') }}
                                                         @endif
                                                     </td>
                                                     <td class="table-primary">
@@ -243,9 +243,9 @@
                                                                 &#9794; {{ $silsilah->mffmNama }}
                                                             </a>
                                                             <br>
-                                                            {{ $silsilah->mffmJenis ?? 'Tidak diketahui' }}
+                                                            {{ $silsilah->mffmJenis ?? __('text.unknown') }}
                                                         @else
-                                                            &#9794; Tidak diketahui
+                                                            &#9794; {{ __('text.unknown') }}
                                                         @endif
                                                     </td>
                                                 </tr>
@@ -256,9 +256,9 @@
                                                                 &#9792; {{ $silsilah->mfffNama }}
                                                             </a>
                                                             <br>
-                                                            {{ $silsilah->mfffJenis ?? 'Tidak diketahui' }}
+                                                            {{ $silsilah->mfffJenis ?? __('text.unknown') }}
                                                         @else
-                                                            &#9792; Tidak diketahui
+                                                            &#9792; {{ __('text.unknown') }}
                                                         @endif
                                                     </td>
                                                 </tr>
@@ -269,9 +269,9 @@
                                                                 &#9792; {{ $silsilah->fNama }}
                                                             </a>
                                                             <br>
-                                                            {{ $silsilah->fJenis ?? 'Tidak diketahui' }}
+                                                            {{ $silsilah->fJenis ?? __('text.unknown') }}
                                                         @else
-                                                            &#9792; Tidak diketahui
+                                                            &#9792; {{ __('text.unknown') }}
                                                         @endif
                                                     </td>
                                                     <td rowspan="4" class="table-primary">
@@ -280,9 +280,9 @@
                                                                 &#9794; {{ $silsilah->fmNama }}
                                                             </a>
                                                             <br>
-                                                            {{ $silsilah->fmJenis ?? 'Tidak diketahui' }}
+                                                            {{ $silsilah->fmJenis ?? __('text.unknown') }}
                                                         @else
-                                                            &#9794; Tidak diketahui
+                                                            &#9794; {{ __('text.unknown') }}
                                                         @endif
                                                     </td>
                                                     <td rowspan="2" class="table-primary">
@@ -291,9 +291,9 @@
                                                                 &#9794; {{ $silsilah->fmmNama }}
                                                             </a>
                                                             <br>
-                                                            {{ $silsilah->fmmJenis ?? 'Tidak diketahui' }}
+                                                            {{ $silsilah->fmmJenis ?? __('text.unknown') }}
                                                         @else
-                                                            &#9794; Tidak diketahui
+                                                            &#9794; {{ __('text.unknown') }}
                                                         @endif
                                                     </td>
                                                     <td class="table-primary">
@@ -302,9 +302,9 @@
                                                                 &#9794; {{ $silsilah->fmmmNama }}
                                                             </a>
                                                             <br>
-                                                            {{ $silsilah->fmmmJenis ?? 'Tidak diketahui' }}
+                                                            {{ $silsilah->fmmmJenis ?? __('text.unknown') }}
                                                         @else
-                                                            &#9794; Tidak diketahui
+                                                            &#9794; {{ __('text.unknown') }}
                                                         @endif
                                                     </td>
                                                 </tr>
@@ -315,9 +315,9 @@
                                                                 &#9792; {{ $silsilah->fmmfNama }}
                                                             </a>
                                                             <br>
-                                                            {{ $silsilah->fmmfJenis ?? 'Tidak diketahui' }}
+                                                            {{ $silsilah->fmmfJenis ?? __('text.unknown') }}
                                                         @else
-                                                            &#9792; Tidak diketahui
+                                                            &#9792; {{ __('text.unknown') }}
                                                         @endif
                                                     </td>
                                                 </tr>
@@ -328,9 +328,9 @@
                                                                 &#9792; {{ $silsilah->fmfNama }}
                                                             </a>
                                                             <br>
-                                                            {{ $silsilah->fmfJenis ?? 'Tidak diketahui' }}
+                                                            {{ $silsilah->fmfJenis ?? __('text.unknown') }}
                                                         @else
-                                                            &#9792; Tidak diketahui
+                                                            &#9792; {{ __('text.unknown') }}
                                                         @endif
                                                     </td>
                                                     <td class="table-primary">
@@ -339,9 +339,9 @@
                                                                 &#9794; {{ $silsilah->fmfmNama }}
                                                             </a>
                                                             <br>
-                                                            {{ $silsilah->fmfmJenis ?? 'Tidak diketahui' }}
+                                                            {{ $silsilah->fmfmJenis ?? __('text.unknown') }}
                                                         @else
-                                                            &#9794; Tidak diketahui
+                                                            &#9794; {{ __('text.unknown') }}
                                                         @endif
                                                     </td>
                                                 </tr>
@@ -352,9 +352,9 @@
                                                                 &#9792; {{ $silsilah->fmffNama }}
                                                             </a>
                                                             <br>
-                                                            {{ $silsilah->fmffJenis ?? 'Tidak diketahui' }}
+                                                            {{ $silsilah->fmffJenis ?? __('text.unknown') }}
                                                         @else
-                                                            &#9792; Tidak diketahui
+                                                            &#9792; {{ __('text.unknown') }}
                                                         @endif
                                                     </td>
                                                 </tr>
@@ -365,9 +365,9 @@
                                                                 &#9792; {{ $silsilah->ffNama }}
                                                             </a>
                                                             <br>
-                                                            {{ $silsilah->ffJenis ?? 'Tidak diketahui' }}
+                                                            {{ $silsilah->ffJenis ?? __('text.unknown') }}
                                                         @else
-                                                            &#9792; Tidak diketahui
+                                                            &#9792; {{ __('text.unknown') }}
                                                         @endif
                                                     </td>
                                                     <td rowspan="2" class="table-primary">
@@ -376,9 +376,9 @@
                                                                 &#9794; {{ $silsilah->ffmNama }}
                                                             </a>
                                                             <br>
-                                                            {{ $silsilah->ffmJenis ?? 'Tidak diketahui' }}
+                                                            {{ $silsilah->ffmJenis ?? __('text.unknown') }}
                                                         @else
-                                                            &#9794; Tidak diketahui
+                                                            &#9794; {{ __('text.unknown') }}
                                                         @endif
                                                     </td>
                                                     <td class="table-primary">
@@ -387,9 +387,9 @@
                                                                 &#9794; {{ $silsilah->ffmmNama }}
                                                             </a>
                                                             <br>
-                                                            {{ $silsilah->ffmmJenis ?? 'Tidak diketahui' }}
+                                                            {{ $silsilah->ffmmJenis ?? __('text.unknown') }}
                                                         @else
-                                                            &#9794; Tidak diketahui
+                                                            &#9794; {{ __('text.unknown') }}
                                                         @endif
                                                     </td>
                                                 </tr>
@@ -400,9 +400,9 @@
                                                                 &#9792; {{ $silsilah->ffmfNama }}
                                                             </a>
                                                             <br>
-                                                            {{ $silsilah->ffmfJenis ?? 'Tidak diketahui' }}
+                                                            {{ $silsilah->ffmfJenis ?? __('text.unknown') }}
                                                         @else
-                                                            &#9792; Tidak diketahui
+                                                            &#9792; {{ __('text.unknown') }}
                                                         @endif
                                                     </td>
                                                 </tr>
@@ -413,9 +413,9 @@
                                                                 &#9792; {{ $silsilah->fffNama }}
                                                             </a>
                                                             <br>
-                                                            {{ $silsilah->fffJenis ?? 'Tidak diketahui' }}
+                                                            {{ $silsilah->fffJenis ?? __('text.unknown') }}
                                                         @else
-                                                            &#9792; Tidak diketahui
+                                                            &#9792; {{ __('text.unknown') }}
                                                         @endif
                                                     </td>
                                                     <td class="table-primary">
@@ -424,9 +424,9 @@
                                                                 &#9794; {{ $silsilah->fffmNama }}
                                                             </a>
                                                             <br>
-                                                            {{ $silsilah->fffmJenis ?? 'Tidak diketahui' }}
+                                                            {{ $silsilah->fffmJenis ?? __('text.unknown') }}
                                                         @else
-                                                            &#9794; Tidak diketahui
+                                                            &#9794; {{ __('text.unknown') }}
                                                         @endif
                                                     </td>
                                                 </tr>
@@ -437,9 +437,9 @@
                                                                 &#9792; {{ $silsilah->ffffNama }}
                                                             </a>
                                                             <br>
-                                                            {{ $silsilah->ffffJenis ?? 'Tidak diketahui' }}
+                                                            {{ $silsilah->ffffJenis ?? __('text.unknown') }}
                                                         @else
-                                                            &#9792; Tidak diketahui
+                                                            &#9792; {{ __('text.unknown') }}
                                                         @endif
                                                     </td>
                                                 </tr>

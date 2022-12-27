@@ -13,7 +13,7 @@ class SugargliderController extends Controller
     function index()
     {
         $data = [
-            'sugargliders' => SugargliderModel::paginate(15),
+            'sugargliders' => SugargliderModel::paginate(20),
         ];
 
         return view('sugargliders.v_sugarglider', $data);
