@@ -54,7 +54,7 @@
                         </ul>
                     </li>
                     <li><a class="nav-link scrollto {{ request()->routeIs('pedigree') ? 'active' : '' }}"
-                            href="{{ route('home') }}">{{ __('text.pedigree') }}</a></li>
+                            href="{{ route('pedigree') }}">{{ __('text.pedigree') }}</a></li>
                     <li><a class="nav-link scrollto {{ request()->routeIs('home') ? 'active' : '' }}"
                             href="{{ route('home') }}#contact">{{ __('text.contact') }}</a></li>
                 </ul>

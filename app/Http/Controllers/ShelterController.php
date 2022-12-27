@@ -14,7 +14,6 @@ class ShelterController extends Controller
     function index()
     {
         $data = [
-            //'shelters' => ShelterModel::all(),
             'shelters' => ShelterModel::with('sugargliders')->paginate(10)
         ];
 
@@ -85,7 +84,7 @@ class ShelterController extends Controller
             'sugargliders' => SugargliderModel::where('shelter_id', $id)->paginate(10)
         ];
 
-        return view('shelters/v_shelter_detail', $data);
+        return view('shelters.v_shelter_detail', $data);
     }
 
     function edit($id)

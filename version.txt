@@ -1,4 +1,8 @@
 ## Version
+v1.6.1 | 27 Agustus 2022
+- Feat: Silsilah Sugar Glider
+- Refactor: Sugar GLider view
+
 v1.5.7 | 23 Desember 2022
 - Refactor: Route
 - Refactor: Sugar Glider view

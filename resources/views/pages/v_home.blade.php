@@ -145,7 +145,7 @@
                         <div class="col-lg-6 mt-4 mt-lg-4 mb-1">
                             <div class="member d-flex align-items-start">
                                 <div class="pic"><img src="{{ asset('/upload/shelters/' . $shelter->image) }}"
-                                        class="img-fluid" alt=""></div>
+                                        class="img-fluid" alt="{{ $shelter->nama }}"></div>
                                 <div class="member-info">
                                     <a href="{{ route('shelters') }}/{{ $shelter->id }}">
                                         <h4>{{ $shelter->nama }}</h4>

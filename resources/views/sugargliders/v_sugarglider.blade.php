@@ -41,6 +41,7 @@
                                 <th scope="col">JENIS</th>
                                 <th scope="col">KANDANG</th>
                                 <th scope="col">STATUS</th>
+                                <th scope="col">SILSILAH</th>
                             </tr>
                         </thead>
                         <tbody class="table-group-divider">
@@ -78,6 +79,11 @@
                                         @else
                                             Terbuka
                                         @endif
+                                    </td>
+                                    <td>
+                                        <a href="{{ route('pedigree.show', $sugarglider->id) }}">
+                                            <i class="bi bi-search"></i>
+                                        </a>
                                     </td>
                                 </tr>
                             @endforeach
