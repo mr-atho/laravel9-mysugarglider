@@ -29,7 +29,7 @@
                                     </div>
                                     <div class="col-md-8 col-lg-12 col-xl-12 col-xxl-7">
                                         <a href="{{ route('shelter.index') }}">
-                                            <h6 class="text-muted font-semibold">Kandang</h6>
+                                            <h6 class="text-muted font-semibold">{{ __('text.shelter') }}</h6>
                                             <h6 class="font-extrabold mb-0">{{ $count_shelters }}</h6>
                                         </a>
                                     </div>
@@ -50,7 +50,7 @@
                                     </div>
                                     <div class="col-md-8 col-lg-12 col-xl-12 col-xxl-7">
                                         <a href="{{ route('sugarglider.index') }}">
-                                            <h6 class="text-muted font-semibold">Sugar Glider</h6>
+                                            <h6 class="text-muted font-semibold">My Sugar Glider</h6>
                                             <h6 class="font-extrabold mb-0">{{ $count_sugargliders }}</h6>
                                         </a>
                                     </div>
@@ -60,7 +60,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-12 col-lg-3">
+            <div class="col-12 col-md-12 col-xl-3 col-lg-3">
                 <div class="card">
                     <div class="card-body py-4 px-4">
                         <div class="d-flex align-items-center">
@@ -68,7 +68,7 @@
                                 @if (Auth::user()->avatar)
                                     <img src="{{ asset('/upload/avatars/' . Auth::user()->avatar) }}" />
                                 @else
-                                    <img src="{{ asset('/assets/images/no-image.png') }}"/>
+                                    <img src="{{ asset('/assets/images/no-image.png') }}" />
                                 @endif
                             </div>
                             <div class="ms-3 name">

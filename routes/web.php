@@ -11,7 +11,7 @@ use App\Http\Controllers\ShelterController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\ProfileController;
-use App\Http\Controllers\pedigreeController;
+use App\Http\Controllers\PedigreeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -85,6 +85,12 @@ Route::group(['middleware' => ['auth']], function () {
         Route::get('/dashboard/sugargliders/{id}/edit', [SugargliderController::class, 'edit'])->name('sugarglider.edit');
         Route::put('/dashboard/sugargliders/{id}', [SugargliderController::class, 'update'])->name('sugarglider.update');
         Route::delete('/dashboard/sugargliders/{id}', [ugargliderController::class, 'destroy'])->name('sugarglider.destroy');
+
+        /**
+         * Pedigree Sugar Glider Routes
+         */
+        Route::get('/dashboard/pedigree', [PedigreeController::class, 'backend_pedigree_index'])->name('pedigree.index');
+        Route::get('/dashboard/pedigree/{id}', [PedigreeController::class, 'backend_show'])->name('pedigree.backend.show');
     });
 });
 

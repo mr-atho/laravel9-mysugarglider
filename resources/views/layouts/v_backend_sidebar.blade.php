@@ -68,10 +68,10 @@
             </li>
 
             <li class="sidebar-title">Explore</li>
-            <li class="sidebar-item">
-                <a href="#" class="sidebar-link">
-                    <i class="bi bi-file-earmark-medical-fill"></i>
-                    <span>Silsilah</span>
+            <li class="sidebar-item {{ request()->routeIs('pedigree.index') ? 'active' : '' }}">
+                <a href="{{ route('pedigree.index') }}" class="sidebar-link">
+                    <i class="bi bi-search"></i>
+                    <span>{{ __('text.pedigree') }}</span>
                 </a>
             </li>
 
