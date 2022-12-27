@@ -111,6 +111,20 @@
                                     <div class="table-responsive">
                                         <table class="table table-hover ">
                                             <tbody>
+
+                                                <tr>
+                                                    <th scope="row">Indukan Jantan</th>
+                                                    <td>
+                                                        @if ($sugarglider->indukan_jantan == 0)
+                                                            Tidak Diketahui
+                                                        @else
+                                                            <a
+                                                                href="{{ route('sugarglider.show', $sugarglider->indukan_jantan) }}">
+                                                                {{ $jantan->nama }}
+                                                            </a>
+                                                        @endif
+                                                    </td>
+                                                </tr>
                                                 <tr>
                                                     <th scope="row">Indukan Betina</th>
                                                     <td>
@@ -125,16 +139,11 @@
                                                     </td>
                                                 </tr>
                                                 <tr>
-                                                    <th scope="row">Indukan Jantan</th>
+                                                    <th scope="row">Bagan Silsilah</th>
                                                     <td>
-                                                        @if ($sugarglider->indukan_jantan == 0)
-                                                            Tidak Diketahui
-                                                        @else
-                                                            <a
-                                                                href="{{ route('sugarglider.show', $sugarglider->indukan_jantan) }}">
-                                                                {{ $jantan->nama }}
-                                                            </a>
-                                                        @endif
+                                                        <a href="{{ route('pedigree.show', $sugarglider->id) }}">
+                                                            <i class="bi bi-search"></i> Lihat
+                                                        </a>
                                                     </td>
                                                 </tr>
                                             </tbody>

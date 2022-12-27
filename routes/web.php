@@ -11,6 +11,7 @@ use App\Http\Controllers\ShelterController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\pedigreeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -89,12 +90,13 @@ Route::group(['middleware' => ['auth']], function () {
 
 
 Route::get('/shelters', [ShelterController::class, 'index'])->name('shelters');
-Route::get('/shelters/{id}', [ShelterController::class, 'show'])->name('shelterShow');
 Route::get('/shelters/{id}', [ShelterController::class, 'show'])->name('shelter.show');
 
 Route::get('/sugargliders', [SugargliderController::class, 'index'])->name('sugargliders');
-Route::get('/sugargliders/{id}', [SugargliderController::class, 'show'])->name('sugargliderShow');
 Route::get('/sugargliders/{id}', [SugargliderController::class, 'show'])->name('sugarglider.show');
 
 Route::get('/about', [PageController::class, 'about'])->name('about');
 Route::post('/contact', [ContactController::class, 'contactPost'])->name('contact.post');
+
+Route::get('/pedigree', [PedigreeController::class, 'index'])->name('pedigree');
+Route::get('/pedigree/{id}', [PedigreeController::class, 'show'])->name('pedigree.show');

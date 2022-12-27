@@ -16,7 +16,7 @@ class SugargliderController extends Controller
             'sugargliders' => SugargliderModel::paginate(15),
         ];
 
-        return view('sugargliders/v_sugarglider', $data);
+        return view('sugargliders.v_sugarglider', $data);
     }
 
     function backend_sugarglider_index()
@@ -117,7 +117,7 @@ class SugargliderController extends Controller
             'jantan' => $jantan,
         ];
 
-        return view('sugargliders/v_sugarglider_detail', $data);
+        return view('sugargliders.v_sugarglider_detail', $data);
     }
 
     function edit($id)
