@@ -360,7 +360,7 @@
                                                 </tr>
                                                 <tr>
                                                     <td rowspan="4" class="table-success">
-                                                        @if ($silsilah->fmId != 0)
+                                                        @if ($silsilah->ffId != 0)
                                                             <a href="{{ route('sugarglider.show', $silsilah->ffId) }}">
                                                                 &#9792; {{ $silsilah->ffNama }}
                                                             </a>

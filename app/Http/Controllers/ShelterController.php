@@ -53,8 +53,8 @@ class ShelterController extends Controller
             $imagename = 'shelter-' . $request->kode . '.' . $image->extension();
 
             Image::make($image)->fit(
-                150,
-                150,
+                500,
+                500,
                 function ($constraint) {
                     //$constraint->aspectRatio();
                     $constraint->upsize();
@@ -120,8 +120,8 @@ class ShelterController extends Controller
             $imagename = 'shelter-' . $shelter->kode . '.' . $image->extension();
 
             Image::make($image)->fit(
-                150,
-                150,
+                500,
+                500,
                 function ($constraint) {
                     //$constraint->aspectRatio();
                     $constraint->upsize();
