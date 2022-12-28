@@ -12,7 +12,7 @@
             <div class="container">
 
                 <div class="d-flex justify-content-between align-items-center">
-                    <h2>Bagan Silsilah</h2>
+                    <h2>Bagan Silsilah Indukan</h2>
                     <ol>
                         <li><a href="{{ route('home') }}">Home</a></li>
                         <li><a href="{{ route('sugargliders') }}">Koleksi</a></li>
@@ -50,7 +50,7 @@
                         <div class="collection">
                             <div class="row">
                                 <div class="col-sm-12 col-md-12 col-lg-12">
-                                    <h3>BAGAN SILSILAH</h3>
+                                    <h3>BAGAN SILSILAH INDUKAN</h3>
                                     <div class="table-responsive">
                                         <table class="table table-bordered align-middle">
                                             <thead class="table-light text-center">

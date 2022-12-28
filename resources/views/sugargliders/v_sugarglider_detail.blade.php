@@ -57,9 +57,9 @@
                                                     <th scope="row">Jenis Kelamin</th>
                                                     <td>
                                                         @if ($sugarglider->kelamin == '0')
-                                                            Betina
+                                                            {{ __('text.female') }}
                                                         @else
-                                                            Jantan
+                                                            {{ __('text.male') }}
                                                         @endif
                                                     </td>
                                                 </tr>
@@ -116,7 +116,7 @@
                                                     <th scope="row">Indukan Jantan</th>
                                                     <td>
                                                         @if ($sugarglider->indukan_jantan == 0)
-                                                            Tidak Diketahui
+                                                            {{ __('text.unknown') }}
                                                         @else
                                                             <a
                                                                 href="{{ route('sugarglider.show', $sugarglider->indukan_jantan) }}">
@@ -129,7 +129,7 @@
                                                     <th scope="row">Indukan Betina</th>
                                                     <td>
                                                         @if ($sugarglider->indukan_betina == 0)
-                                                            Tidak Diketahui
+                                                            {{ __('text.unknown') }}
                                                         @else
                                                             <a
                                                                 href="{{ route('sugarglider.show', $sugarglider->indukan_betina) }}">
@@ -139,7 +139,7 @@
                                                     </td>
                                                 </tr>
                                                 <tr>
-                                                    <th scope="row">Bagan Silsilah</th>
+                                                    <th scope="row">Bagan Silsilah Indukan</th>
                                                     <td>
                                                         <a href="{{ route('pedigree.show', $sugarglider->id) }}">
                                                             <i class="bi bi-search"></i> Lihat

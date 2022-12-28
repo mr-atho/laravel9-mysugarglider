@@ -8,7 +8,7 @@
     <div class="page-title">
         <div class="row">
             <div class="col-12 col-md-6 order-md-1 order-last">
-                <h5>Bagan Silsilah</h5>
+                <h5>Bagan Silsilah Indukan</h5>
                 <h3>{{ $sugarglider->nama }}</h3>
                 <p class="text-subtitle text-muted">
                     {{ $sugarglider->shelter->nama }} | {{ $sugarglider->kode }}
