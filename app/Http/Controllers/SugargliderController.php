@@ -60,8 +60,8 @@ class SugargliderController extends Controller
             $imagename = 'sg-' . $request->shelter_id . '-' . $request->kode . '.' . $image->extension();
 
             Image::make($image)->fit(
-                150,
-                150,
+                500,
+                500,
                 function ($constraint) {
                     //$constraint->aspectRatio();
                     $constraint->upsize();
@@ -95,24 +95,36 @@ class SugargliderController extends Controller
     {
         $sugarglider = SugargliderModel::find($id);
 
-        if ($sugarglider->indukan_betina != 0)
-        {
+        if ($sugarglider->indukan_betina != 0) {
             $betina = SugargliderModel::select('nama')->where('id', $sugarglider->indukan_betina)->first();
-        }
-        else {
+        } else {
             $betina = $sugarglider->indukan_betina;
         }
 
-        if ($sugarglider->indukan_jantan != 0)
-        {
+        if ($sugarglider->indukan_jantan != 0) {
             $jantan = SugargliderModel::select('nama')->where('id', $sugarglider->indukan_jantan)->first();
-        }
-        else {
+        } else {
             $jantan = $sugarglider->indukan_jantan;
         }
 
         $data = [
             'sugarglider' => $sugarglider,
+            'indukan' =>
+            SugargliderModel::leftjoin('sugargliders as m', 'sugargliders.indukan_jantan', '=', 'm.id')
+                ->leftjoin('sugargliders as f', 'sugargliders.indukan_betina', '=', 'f.id')
+                ->select(
+                    'sugargliders.nama as nama',
+                    'sugargliders.id as id',
+                    'sugargliders.jenis as jenis',
+                    'm.nama as jantan',
+                    'm.id as mId',
+                    'm.jenis as mJenis',
+                    'f.nama as betina',
+                    'f.id as fId',
+                    'f.jenis as fJenis',
+                )
+                ->where('sugargliders.id', $id)
+                ->first(),
             'betina' => $betina,
             'jantan' => $jantan,
         ];
@@ -162,8 +174,8 @@ class SugargliderController extends Controller
             $imagename = 'sg-' . $request->shelter_id . '-' . $request->kode . '.' . $image->extension();
 
             Image::make($image)->fit(
-                150,
-                150,
+                500,
+                500,
                 function ($constraint) {
                     //$constraint->aspectRatio();
                     $constraint->upsize();

@@ -120,7 +120,7 @@
                                                         @else
                                                             <a
                                                                 href="{{ route('sugarglider.show', $sugarglider->indukan_jantan) }}">
-                                                                {{ $jantan->nama }}
+                                                                {{ $indukan->jantan }}
                                                             </a>
                                                         @endif
                                                     </td>
@@ -133,7 +133,7 @@
                                                         @else
                                                             <a
                                                                 href="{{ route('sugarglider.show', $sugarglider->indukan_betina) }}">
-                                                                {{ $betina->nama }}
+                                                                {{ $indukan->betina }}
                                                             </a>
                                                         @endif
                                                     </td>

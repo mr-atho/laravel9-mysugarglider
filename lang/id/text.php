@@ -105,7 +105,7 @@ return [
     'more'                          =>  'Selengkapnya',
     'search'                        =>  'Cari',
     'search_data'                   =>  'Cari data yang Anda ingin lihat.',
-    'unknown'                       =>  'Tidak diketahaui',
+    'unknown'                       =>  'Tidak diketahui',
     'parents'                       =>  'Indukan',
     'grandparents'                  =>  'Kakek Nenek',
     'great_grandparents'            =>  'Moyang',

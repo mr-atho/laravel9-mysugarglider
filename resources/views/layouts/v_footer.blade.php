@@ -54,7 +54,7 @@
 
         <div class="me-md-auto text-center text-md-start">
             <div class="copyright">
-                &copy; Copyright 2022-2003 <strong><span>{{ config('app.name') }}</span></strong>. All Rights Reserved
+                &copy; Copyright 2022-2023 <strong><span>{{ config('app.name') }}</span></strong>. All Rights Reserved
             </div>
             <div class="credits">
                 Developed by <a href="https://athoria.me/" target="_blank">athoria.me</a>
