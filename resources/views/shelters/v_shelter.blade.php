@@ -1,9 +1,9 @@
 @extends('layouts.v_main')
 
-@section('meta')
-    <meta name="description" content="">
-    <meta name="keywords" content="">
-@endsection
+@push('meta')
+    <meta name="description"
+        content="Daftar kandang yang sudah bergabung dengan MySugarGlider.id. Apakah Anda sudah tergabung?">
+@endpush
 
 @section('title')
     Kandang

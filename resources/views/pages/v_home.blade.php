@@ -1,7 +1,12 @@
 @extends('layouts.v_main')
 
+@push('meta')
+    <meta name="description"
+        content="Karena data silsilah begitu penting, maka MySugarGlider.id hadir sebagai solusi bagi pecinta, pemilik dan peternak Sugar Glider di Indonesia.">
+@endpush
+
 @section('title')
-    Beranda
+    Database Sugar Glider Indonesia
 @endsection
 
 @section('content')

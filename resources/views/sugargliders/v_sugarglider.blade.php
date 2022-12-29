@@ -1,9 +1,8 @@
 @extends('layouts.v_main')
 
-@section('meta')
-    <meta name="description" content="">
-    <meta name="keywords" content="">
-@endsection
+@push('meta')
+    <meta name="description" content="Lihat lebih lengkap koleksi Sugar Glider di Indonesia versi MySugarGlider.id">
+@endpush
 
 @section('title')
     Daftar Sugar Glider
