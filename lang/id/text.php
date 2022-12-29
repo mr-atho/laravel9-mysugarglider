@@ -110,4 +110,6 @@ return [
     'grandparents'                  =>  'Kakek Nenek',
     'great_grandparents'            =>  'Moyang',
     'great_great_grandparents'      =>  'Buyut',
+    'maps'                          =>  'Peta',
+    'gmaps'                         =>  'Google Maps',
 ];

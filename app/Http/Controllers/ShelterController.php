@@ -72,6 +72,7 @@ class ShelterController extends Controller
             'user_id'           => Auth::id(),
             'image'             => $imagename,
             'keterangan'        => $request->keterangan,
+            'gmaps'             => $request->gmaps,
         ]);
 
         return redirect()->route('shelter.index')->with('pesan', 'Data berhasil ditambahkan.');
@@ -108,6 +109,7 @@ class ShelterController extends Controller
         $shelter->status  = Request()->status;
         $shelter->user_id  = Auth::id();
         $shelter->keterangan  = Request()->keterangan;
+        $shelter->gmaps  = Request()->gmaps;
 
         if ($request->hasFile('image')) {
 
