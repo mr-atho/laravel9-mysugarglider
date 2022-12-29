@@ -1,9 +1,9 @@
 @extends('layouts.v_main')
 
-@section('meta')
-    <meta name="description" content="">
-    <meta name="keywords" content="">
-@endsection
+@push('meta')
+    <meta name="description"
+        content="Kenapa MySugarGlider.id? Karena kami menyimpan data silsilah Sugar GLider Anda. Dengan data yang akurat, Anda bisa mendapatkan keturunan yang berkualitas.">
+@endpush
 
 @section('title')
     Tentang
