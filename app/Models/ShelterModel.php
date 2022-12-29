@@ -12,7 +12,7 @@ class ShelterModel extends Model
     protected $table = "shelters";
     protected $primaryKey = 'id';
     protected $fillable = [
-        'nama', 'kode', 'alamat', 'status', 'user_id', 'image', 'keterangan'
+        'nama', 'kode', 'alamat', 'status', 'user_id', 'image', 'keterangan', 'gmaps'
     ];
 
     public function sugargliders()

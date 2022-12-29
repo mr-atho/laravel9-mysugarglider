@@ -77,6 +77,19 @@
                                         </div>
 
                                         <div class="col-md-4">
+                                            <label for="gmaps">{{ __('text.gmaps') }}</label>
+                                        </div>
+                                        <div class="col-md-8 form-group">
+                                            <input type="text" id="gmaps" class="form-control" name="gmaps"
+                                                value="{{ $shelter->gmaps }}" placeholder="{{ __('text.gmaps') }}" />
+                                            <small class="text-muted ">
+                                                <i>Masukkan kode Google Maps yang bergaris bawah seperti pada contoh.
+                                                    Contoh:
+                                                    https://www.google.com/maps/embed?pb=<u>m18!1m12!1m3!1d699.66425173949...</u></i>
+                                            </small>
+                                        </div>
+
+                                        <div class="col-md-4">
                                             <label for="image">{{ __('text.logo') }}</label>
                                         </div>
                                         <div class="col-md-8 form-group">

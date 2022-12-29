@@ -8,7 +8,10 @@
                 <a href="https://www.instagram.com/mysugarglider.id/" class="instagram" name="Instagram" target="_blank"><i
                         class="bi bi-instagram"></i></a>
                 <i class="bi bi-envelope"></i> <a href="mailto:info@mysugarglider.id">info@mysugarglider.id</a>
-                <i class="bi bi-phone"></i> +62 857 5533 3232
+                <i class="bi bi-phone"></i>
+                <a aria-label="Chat on WhatsApp" href="https://wa.me/6285755333232" target="_blank">
+                    +62 857 5533 3232
+                </a>
             </div>
             <div class="d-none d-lg-flex social-links align-items-center text-uppercase">
                 <small>
