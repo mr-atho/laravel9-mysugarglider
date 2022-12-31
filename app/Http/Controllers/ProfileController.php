@@ -46,8 +46,17 @@ class ProfileController extends Controller
     function update_user(Request $request)
     {
         $user = User::find(Auth::id());
+
+        $oldEmail = $user->email;
+
         $user->name     = Request()->name;
         $user->email    = Request()->email;
+
+        if ($oldEmail != $user->email) {
+            $user->email_verified_at = null;
+            $user->sendEmailVerificationNotification();
+        }
+
         $user->save();
 
         return redirect()->route('profile')->with('pesan', 'Data berhasil diperbaharui.');

@@ -1,9 +1,12 @@
 ## Version
-v1.6.2 | 28 Agustus 2022
+v1.6.3 | 31 Desember 2022
+- Refactor: Profile update email verification
+
+v1.6.2 | 28 Desember 2022
 - Refactor: Shelter (Add maps)
 - Refactor: Home (add seo, view)
 
-v1.6.1 | 27 Agustus 2022
+v1.6.1 | 27 Desember 2022
 - Feat: Silsilah Sugar Glider
 - Refactor: Sugar GLider view
 
