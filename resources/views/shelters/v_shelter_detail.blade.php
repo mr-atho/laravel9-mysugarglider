@@ -12,7 +12,7 @@
             <div class="container">
 
                 <div class="d-flex justify-content-between align-items-center">
-                    <h2>Kandang</h2>
+                    <h2>Detail Data Kandang</h2>
                     <ol>
                         <li><a href="{{ route('home') }}">Home</a></li>
                         <li><a href="{{ route('shelters') }}">Kandang</a></li>
@@ -52,9 +52,9 @@
                             <ol>
                                 @foreach ($sugargliders as $sugarglider)
                                     {{ ($sugargliders->currentPage() - 1) * $sugargliders->links('pagination::v_pagination')->paginator->perPage() + $loop->iteration }}.
-                                    <a href="{{ route('sugarglider.show', $sugarglider->id) }}">
-                                        {{ $sugarglider->nama }}
-                                        ({{ $sugarglider->jenis }})
+                                    <a href="{{ route('sugarglider.show', $sugarglider->sgId) }}">
+                                        {{ $sugarglider->sgNama }}
+                                        ({{ $sugarglider->sgJenis }})
                                     </a>
                                     <br>
                                 @endforeach

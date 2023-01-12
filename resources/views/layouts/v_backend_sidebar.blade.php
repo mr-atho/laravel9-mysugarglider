@@ -52,31 +52,36 @@
                 </a>
             </li>
 
-            <li class="sidebar-item has-sub {{ request()->is(['*shelters*', '*sugargliders*']) ? 'active' : '' }}">
+            <li
+                class="sidebar-item has-sub {{ request()->is(['*shelters*', '*sugargliders*', '*collections*']) ? 'active' : '' }}">
                 <a href="#" class="sidebar-link">
                     <i class="bi bi-grid-1x2-fill"></i>
                     <span>My Sugar Glider</span>
                 </a>
-                <ul class="submenu {{ request()->is(['*shelters*', '*sugargliders*']) ? 'active' : '' }}">
+                <ul
+                    class="submenu {{ request()->is(['*shelters*', '*sugargliders*', '*collections*']) ? 'active' : '' }}">
                     <li class="submenu-item {{ request()->is('*shelters*') ? 'active' : '' }}">
                         <a href="{{ route('shelter.index') }}">{{ __('text.shelter_data') }}</a>
                     </li>
                     <li class="submenu-item {{ request()->is('*sugargliders*') ? 'active' : '' }}">
                         <a href="{{ route('sugarglider.index') }}">{{ __('text.sugarglider_data') }}</a>
                     </li>
+                    <li class="submenu-item {{ request()->is('*collections*') ? 'active' : '' }}">
+                        <a href="{{ route('collection.index') }}">{{ __('text.collection_data') }}</a>
+                    </li>
                 </ul>
             </li>
 
             <li class="sidebar-title">Explore</li>
-            <li class="sidebar-item {{ request()->routeIs('pedigree.index') ? 'active' : '' }}">
+            <li class="sidebar-item {{ request()->is(['*pedigree*']) ? 'active' : '' }}">
                 <a href="{{ route('pedigree.index') }}" class="sidebar-link">
                     <i class="bi bi-search"></i>
                     <span>{{ __('text.pedigree') }}</span>
                 </a>
             </li>
 
-            <li class="sidebar-item">
-                <a href="#" class="sidebar-link">
+            <li class="sidebar-item {{ request()->is(['*adoption*']) ? 'active' : '' }}">
+                <a href="{{ route('adoption.index') }}" class="sidebar-link">
                     <i class="bi bi-journal-check"></i>
                     <span>Adopsi Baru</span>
                 </a>

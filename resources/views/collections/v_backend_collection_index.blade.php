@@ -1,19 +1,19 @@
 @extends('layouts.v_backend')
 
 @section('title')
-    Data Sugar Glider
+    Data Koleksi
 @endsection
 
 @section('content')
     <div class="page-title">
         <div class="row">
             <div class="col-12 col-md-6 order-md-1 order-last">
-                <h3>{{ __('text.sugarglider_data') }} </h3>
+                <h3>{{ __('text.collection_data') }} </h3>
                 <p class="text-subtitle text-muted">
                     {{ __('text.change_data') }}
                 </p>
                 <p>
-                    <a href="{{ route('sugarglider.create') }}">
+                    <a href="{{ route('collection.create') }}">
                         <span class="badge bg-primary">{{ __('text.add_new') }}</span>
                     </a>
                 </p>
@@ -25,7 +25,7 @@
                             <a href="{{ route('dashboard.index') }}">{{ __('text.dashboard') }}</a>
                         </li>
                         <li class="breadcrumb-item active" aria-current="page">
-                            {{ __('text.sugarglider') }}
+                            {{ __('text.collection') }}
                         </li>
                     </ol>
                 </nav>
@@ -55,44 +55,55 @@
                     <div class="card-content">
                         <!-- table hover -->
                         <div class="table-responsive">
-                            <table class="table table-hover mb-0">
+                            <table class="table table-hover align-middle mb-0">
                                 <thead>
                                     <tr>
                                         <th style="width: 40px"></th>
-                                        <th>NAMA</th>
-                                        <th>KODE</th>
-                                        <th>JENIS</th>
-                                        <th>ACTION</th>
+                                        <th>NAMA SUGAR GLIDER</th>
+                                        <th>KANDANG</th>
+                                        <th>STATUS</th>
+                                        <th></th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach ($sugargliders as $sugarglider)
+                                    @foreach ($collections as $collection)
                                         <tr>
+                                            <th>
+                                                {{ ($collections->currentPage() - 1) * $collections->links('pagination::v_pagination')->paginator->perPage() + $loop->iteration }}
+                                            </th>
+
+                                            <td class="text-bold-500">
+                                                {{ $collection->sgNama }}
+                                                {{-- {{ $collection->sugarglider->nama }} --}}
+                                            </td>
+                                            <td class="text-bold-500">
+                                                {{ $collection->stNama }}
+                                                {{-- {{ $collection->shelter->nama }} --}}
+                                            </td>
                                             <td>
-                                                @if ($sugarglider->gambar)
-                                                    <img src="{{ asset('/upload/sugargliders/' . $sugarglider->gambar) }}"
-                                                        height="40px">
-                                                @else
-                                                    <img src="{{ asset('/assets/images/no-image.png') }}" height="40px">
+                                                @if ($collection->status == '0')
+                                                    {{ __('text.adopted') }}
+                                                @elseif ($collection->status == '1')
+                                                    {{ __('text.dead') }}
+                                                @elseif ($collection->status == '2')
+                                                    {{ __('text.live') }} - {{ __('text.not_adopted') }}
+                                                @elseif ($collection->status == '3')
+                                                    {{ __('text.live') }} - {{ __('text.open_adopted') }}
                                                 @endif
                                             </td>
-
-                                            <td class="text-bold-500">{{ $sugarglider->nama }}</td>
-                                            <td>{{ $sugarglider->kode }}</td>
-                                            <td class="text-bold-500">{{ $sugarglider->jenis }}</td>
                                             <td>
-                                                <a href="{{ route('sugarglider.edit', $sugarglider->id) }}"
+                                                <a href="{{ route('collection.edit', $collection->id) }}"
                                                     class="btn icon btn-primary" title="{{ __('text.edit') }}"><i
                                                         class="bi bi-pencil"></i></a>
 
                                                 <button type="button" class="btn btn-danger" data-bs-toggle="modal"
-                                                    data-bs-target="#delete{{ $sugarglider->id }}">
+                                                    data-bs-target="#delete{{ $collection->id }}">
                                                     <i class="bi bi-trash"></i>
                                                 </button>
 
-                                                <div class="modal fade text-left" id="delete{{ $sugarglider->id }}"
-                                                    tabindex="-1" role="dialog" aria-labelledby="myModalLabel120"
-                                                    aria-hidden="true">
+                                                <div class="modal fade text-left" id="delete{{ $collection->id }}"
+                                                    tabindex="-1" role="dialog"
+                                                    aria-labelledby="myModalLabel{{ $collection->id }}" aria-hidden="true">
                                                     <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable"
                                                         role="document">
                                                         <div class="modal-content">
@@ -117,11 +128,11 @@
                                                                 </button>
 
                                                                 <form method="POST"
-                                                                    action="{{ route('sugarglider.destroy', $sugarglider->id) }}">
+                                                                    action="{{ route('collection.destroy', $collection->id) }}">
                                                                     @csrf
                                                                     <input type="hidden" name="_method" value="DELETE">
                                                                     <input type="hidden" name="id"
-                                                                        value="{{ $sugarglider->id }}">
+                                                                        value="{{ $collection->id }}">
                                                                     <button type="submit" id="delete"
                                                                         class="btn btn-danger ml-1" data-bs-dismiss="modal">
                                                                         <i class="bx bx-check d-block d-sm-none"></i>
@@ -136,17 +147,19 @@
                                                     </div>
                                                 </div>
 
-
                                             </td>
                                         </tr>
                                     @endforeach
+
+
+
                                 </tbody>
                             </table>
                         </div>
                     </div>
 
                     <div class="card-footer">
-                        {{ $sugargliders->links('pagination::v_pagination') }}
+                        {{ $collections->links('pagination::v_pagination') }}
                     </div>
                 </div>
             </div>

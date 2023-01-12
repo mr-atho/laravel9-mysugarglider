@@ -48,8 +48,8 @@
                     <li class="dropdown">
                         <a href="#"><span>Sugar Glider</span><i class="bi bi-chevron-down"></i></a>
                         <ul>
-                            <li><a class="nav-link scrollto {{ request()->routeIs('sugargliders') ? 'active' : '' }}"
-                                    href="{{ route('sugargliders') }}">{{ __('text.collection') }}</a></li>
+                            <li><a class="nav-link scrollto {{ request()->routeIs('collections') ? 'active' : '' }}"
+                                    href="{{ route('collections') }}">{{ __('text.collection') }}</a></li>
                             <li><a class="nav-link scrollto {{ request()->routeIs('shelters') ? 'active' : '' }}"
                                     href="{{ route('home') }}#shelters">{{ __('text.shelter') }}</a></li>
                             <li><a class="nav-link scrollto {{ request()->routeIs('home') ? 'active' : '' }}"

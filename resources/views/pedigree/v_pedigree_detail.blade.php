@@ -1,7 +1,7 @@
 @extends('layouts.v_main')
 
 @section('title')
-    Bagan Silsilah {{ $sugarglider->kode }} - {{ $sugarglider->nama }}
+    Bagan Silsilah {{ $collection->sgNama }} - {{ $collection->sgKode }}
 @endsection
 
 @section('content')
@@ -15,8 +15,8 @@
                     <h2>Bagan Silsilah Indukan</h2>
                     <ol>
                         <li><a href="{{ route('home') }}">Home</a></li>
-                        <li><a href="{{ route('sugargliders') }}">Koleksi</a></li>
-                        <li><a href="{{ route('sugarglider.show', $sugarglider->id) }}">{{ $sugarglider->kode }}</a></li>
+                        <li><a href="{{ route('collections') }}">Koleksi</a></li>
+                        <li><a href="{{ route('sugarglider.show', $collection->sgId) }}">{{ $collection->sgKode }}</a></li>
                         <li>Bagan Silsilah</li>
                     </ol>
                 </div>
@@ -28,22 +28,21 @@
             <div class="container">
                 <div class="collection-wrap">
                     <div class="collection-item">
-                        @if ($sugarglider->gambar)
-                            <a href="{{ asset('/upload/sugargliders/' . $sugarglider->gambar) }}" class="galelry-lightbox">
-                                <img src="{{ asset('/upload/sugargliders/' . $sugarglider->gambar) }}"
-                                    class="collection-img" alt="{{ $sugarglider->nama }}">
+                        @if ($collection->sgGambar)
+                            <a href="{{ asset('/upload/sugargliders/' . $collection->sgGambar) }}" class="galelry-lightbox">
+                                <img src="{{ asset('/upload/sugargliders/' . $collection->sgGambar) }}"
+                                    class="collection-img" alt="{{ $collection->sgNama }}">
                             </a>
                         @endif
 
-                        <h2>{{ $sugarglider->nama }}</h2>
+                        <h2>{{ $collection->sgNama }}</h2>
                         <h4>
-                            <a
-                                href="{{ route('shelter.show', $sugarglider->shelter->id) }}">{{ $sugarglider->shelter->nama }}</a>
-                            | {{ $sugarglider->kode }}
+                            <a href="{{ route('shelter.show', $collection->stId) }}">{{ $collection->stNama }}</a>
+                            | {{ $collection->sgKode }}
                         </h4>
                         <p>
                             <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-                            {{ $sugarglider->keterangan }}
+                            {{ $collection->sgKeterangan }}
                             <i class="bx bxs-quote-alt-right quote-icon-right"></i>
                         </p>
 
@@ -65,19 +64,19 @@
                                             <tbody class="table-group-divider">
                                                 <tr>
                                                     <td rowspan="16"
-                                                        class="{{ $sugarglider->kelamin === 1 ? 'table-primary' : 'table-success' }}">
+                                                        class="{{ $collection->sgKelamin === 1 ? 'table-primary' : 'table-success' }}">
                                                         @if ($silsilah->id != 0)
                                                             <a href="{{ route('sugarglider.show', $silsilah->id) }}">
-                                                                @if ($sugarglider->kelamin === 1)
+                                                                @if ($collection->sgKelamin === 1)
                                                                     &#9794;
                                                                 @else
                                                                     &#9792;
                                                                 @endif
 
                                                                 {{ $silsilah->nama }}
-                                                                <br>
-                                                                {{ $silsilah->jenis ?? __('text.unknown') }}
                                                             </a>
+                                                            <br>
+                                                            {{ $silsilah->jenis ?? __('text.unknown') }}
                                                         @else
                                                             {{ __('text.unknown') }}
                                                         @endif

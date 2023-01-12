@@ -13,17 +13,15 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('shelters', function (Blueprint $table) {
+        Schema::create('collections', function (Blueprint $table) {
             $table->id();
-            $table->string('nama');
-            $table->string('kode');
-            $table->string('alamat')->nullable();
-            $table->char('gmaps', 255)->nullable();
-            $table->string('status')->nullable();
-            $table->unsignedBigInteger('user_id')->nullable();
+            $table->unsignedBigInteger('shelter_id');
+            $table->foreign('shelter_id')->references('id')->on('shelters')->onDelete('cascade');
+            $table->unsignedBigInteger('sugarglider_id');
+            $table->foreign('sugarglider_id')->references('id')->on('sugargliders')->onDelete('cascade');
+            $table->unsignedBigInteger('user_id');
             $table->index('user_id');
-            $table->string('image')->nullable();
-            $table->text('keterangan')->nullable();
+            $table->integer('status');
             $table->timestamps();
             $table->softDeletes();
         });
@@ -36,6 +34,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('shelters');
+        Schema::dropIfExists('collections');
     }
 };

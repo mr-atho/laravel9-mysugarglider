@@ -12,6 +12,8 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\PedigreeController;
+use App\Http\Controllers\CollectionController;
+use App\Http\Controllers\AdoptionController;
 
 /*
 |--------------------------------------------------------------------------
@@ -77,20 +79,35 @@ Route::group(['middleware' => ['auth']], function () {
         Route::delete('/dashboard/shelters/{id}', [ShelterController::class, 'destroy'])->name('shelter.destroy');
 
         /**
-         * Collection Sugar Glider Routes
+         * Sugar Glider Routes
          */
         Route::get('/dashboard/sugargliders', [SugargliderController::class, 'backend_sugarglider_index'])->name('sugarglider.index');
         Route::get('/dashboard/sugargliders/create', [SugargliderController::class, 'create'])->name('sugarglider.create');
         Route::post('/dashboard/sugargliders', [SugargliderController::class, 'store'])->name('sugarglider.store');
         Route::get('/dashboard/sugargliders/{id}/edit', [SugargliderController::class, 'edit'])->name('sugarglider.edit');
         Route::put('/dashboard/sugargliders/{id}', [SugargliderController::class, 'update'])->name('sugarglider.update');
-        Route::delete('/dashboard/sugargliders/{id}', [ugargliderController::class, 'destroy'])->name('sugarglider.destroy');
+        Route::delete('/dashboard/sugargliders/{id}', [SugargliderController::class, 'destroy'])->name('sugarglider.destroy');
+
+        /**
+         * Collections Routes
+         */
+        Route::get('/dashboard/collections', [CollectionController::class, 'backend_collection_index'])->name('collection.index');
+        Route::get('/dashboard/collections/create', [CollectionController::class, 'create'])->name('collection.create');
+        Route::post('/dashboard/collections', [CollectionController::class, 'store'])->name('collection.store');
+        Route::get('/dashboard/collections/{id}/edit', [CollectionController::class, 'edit'])->name('collection.edit');
+        Route::put('/dashboard/collections/{id}', [CollectionController::class, 'update'])->name('collection.update');
+        Route::delete('/dashboard/collections/{id}', [CollectionController::class, 'destroy'])->name('collection.destroy');
 
         /**
          * Pedigree Sugar Glider Routes
          */
         Route::get('/dashboard/pedigree', [PedigreeController::class, 'backend_pedigree_index'])->name('pedigree.index');
         Route::get('/dashboard/pedigree/{id}', [PedigreeController::class, 'backend_show'])->name('pedigree.backend.show');
+
+        /**
+         * Adoption Sugar Glider Routes
+         */
+        Route::get('/dashboard/adoption', [AdoptionController::class, 'backend_adoption_index'])->name('adoption.index');
     });
 });
 
@@ -98,8 +115,9 @@ Route::group(['middleware' => ['auth']], function () {
 Route::get('/shelters', [ShelterController::class, 'index'])->name('shelters');
 Route::get('/shelters/{id}', [ShelterController::class, 'show'])->name('shelter.show');
 
-Route::get('/sugargliders', [SugargliderController::class, 'index'])->name('sugargliders');
 Route::get('/sugargliders/{id}', [SugargliderController::class, 'show'])->name('sugarglider.show');
+
+Route::get('/collections', [CollectionController::class, 'index'])->name('collections');
 
 Route::get('/about', [PageController::class, 'about'])->name('about');
 Route::post('/contact', [ContactController::class, 'contactPost'])->name('contact.post');

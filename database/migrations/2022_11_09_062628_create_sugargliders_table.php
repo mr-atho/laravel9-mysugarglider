@@ -27,10 +27,10 @@ return new class extends Migration
             $table->string('indukan_jantan')->nullable();
             $table->string('gambar')->nullable();
             $table->text('keterangan')->nullable();
-            $table->unsignedBigInteger('shelter_id')->nullable();
-            $table->foreign('shelter_id')->references('id')->on('shelters')->onDelete('cascade');
-            $table->boolean('adopsi')->nullable();
+            $table->unsignedBigInteger('user_id')->nullable();
+            $table->index('user_id');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

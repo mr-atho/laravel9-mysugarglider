@@ -1,11 +1,11 @@
 @extends('layouts.v_main')
 
 @push('meta')
-    <meta name="description" content="Lihat lebih lengkap koleksi Sugar Glider di Indonesia versi MySugarGlider.id">
+    <meta name="description" content="Lihat lebih lengkap koleksi Sugar Glider di Indonesia versi Mycollection.id">
 @endpush
 
 @section('title')
-    Daftar Sugar Glider
+    Koleksi Sugar Glider
 @endsection
 
 @section('content')
@@ -16,7 +16,7 @@
             <div class="container">
 
                 <div class="d-flex justify-content-between align-items-center">
-                    <h2>Database Sugar Glider</h2>
+                    <h2>Koleksi Sugar Glider</h2>
                     <ol>
                         <li><a href="{{ route('home') }}">{{ __('text.home') }}</a></li>
                         <li>{{ __('text.collection') }}</li>
@@ -44,43 +44,43 @@
                             </tr>
                         </thead>
                         <tbody class="table-group-divider">
-                            @foreach ($sugargliders as $sugarglider)
+                            @foreach ($collections as $collection)
                                 <tr>
                                     <th scope="row" class="d-none d-sm-none d-md-block">
-                                        {{ ($sugargliders->currentPage() - 1) * $sugargliders->links('pagination::v_pagination')->paginator->perPage() + $loop->iteration }}
+                                        {{ ($collections->currentPage() - 1) * $collections->links('pagination::v_pagination')->paginator->perPage() + $loop->iteration }}
                                     </th>
                                     <td>
-                                        <a href="{{ route('sugargliders') }}/{{ $sugarglider->id }}">
-                                            {{ $sugarglider->kode }}
+                                        <a href="{{ route('sugarglider.show', $collection->sgId) }}">
+                                            {{ $collection->sgKode }}
                                         </a>
                                     </td>
                                     <td>
-                                        <a href="{{ route('sugargliders') }}/{{ $sugarglider->id }}">
-                                            {{ $sugarglider->nama }}
+                                        <a href="{{ route('sugarglider.show', $collection->sgId) }}">
+                                            {{ $collection->sgNama }}
                                         </a>
                                     </td>
                                     <td>
-                                        @if ($sugarglider->kelamin == '0')
+                                        @if ($collection->sgKelamin == '0')
                                             {{ __('text.female') }}
                                         @else
                                             {{ __('text.male') }}
                                         @endif
                                     </td>
-                                    <td>{{ $sugarglider->jenis }}</td>
+                                    <td>{{ $collection->sgJenis }}</td>
                                     <td>
-                                        <a href="{{ route('shelter.show', $sugarglider->shelter->id) }}">
-                                            {{ $sugarglider->shelter->nama }}
+                                        <a href="{{ route('shelters') }}/{{ $collection->stId }}">
+                                            {{ $collection->stNama }}
                                         </a>
                                     </td>
                                     <td>
-                                        @if ($sugarglider->adopsi == '0')
+                                        @if ($collection->sgStatus == '2')
                                             {{ __('text.not_adopted') }}
-                                        @else
+                                        @elseif ($collection->sgStatus == '3')
                                             {{ __('text.open_adopted') }}
                                         @endif
                                     </td>
                                     <td>
-                                        <a href="{{ route('pedigree.show', $sugarglider->id) }}">
+                                        <a href="{{ route('pedigree.show', $collection->id) }}">
                                             <i class="bi bi-search"></i>
                                         </a>
                                     </td>
@@ -91,7 +91,7 @@
                 </div>
 
                 <div class="card-footer mt-4">
-                    {{ $sugargliders->links('pagination::v_pagination') }}
+                    {{ $collections->links('pagination::v_pagination') }}
                 </div>
 
             </div>

@@ -2,12 +2,11 @@
 
 namespace App\Policies;
 
-use App\Models\SugargliderModel;
+use App\Models\CollectionModel;
 use App\Models\User;
 use Illuminate\Auth\Access\HandlesAuthorization;
-use Illuminate\Support\Facades\Auth;
 
-class SugargliderPolicy
+class CollectionPolicy
 {
     use HandlesAuthorization;
 
@@ -19,17 +18,17 @@ class SugargliderPolicy
      */
     public function viewAny(User $user)
     {
-        return true;
+        //
     }
 
     /**
      * Determine whether the user can view the model.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\SugargliderModel  $sugargliderModel
+     * @param  \App\Models\CollectionModel  $collectionModel
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function view(User $user, SugargliderModel $sugargliderModel)
+    public function view(User $user, CollectionModel $collectionModel)
     {
         //
     }
@@ -49,12 +48,12 @@ class SugargliderPolicy
      * Determine whether the user can update the model.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\SugargliderModel  $sugargliderModel
+     * @param  \App\Models\CollectionModel  $collectionModel
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function update(User $user, SugargliderModel $sugarglider)
+    public function update(User $user, CollectionModel $collectionModel)
     {
-        return $user->id === $sugarglider->user_id;
+        return $user->id === $collectionModel->user_id;
     }
 
 
@@ -62,10 +61,10 @@ class SugargliderPolicy
      * Determine whether the user can delete the model.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\SugargliderModel  $sugargliderModel
+     * @param  \App\Models\CollectionModel  $collectionModel
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function delete(User $user, SugargliderModel $sugargliderModel)
+    public function delete(User $user, CollectionModel $collectionModel)
     {
         //
     }
@@ -74,10 +73,10 @@ class SugargliderPolicy
      * Determine whether the user can restore the model.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\SugargliderModel  $sugargliderModel
+     * @param  \App\Models\CollectionModel  $collectionModel
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function restore(User $user, SugargliderModel $sugargliderModel)
+    public function restore(User $user, CollectionModel $collectionModel)
     {
         //
     }
@@ -86,10 +85,10 @@ class SugargliderPolicy
      * Determine whether the user can permanently delete the model.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\SugargliderModel  $sugargliderModel
+     * @param  \App\Models\CollectionModel  $collectionModel
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function forceDelete(User $user, SugargliderModel $sugargliderModel)
+    public function forceDelete(User $user, CollectionModel $collectionModel)
     {
         //
     }
