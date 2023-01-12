@@ -18,7 +18,7 @@
                     <h4>{{ __('text.links') }}</h4>
                     <ul>
                         <li><i class="bx bx-chevron-right"></i> <a href="{{ route('home') }}">Home</a></li>
-                        <li><i class="bx bx-chevron-right"></i> <a href="{{ route('sugargliders') }}">Koleksi</a>
+                        <li><i class="bx bx-chevron-right"></i> <a href="{{ route('collections') }}">Koleksi</a>
                         </li>
                     </ul>
                 </div>

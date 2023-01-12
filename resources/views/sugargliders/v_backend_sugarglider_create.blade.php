@@ -52,27 +52,6 @@
                                     <div class="row">
 
                                         <div class="col-md-4">
-                                            <label for="shelter_id">{{ __('text.shelter_name') }}</label>
-                                        </div>
-                                        <div class="col-md-8 form-group">
-                                            <fieldset class="form-group">
-                                                <select class="form-select" id="shelter_id" name="shelter_id"
-                                                    value="{{ old('shelter_id') }}">
-                                                    <option value="">Pilih Kandang</option>
-                                                    @foreach ($shelters as $shelter)
-                                                        <option value="{{ $shelter->id }}"
-                                                            @if (old('shelter_id') == $shelter->id) {{ 'selected' }} @endif>
-                                                            {{ $shelter->nama }}
-                                                        </option>
-                                                    @endforeach
-                                                </select>
-                                                <small class="text-muted">Apabila nama kandang tidak ditemukan, Anda
-                                                    dapat memasukan nama kandang yang baru pada halaman <a
-                                                        href="{{ route('shelter.index') }}">ini</a></small>
-                                            </fieldset>
-                                        </div>
-
-                                        <div class="col-md-4">
                                             <label for="nama">{{ __('text.sugarglider_name') }}</label>
                                         </div>
                                         <div class="col-md-8 form-group">
@@ -188,7 +167,7 @@
                                             <label for="fenotype">{{ __('text.fenotype') }}</label>
                                         </div>
                                         <div class="col-md-8 form-group">
-                                            <textarea class="form-control" id="fenotype" rows="3" value="{{ old('fenotype') }}"
+                                            <textarea class="form-control" id="fenotype" name="fenotype" rows="3" value="{{ old('fenotype') }}"
                                                 placeholder="{{ __('text.fenotype') }}"></textarea>
                                         </div>
 
@@ -207,28 +186,8 @@
                                             <input class="form-control form-control-sm" type="file" id="gambar"
                                                 name="gambar" value="{{ old('gambar') }}">
                                             <small class="text-muted ">
-                                                <i>(Ukuran file gambar: 150px x 150px)</i>
+                                                <i>(Ukuran file gambar: 500px x 500px)</i>
                                             </small>
-                                        </div>
-
-                                        <div class="col-md-4">
-                                            <label for="adopsi">{{ __('text.is_adopted') }}</label>
-                                        </div>
-                                        <div class="col-md-8 form-group">
-                                            <fieldset class="form-group">
-                                                <select class="form-select" id="adopsi" name="adopsi"
-                                                    value="{{ old('adopsi') }}">
-                                                    <option value="">Pilihan</option>
-                                                    <option value="1"
-                                                        @if (old('adopsi') == '1') {{ 'selected' }} @endif>
-                                                        {{ __('text.yes') }}
-                                                    </option>
-                                                    <option value="0"
-                                                        @if (old('adopsi') == '0') {{ 'selected' }} @endif>
-                                                        {{ __('text.no') }}
-                                                    </option>
-                                                </select>
-                                            </fieldset>
                                         </div>
 
                                         <div class="col-sm-12 d-flex justify-content-end">

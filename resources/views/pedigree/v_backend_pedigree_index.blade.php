@@ -47,25 +47,25 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach ($sugargliders as $sugarglider)
+                                    @foreach ($collections as $collection)
                                         <tr>
                                             <td>
-                                                @if ($sugarglider->gambar)
-                                                    <img src="{{ asset('/upload/sugargliders/' . $sugarglider->gambar) }}"
+                                                @if ($collection->sgGambar)
+                                                    <img src="{{ asset('/upload/sugargliders/' . $collection->sgGambar) }}"
                                                         height="40px">
                                                 @else
                                                     <img src="{{ asset('/assets/images/no-image.png') }}" height="40px">
                                                 @endif
                                             </td>
 
-                                            <td class="text-bold-500">{{ $sugarglider->nama }}</td>
-                                            <td>{{ $sugarglider->kode }}</td>
-                                            <td class="text-bold-500">{{ $sugarglider->jenis }}</td>
+                                            <td class="text-bold-500">{{ $collection->sgKode }}</td>
+                                            <td>{{ $collection->sgNama }}</td>
+                                            <td class="text-bold-500">{{ $collection->sgJenis }}</td>
                                             <td>
-                                                {{ $sugarglider->shelter->nama }}
+                                                {{ $collection->stNama }}
                                             </td>
                                             <td>
-                                                <a href="{{ route('pedigree.backend.show', $sugarglider->id) }}"
+                                                <a href="{{ route('pedigree.backend.show', $collection->id) }}"
                                                     class="sidebar-link">
                                                     <i class="bi bi-search"></i>
                                                 </a>
@@ -78,7 +78,7 @@
                     </div>
 
                     <div class="card-footer">
-                        {{ $sugargliders->links('pagination::v_pagination') }}
+                        {{ $collections->links('pagination::v_pagination') }}
                     </div>
                 </div>
             </div>

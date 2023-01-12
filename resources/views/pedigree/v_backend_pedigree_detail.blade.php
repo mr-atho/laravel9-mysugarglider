@@ -11,7 +11,7 @@
                 <h5>Bagan Silsilah Indukan</h5>
                 <h3>{{ $sugarglider->nama }}</h3>
                 <p class="text-subtitle text-muted">
-                    {{ $sugarglider->shelter->nama }} | {{ $sugarglider->kode }}
+                    {{ $collection->shelter->nama }} | {{ $sugarglider->kode }}
                 </p>
             </div>
             <div class="col-12 col-md-6 order-md-2 order-first">

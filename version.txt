@@ -1,4 +1,10 @@
 ## Version
+v1.7.0 | 13 Januari 2023
+- Feat: Collection
+- Refactor: Sugar Glider, Shelter, Pedigree (Database Table, model, view, controller)
+- Refactor: Home view, Dashboard view
+- Refactor: Route
+
 v1.6.3 | 31 Desember 2022
 - Refactor: Profile update email verification
 

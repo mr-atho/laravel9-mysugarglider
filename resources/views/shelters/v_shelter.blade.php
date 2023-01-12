@@ -17,7 +17,7 @@
             <div class="container">
 
                 <div class="d-flex justify-content-between align-items-center">
-                    <h2>Kandang</h2>
+                    <h2>Database Kandang</h2>
                     <ol>
                         <li><a href="{{ route('home') }}">Home</a></li>
                         <li>Kandang</li>

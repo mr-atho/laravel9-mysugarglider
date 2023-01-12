@@ -55,27 +55,6 @@
                                     <div class="row">
 
                                         <div class="col-md-4">
-                                            <label for="shelter_id">{{ __('text.shelter_name') }}</label>
-                                        </div>
-                                        <div class="col-md-8 form-group">
-                                            <fieldset class="form-group">
-                                                <select class="form-select" id="shelter_id" name="shelter_id"
-                                                    value="{{ $sugarglider->shelter_id }}">
-                                                    <option value="">Pilih Kandang</option>
-                                                    @foreach ($shelters as $shelter)
-                                                        <option value="{{ $shelter->id }}"
-                                                            @if ($sugarglider->shelter_id == $shelter->id) {{ 'selected' }} @endif>
-                                                            {{ $shelter->nama }}
-                                                        </option>
-                                                    @endforeach
-                                                </select>
-                                                <small class="text-muted">Apabila nama kandang tidak ditemukan, Anda
-                                                    dapat memasukan nama kandang yang baru pada halaman <a
-                                                        href="{{ route('shelter.index') }}">ini</a></small>
-                                            </fieldset>
-                                        </div>
-
-                                        <div class="col-md-4">
                                             <label for="nama">{{ __('text.sugarglider_name') }}</label>
                                         </div>
                                         <div class="col-md-8 form-group">
@@ -216,42 +195,22 @@
                                         <div class="col-md-8 form-group">
                                             @if ($sugarglider->gambar)
                                                 <p>
-                                                    <img
-                                                        src="{{ asset('/upload/sugargliders/' . $sugarglider->gambar) }}">
+                                                    <img src="{{ asset('/upload/sugargliders/' . $sugarglider->gambar) }}"
+                                                        class="img-fluid w-100">
                                                 </p>
 
                                                 <input type="file" class="form-control form-control-sm" id="gambar"
                                                     name="gambar">
                                                 <small class="text-muted ">
-                                                    <i>(Ukuran file logo: 150px x 150px)</i>
+                                                    <i>(Ukuran file logo: 500px x 500px)</i>
                                                 </small>
                                             @else
                                                 <input type="file" class="form-control form-control-sm" id="gambar"
                                                     name="gambar">
                                                 <small class="text-muted ">
-                                                    <i>(Ukuran file logo: 150px x 150px)</i>
+                                                    <i>(Ukuran file logo: 500px x 500px)</i>
                                                 </small>
                                             @endif
-                                        </div>
-
-                                        <div class="col-md-4">
-                                            <label for="adopsi">{{ __('text.is_adopted') }}</label>
-                                        </div>
-                                        <div class="col-md-8 form-group">
-                                            <fieldset class="form-group">
-                                                <select class="form-select" id="adopsi" name="adopsi"
-                                                    value="{{ $sugarglider->adopsi }}">
-                                                    <option value="">Pilihan</option>
-                                                    <option value="1"
-                                                        @if ($sugarglider->adopsi == '1') {{ 'selected' }} @endif>
-                                                        {{ __('text.yes') }}
-                                                    </option>
-                                                    <option value="0"
-                                                        @if ($sugarglider->adopsi == '0') {{ 'selected' }} @endif>
-                                                        {{ __('text.no') }}
-                                                    </option>
-                                                </select>
-                                            </fieldset>
                                         </div>
 
                                         <div class="col-sm-12 d-flex justify-content-end">

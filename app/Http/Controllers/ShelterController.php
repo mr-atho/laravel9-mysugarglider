@@ -82,7 +82,19 @@ class ShelterController extends Controller
     {
         $data = [
             'shelter' => ShelterModel::find($id),
-            'sugargliders' => SugargliderModel::where('shelter_id', $id)->paginate(10)
+            'sugargliders' => SugargliderModel::
+                leftjoin('collections', 'collections.sugarglider_id', '=', 'sugargliders.id')
+                ->leftjoin('shelters', 'collections.shelter_id', '=', 'shelters.id')
+                ->select(
+                    'sugargliders.id as sgId',
+                    'sugargliders.kode as sgKode',
+                    'sugargliders.nama as sgNama',
+                    'sugargliders.jenis as sgJenis',
+                )
+                ->whereIn('collections.status', [2,3])
+                ->where('shelters.id', $id)
+                ->whereNull('collections.deleted_at')
+                ->paginate(10)
         ];
 
         return view('shelters.v_shelter_detail', $data);
@@ -142,9 +154,9 @@ class ShelterController extends Controller
     {
         $shelter = ShelterModel::findOrFail($request->id);
 
-        if ($shelter->sugargliders()->count()) {
-            return back()->withErrors('Tidak dapat menghapus. Kandang memiliki data sugar glider.');
-        }
+        // if ($shelter->sugargliders()->count()) {
+        //     return back()->withErrors('Tidak dapat menghapus. Kandang memiliki data sugar glider.');
+        // }
 
         $shelter->delete();
 

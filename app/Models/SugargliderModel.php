@@ -4,19 +4,36 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class SugargliderModel extends Model
 {
-    use HasFactory;
+    use HasFactory, SoftDeletes;
 
     protected $table = "sugargliders";
     protected $primaryKey = 'id';
     protected $fillable = [
-        'kode', 'nama', 'kelamin', 'oop', 'warna', 'jenis', 'genetika', 'fenotype', 'indukan_betina', 'indukan_jantan', 'gambar', 'keterangan', 'shelter_id', 'adopsi'
+        'kode', 'nama', 'kelamin', 'oop', 'warna', 'jenis', 'genetika', 'fenotype', 'indukan_betina', 'indukan_jantan', 'gambar', 'keterangan', 'user_id'
     ];
 
-    public function shelter()
+    protected static function boot()
     {
-        return $this->belongsTo(ShelterModel::class, 'shelter_id');
+        parent::boot();
+
+        static::deleted(function ($sugarglider) {
+            $sugarglider->collections()->delete();
+        });
+    }
+
+    // Many to Many - Shelter Table
+    public function shelters()
+    {
+        return $this->belongsToMany(ShelterModel::class, 'collections', 'shelter_id', 'sugarglider_id')->withTimestamps()->withTrashed();
+    }
+
+     // One to Many - Collections Table
+    public function collections()
+    {
+        return $this->hasMany(CollectionModel::class, 'sugarglider_id')->withTrashed();
     }
 }

@@ -97,7 +97,7 @@
                             <i class="fas fa-user-md"></i>
                             <span data-purecounter-start="0" data-purecounter-end="{{ $count_sugargliders }}"
                                 data-purecounter-duration="1" class="purecounter"></span>
-                            <a href="{{ route('sugargliders') }}">
+                            <a href="{{ route('collections') }}">
                                 <p>Koleksi <br>Sugar Glider</p>
                             </a>
                         </div>

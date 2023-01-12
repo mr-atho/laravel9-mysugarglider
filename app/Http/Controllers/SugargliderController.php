@@ -6,7 +6,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Intervention\Image\Facades\Image;
 use App\Models\SugargliderModel;
-use App\Models\ShelterModel;
+use App\Models\ProfileModel;
+use App\Models\CollectionModel;
 
 class SugargliderController extends Controller
 {
@@ -21,17 +22,13 @@ class SugargliderController extends Controller
 
     function backend_sugarglider_index()
     {
-        $shelters = ShelterModel::where('user_id', Auth::id())->get();
+        $profile = ProfileModel::where('user_id', Auth::id())->first();
 
-        if (is_null($shelters)) {
-            return view('shelters.v_backend_shelter_no');
+        if (is_null($profile)) {
+            return view('profiles.v_profile_no');
         } else {
             $data = [
-                //'sugargliders' => SugargliderModel::whereIn('shelter_id', [1, 2, 3])->paginate(10)
-                'sugargliders' => SugargliderModel::addSelect([
-                    'shelter_id' => ShelterModel::select('id')
-                        ->whereColumn('shelter_id', 'id')
-                ])->paginate(10)
+                'sugargliders' => SugargliderModel::where('user_id', Auth::id())->paginate(10),
             ];
 
             return view('sugargliders.v_backend_sugarglider_index', $data);
@@ -41,7 +38,6 @@ class SugargliderController extends Controller
     function create()
     {
         $data = [
-            'shelters' => ShelterModel::where('status', 1)->where('user_id', Auth::id())->get(),
             'sugargliders' => SugargliderModel::orderBy('nama', 'asc')->get(),
         ];
         return view('sugargliders.v_backend_sugarglider_create', $data);
@@ -57,13 +53,12 @@ class SugargliderController extends Controller
             ]);
 
             $image = $request->file('gambar');
-            $imagename = 'sg-' . $request->shelter_id . '-' . $request->kode . '.' . $image->extension();
+            $imagename = 'sg-' . $request->kode . '.' . $image->extension();
 
             Image::make($image)->fit(
                 500,
                 500,
                 function ($constraint) {
-                    //$constraint->aspectRatio();
                     $constraint->upsize();
                 }
             )->save(public_path('upload/sugargliders/' . $imagename));
@@ -84,7 +79,7 @@ class SugargliderController extends Controller
             'indukan_jantan'    => $request->indukan_jantan,
             'gambar'            => $imagename,
             'keterangan'        => $request->keterangan,
-            'shelter_id'        => $request->shelter_id,
+            'user_id'           => Auth::id(),
             'adopsi'            => $request->adopsi,
         ]);
 
@@ -94,7 +89,6 @@ class SugargliderController extends Controller
     function show($id)
     {
         $data = [
-            'sugarglider' => SugargliderModel::find($id),
             'indukan' =>
             SugargliderModel::leftjoin('sugargliders as m', 'sugargliders.indukan_jantan', '=', 'm.id')
                 ->leftjoin('sugargliders as f', 'sugargliders.indukan_betina', '=', 'f.id')
@@ -111,6 +105,31 @@ class SugargliderController extends Controller
                 )
                 ->where('sugargliders.id', $id)
                 ->first(),
+
+            'collection' =>
+                CollectionModel::
+                leftjoin('shelters', 'collections.shelter_id', '=', 'shelters.id')
+                ->leftjoin('sugargliders', 'collections.sugarglider_id', '=', 'sugargliders.id')
+                ->select(
+                    'sugargliders.id as sgId',
+                    'sugargliders.kode as sgKode',
+                    'sugargliders.nama as sgNama',
+                    'sugargliders.kelamin as sgKelamin',
+                    'sugargliders.oop as sgOOP',
+                    'sugargliders.warna as sgWarna',
+                    'sugargliders.jenis as sgJenis',
+                    'sugargliders.genetika as sgGenetika',
+                    'sugargliders.fenotype as sgFenotype',
+                    'sugargliders.indukan_jantan as sgIndukanJantan',
+                    'sugargliders.indukan_betina as sgIndukanBetina',
+                    'sugargliders.gambar as sgGambar',
+                    'sugargliders.keterangan as sgKeterangan',
+                    'shelters.id as stId',
+                    'shelters.nama as stNama',
+                    'collections.status as clStatus'
+                )
+                ->where('sugargliders.id', '=', $id)
+                ->first(),
         ];
 
         return view('sugargliders.v_sugarglider_detail', $data);
@@ -122,7 +141,6 @@ class SugargliderController extends Controller
 
         $data = [
             'sugarglider' => SugargliderModel::findOrFail($id),
-            'shelters' => ShelterModel::where('status', 1)->where('user_id', Auth::id())->get(),
             'sugargliders' => SugargliderModel::orderBy('nama', 'asc')->get(),
         ];
 
@@ -144,8 +162,6 @@ class SugargliderController extends Controller
         $sugarglider->indukan_betina    = Request()->indukan_betina;
         $sugarglider->indukan_jantan    = Request()->indukan_jantan;
         $sugarglider->keterangan        = Request()->keterangan;
-        $sugarglider->shelter_id        = Request()->shelter_id;
-        $sugarglider->adopsi            = Request()->adopsi;
 
         if ($request->hasFile('gambar')) {
 
@@ -155,13 +171,12 @@ class SugargliderController extends Controller
             ]);
 
             $image = $request->file('gambar');
-            $imagename = 'sg-' . $request->shelter_id . '-' . $request->kode . '.' . $image->extension();
+            $imagename = 'sg-' . $request->kode . '.' . $image->extension();
 
             Image::make($image)->fit(
                 500,
                 500,
                 function ($constraint) {
-                    //$constraint->aspectRatio();
                     $constraint->upsize();
                 }
             )->save(public_path('upload/sugargliders/' . $imagename));

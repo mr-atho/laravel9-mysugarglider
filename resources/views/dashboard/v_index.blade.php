@@ -79,6 +79,31 @@
                     </div>
                 </div>
             </div>
+
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h4>Langkah menggunakan aplikasi</h4>
+                    </div>
+                    <div class="card-body">
+                        <ol>
+                            <li>Lengkapi data <a href="{{ route('profile') }}">profil</a> Anda terlebih dahulu.</li>
+                            <li>Masukkan data <a href="{{ route('shelter.index') }}">kandang</a> Anda.</li>
+                            <li>
+                                Masukkan data <a href="{{ route('sugarglider.index') }}">Sugar Glider</a> Anda.
+                                <br>
+                                <small>Lengkapi data indukan untuk setiap Sugar Glider agar dapat mendapatkan silsilah
+                                    keturunan.</small>
+                            </li>
+                            <li>Buatlah data koleksi dengan menggabungkan data
+                                <a href="{{ route('sugarglider.index') }}">Sugar Glider</a> ke data
+                                <a href="{{ route('sugarglider.index') }}">kandang</a> Anda.
+                            </li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+
         </section>
     </div>
 @endsection
