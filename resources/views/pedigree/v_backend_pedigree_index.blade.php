@@ -65,7 +65,7 @@
                                                 {{ $collection->stNama }}
                                             </td>
                                             <td>
-                                                <a href="{{ route('pedigree.backend.show', $collection->id) }}"
+                                                <a href="{{ route('pedigree.backend.show', $collection->sgId) }}"
                                                     class="sidebar-link">
                                                     <i class="bi bi-search"></i>
                                                 </a>

@@ -60,6 +60,7 @@ return [
     'profile'                       =>  'Profil',
     'find_no_profile'               =>  'Profil tidak ditemukan.',
     'find_no_shelter'               =>  'Data kandang tidak ditemukan.',
+    'find_no_collection'            =>  'Data Koleksi tidak ditemukan.',
     'change_data'                   =>  'Perbaharuai data Anda',
     'input_data'                    =>  'Masukkan data Anda',
     'dashboard'                     =>  'Beranda',
@@ -118,4 +119,5 @@ return [
     'live'                          =>  'Hidup',
     'adoption'                      =>  'Adopsi',
     'adoption_list'                 =>  'Daftar adopsi terbuka',
+    'adoption_data'                 =>  'Data Adopsi',
 ];

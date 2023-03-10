@@ -80,7 +80,7 @@
                                         @endif
                                     </td>
                                     <td>
-                                        <a href="{{ route('pedigree.show', $collection->id) }}">
+                                        <a href="{{ route('pedigree.show', $collection->sgId) }}">
                                             <i class="bi bi-search"></i>
                                         </a>
                                     </td>

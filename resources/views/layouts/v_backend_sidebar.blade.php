@@ -53,13 +53,13 @@
             </li>
 
             <li
-                class="sidebar-item has-sub {{ request()->is(['*shelters*', '*sugargliders*', '*collections*']) ? 'active' : '' }}">
+                class="sidebar-item has-sub {{ request()->is(['*shelters*', '*sugargliders*', '*collections*', '*adoption*']) ? 'active' : '' }}">
                 <a href="#" class="sidebar-link">
                     <i class="bi bi-grid-1x2-fill"></i>
                     <span>My Sugar Glider</span>
                 </a>
                 <ul
-                    class="submenu {{ request()->is(['*shelters*', '*sugargliders*', '*collections*']) ? 'active' : '' }}">
+                    class="submenu {{ request()->is(['*shelters*', '*sugargliders*', '*collections*', '*adoptions*']) ? 'active' : '' }}">
                     <li class="submenu-item {{ request()->is('*shelters*') ? 'active' : '' }}">
                         <a href="{{ route('shelter.index') }}">{{ __('text.shelter_data') }}</a>
                     </li>
@@ -68,6 +68,9 @@
                     </li>
                     <li class="submenu-item {{ request()->is('*collections*') ? 'active' : '' }}">
                         <a href="{{ route('collection.index') }}">{{ __('text.collection_data') }}</a>
+                    </li>
+                    <li class="submenu-item {{ request()->is('*adoptions*') ? 'active' : '' }}">
+                        <a href="{{ route('adoption.index') }}">{{ __('text.adoption_data') }}</a>
                     </li>
                 </ul>
             </li>
@@ -80,7 +83,7 @@
                 </a>
             </li>
 
-            <li class="sidebar-item {{ request()->is(['*adoption*']) ? 'active' : '' }}">
+            <li class="sidebar-item {{ request()->is(['*adoptions/list*']) ? 'active' : '' }}">
                 <a href="{{ route('adoption.index') }}" class="sidebar-link">
                     <i class="bi bi-journal-check"></i>
                     <span>Adopsi Baru</span>

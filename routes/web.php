@@ -107,7 +107,8 @@ Route::group(['middleware' => ['auth']], function () {
         /**
          * Adoption Sugar Glider Routes
          */
-        Route::get('/dashboard/adoption', [AdoptionController::class, 'backend_adoption_index'])->name('adoption.index');
+        Route::get('/dashboard/adoptions', [AdoptionController::class, 'backend_adoption_index'])->name('adoption.index');
+        Route::get('/dashboard/adoptions/create', [AdoptionController::class, 'create'])->name('adoption.create');
     });
 });
 

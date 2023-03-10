@@ -1,4 +1,9 @@
 ## Version
+v1.7.1 | 10 Maret 2023
+- Refactor: Sugar Glider view (add Keturunan)
+- Fixed: Database Seed
+- Fixed: Silsilah view
+
 v1.7.0 | 13 Januari 2023
 - Feat: Collection
 - Refactor: Sugar Glider, Shelter, Pedigree (Database Table, model, view, controller)

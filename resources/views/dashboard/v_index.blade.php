@@ -58,6 +58,28 @@
                             </div>
                         </div>
                     </div>
+
+                    <div class="col-6 col-lg-3 col-md-6">
+                        <div class="card">
+                            <div class="card-body px-4 py-4-5">
+                                <div class="row">
+                                    <div class="col-md-4 col-lg-12 col-xl-12 col-xxl-5 d-flex justify-content-start ">
+                                        <a href="{{ route('collection.index') }}">
+                                            <div class="stats-icon red mb-2">
+                                                <i class="iconly-boldBookmark"></i>
+                                            </div>
+                                        </a>
+                                    </div>
+                                    <div class="col-md-8 col-lg-12 col-xl-12 col-xxl-7">
+                                        <a href="{{ route('collection.index') }}">
+                                            <h6 class="text-muted font-semibold">Koleksi</h6>
+                                            <h6 class="font-extrabold mb-0">{{ $count_collections }}</h6>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
             <div class="col-12 col-md-12 col-xl-3 col-lg-3">

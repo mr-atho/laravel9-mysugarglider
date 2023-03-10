@@ -107,8 +107,7 @@ class SugargliderController extends Controller
                 ->first(),
 
             'collection' =>
-                CollectionModel::
-                leftjoin('shelters', 'collections.shelter_id', '=', 'shelters.id')
+            CollectionModel::leftjoin('shelters', 'collections.shelter_id', '=', 'shelters.id')
                 ->leftjoin('sugargliders', 'collections.sugarglider_id', '=', 'sugargliders.id')
                 ->select(
                     'sugargliders.id as sgId',
@@ -130,6 +129,17 @@ class SugargliderController extends Controller
                 )
                 ->where('sugargliders.id', '=', $id)
                 ->first(),
+
+            'keturunans' =>
+            CollectionModel::join('sugargliders', 'sugargliders.id', '=', 'collections.sugarglider_id')
+                ->select(
+                    'sugargliders.id',
+                    'sugargliders.nama',
+                    'sugargliders.jenis'
+                )
+                ->where('sugargliders.indukan_betina', '=', $id)
+                ->orWhere('sugargliders.indukan_jantan', '=', $id)
+                ->get(),
         ];
 
         return view('sugargliders.v_sugarglider_detail', $data);
