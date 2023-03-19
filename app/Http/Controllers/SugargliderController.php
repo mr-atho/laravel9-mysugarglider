@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Auth;
 use Intervention\Image\Facades\Image;
 use App\Models\SugargliderModel;
 use App\Models\ProfileModel;
+use App\Models\ShelterModel;
 use App\Models\CollectionModel;
 
 class SugargliderController extends Controller
@@ -23,9 +24,12 @@ class SugargliderController extends Controller
     function backend_sugarglider_index()
     {
         $profile = ProfileModel::where('user_id', Auth::id())->first();
+        $shelter = ShelterModel::where('user_id', Auth::id())->first();
 
         if (is_null($profile)) {
             return view('profiles.v_profile_no');
+        } elseif (is_null($shelter)) {
+            return view('shelters.v_backend_shelter_no');
         } else {
             $data = [
                 'sugargliders' => SugargliderModel::where('user_id', Auth::id())->paginate(10),

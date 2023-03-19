@@ -95,7 +95,7 @@
                     <div class="col-lg-3 col-md-6">
                         <div class="count-box">
                             <i class="fas fa-user-md"></i>
-                            <span data-purecounter-start="0" data-purecounter-end="{{ $count_sugargliders }}"
+                            <span data-purecounter-start="0" data-purecounter-end="{{ $count_collections }}"
                                 data-purecounter-duration="1" class="purecounter"></span>
                             <a href="{{ route('collections') }}">
                                 <p>Koleksi <br>Sugar Glider</p>
@@ -126,9 +126,9 @@
                     <div class="col-lg-3 col-md-6 mt-5 mt-lg-0">
                         <div class="count-box">
                             <i class="fas fa-award"></i>
-                            <span data-purecounter-start="0" data-purecounter-end="2" data-purecounter-duration="1"
-                                class="purecounter"></span>
-                            <p>Sugar Glider <br> yang telah diadopsi</p>
+                            <span data-purecounter-start="0" data-purecounter-end="{{ $count_adoptions }}"
+                                data-purecounter-duration="1" class="purecounter"></span>
+                            <p>Sugar Glider <br> yang dapat diadopsi</p>
                         </div>
                     </div>
 

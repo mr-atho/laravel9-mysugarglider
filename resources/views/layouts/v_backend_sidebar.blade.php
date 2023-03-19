@@ -53,13 +53,13 @@
             </li>
 
             <li
-                class="sidebar-item has-sub {{ request()->is(['*shelters*', '*sugargliders*', '*collections*', '*adoption*']) ? 'active' : '' }}">
+                class="sidebar-item has-sub {{ request()->is(['*shelters*', '*sugargliders*', '*collections*', '*adoptions/create', '*request', '*edit']) || request()->is(['*adoptions']) ? 'active' : '' }}">
                 <a href="#" class="sidebar-link">
                     <i class="bi bi-grid-1x2-fill"></i>
                     <span>My Sugar Glider</span>
                 </a>
                 <ul
-                    class="submenu {{ request()->is(['*shelters*', '*sugargliders*', '*collections*', '*adoptions*']) ? 'active' : '' }}">
+                    class="submenu {{ request()->is(['*shelters*', '*sugargliders*', '*collections*', '*adoptions/create*', '*request', '*edit']) || request()->is(['*adoptions']) ? 'active' : '' }}">
                     <li class="submenu-item {{ request()->is('*shelters*') ? 'active' : '' }}">
                         <a href="{{ route('shelter.index') }}">{{ __('text.shelter_data') }}</a>
                     </li>
@@ -69,7 +69,8 @@
                     <li class="submenu-item {{ request()->is('*collections*') ? 'active' : '' }}">
                         <a href="{{ route('collection.index') }}">{{ __('text.collection_data') }}</a>
                     </li>
-                    <li class="submenu-item {{ request()->is('*adoptions*') ? 'active' : '' }}">
+                    <li
+                        class="submenu-item {{ request()->is(['*adoptions/create*', '*edit']) || request()->is('*request') || request()->is(['*adoptions']) ? 'active' : '' }}">
                         <a href="{{ route('adoption.index') }}">{{ __('text.adoption_data') }}</a>
                     </li>
                 </ul>
@@ -83,10 +84,17 @@
                 </a>
             </li>
 
-            <li class="sidebar-item {{ request()->is(['*adoptions/list*']) ? 'active' : '' }}">
-                <a href="{{ route('adoption.index') }}" class="sidebar-link">
+            <li class="sidebar-item {{ request()->routeIs('adoption.list') ? 'active' : '' }}">
+                <a href="{{ route('adoption.list') }}" class="sidebar-link">
                     <i class="bi bi-journal-check"></i>
                     <span>Adopsi Baru</span>
+                </a>
+            </li>
+
+            <li class="sidebar-item">
+                <a href="#" class="sidebar-link">
+                    <i class="bi bi-chat-heart-fill"></i>
+                    <span>Persilangan Online</span>
                 </a>
             </li>
 

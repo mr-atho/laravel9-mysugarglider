@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\SugargliderModel;
 use App\Models\ShelterModel;
+use App\Models\AdoptionModel;
+use App\Models\CollectionModel;
 
 class PageController extends Controller
 {
@@ -15,6 +17,8 @@ class PageController extends Controller
             'count_sugargliders'    => SugargliderModel::count(),
             'count_shelters'        => ShelterModel::count(),
             'count_users'           => User::count(),
+            'count_collections'     => CollectionModel::whereIn('status', [2, 3])->count(),
+            'count_adoptions'       => AdoptionModel::count(),
             'shelters'              => ShelterModel::where('status', '1')->inRandomOrder()->limit(4)->get(),
         ];
 

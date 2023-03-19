@@ -111,7 +111,10 @@
                                                         @if ($collection->status == '3') {{ 'selected' }} @endif>
                                                         {{ __('text.live') }} - {{ __('text.open_adopted') }}
                                                     </option>
-
+                                                    <option value="0"
+                                                        @if ($collection->status == '0') {{ 'selected' }} @endif>
+                                                        {{ __('text.death') }}
+                                                    </option>
                                                 </select>
                                             </fieldset>
                                         </div>

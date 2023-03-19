@@ -76,7 +76,7 @@
                                         @if ($collection->sgStatus == '2')
                                             {{ __('text.not_adopted') }}
                                         @elseif ($collection->sgStatus == '3')
-                                            {{ __('text.open_adopted') }}
+                                            <a href="{{ route('adoption.list') }}">{{ __('text.open_adopted') }}</a>
                                         @endif
                                     </td>
                                     <td>

@@ -96,8 +96,15 @@
                                                         @elseif ($collection->clStatus == '3')
                                                             Ya <br>
                                                             <small>Silakan hubungi
-                                                                <a
-                                                                    href="{{ route('shelter.show', $collection->stId) }}">{{ $collection->stNama }}</a>
+                                                                <a href="{{ route('shelter.show', $collection->stId) }}">
+                                                                    {{ $collection->stNama }}
+                                                                </a> atau
+                                                                @if (Auth::check())
+                                                                    <a href="{{ route('adoption.list') }}">masuk</a>
+                                                                @else
+                                                                    <a href="{{ route('login') }}">masuk</a>
+                                                                @endif
+                                                                untuk mulai mengajukan permohonan adopsi.
                                                             </small>
                                                         @endif
                                                     </td>

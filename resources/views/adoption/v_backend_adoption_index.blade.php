@@ -59,8 +59,9 @@
                                     <tr>
                                         <th style="width: 40px"></th>
                                         <th>NAMA SUGAR GLIDER</th>
+                                        <th>JENIS</th>
                                         <th>KANDANG</th>
-                                        <th>STATUS</th>
+                                        <th>PERMOHONAN</th>
                                         <th></th>
                                     </tr>
                                 </thead>
@@ -72,26 +73,29 @@
                                             </th>
 
                                             <td class="text-bold-500">
-                                                {{ $adoption->sgNama }}
-                                                {{-- {{ $adoption->sugarglider->nama }} --}}
+                                                {{ $adoption->nama }}
                                             </td>
+
                                             <td class="text-bold-500">
-                                                {{ $adoption->stNama }}
-                                                {{-- {{ $adoption->shelter->nama }} --}}
+                                                {{ $adoption->jenis }}
+                                            </td>
+
+                                            <td class="text-bold-500">
+                                                Rp. {{ number_format($adoption->harga, 0, ',', '.') }}
                                             </td>
                                             <td>
-                                                @if ($adoption->status == '0')
-                                                    {{ __('text.adopted') }}
-                                                @elseif ($adoption->status == '1')
-                                                    {{ __('text.dead') }}
-                                                @elseif ($adoption->status == '2')
-                                                    {{ __('text.live') }} - {{ __('text.not_adopted') }}
-                                                @elseif ($adoption->status == '3')
-                                                    {{ __('text.live') }} - {{ __('text.open_adopted') }}
-                                                @endif
+                                                <a href="{{ route('adoption.request', $adoption->id) }}"
+                                                    class="btn btn-sm btn-light-warning">
+
+                                                    Lihat Permohonan
+                                                    <span class="badge bg-warning">
+                                                        {{ $adoption->total_permohonan }}
+                                                    </span>
+
+                                                </a>
                                             </td>
                                             <td>
-                                                <a href="{{ route('collection.edit', $adoption->id) }}"
+                                                <a href="{{ route('adoption.edit', $adoption->id) }}"
                                                     class="btn icon btn-primary" title="{{ __('text.edit') }}"><i
                                                         class="bi bi-pencil"></i></a>
 

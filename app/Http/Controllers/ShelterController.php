@@ -82,8 +82,7 @@ class ShelterController extends Controller
     {
         $data = [
             'shelter' => ShelterModel::find($id),
-            'sugargliders' => SugargliderModel::
-                leftjoin('collections', 'collections.sugarglider_id', '=', 'sugargliders.id')
+            'sugargliders' => SugargliderModel::leftjoin('collections', 'collections.sugarglider_id', '=', 'sugargliders.id')
                 ->leftjoin('shelters', 'collections.shelter_id', '=', 'shelters.id')
                 ->select(
                     'sugargliders.id as sgId',
@@ -91,12 +90,11 @@ class ShelterController extends Controller
                     'sugargliders.nama as sgNama',
                     'sugargliders.jenis as sgJenis',
                 )
-                ->whereIn('collections.status', [2,3])
+                ->whereIn('collections.status', [2, 3])
                 ->where('shelters.id', $id)
                 ->whereNull('collections.deleted_at')
                 ->paginate(10)
         ];
-
         return view('shelters.v_shelter_detail', $data);
     }
 
