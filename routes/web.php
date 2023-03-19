@@ -14,6 +14,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\PedigreeController;
 use App\Http\Controllers\CollectionController;
 use App\Http\Controllers\AdoptionController;
+use App\Http\Controllers\AdoptionRequestController;
 
 /*
 |--------------------------------------------------------------------------
@@ -107,7 +108,22 @@ Route::group(['middleware' => ['auth']], function () {
         /**
          * Adoption Sugar Glider Routes
          */
-        Route::get('/dashboard/adoption', [AdoptionController::class, 'backend_adoption_index'])->name('adoption.index');
+        Route::get('/dashboard/adoptions', [AdoptionController::class, 'backend_adoption_index'])->name('adoption.index');
+        Route::get('/dashboard/adoptions/create', [AdoptionController::class, 'create'])->name('adoption.create');
+        Route::post('/dashboard/adoptions', [AdoptionController::class, 'store'])->name('adoption.store');
+        Route::get('/dashboard/adoptions/list', [AdoptionController::class, 'backend_adoption_list'])->name('adoption.list');
+        Route::get('/dashboard/adoptions/{id}/request', [AdoptionController::class, 'backend_adoption_request'])->name('adoption.request');
+        Route::get('/dashboard/adoptions/{id}/edit', [AdoptionController::class, 'edit'])->name('adoption.edit');
+        Route::put('/dashboard/adoptions/{id}', [AdoptionController::class, 'update'])->name('adoption.update');
+
+
+        /**
+         * Adoption Request Sugar Glider Routes
+         */
+        Route::post('/dashboard/adoptions/{id}/request', [AdoptionRequestController::class, 'store'])->name('adoptionrequest.store');
+        Route::post('/dashboard/adoptions/select', [AdoptionRequestController::class, 'backend_adoption_select'])->name('adoptionrequest.select');
+        Route::post('/dashboard/adoptions/{id}/shipping', [AdoptionRequestController::class, 'backend_adoption_shipping'])->name('adoptionrequest.shipping');
+        Route::post('/dashboard/adoptions/{id}/finalize', [AdoptionRequestController::class, 'backend_adoption_finalize'])->name('adoptionrequest.finalize');
     });
 });
 

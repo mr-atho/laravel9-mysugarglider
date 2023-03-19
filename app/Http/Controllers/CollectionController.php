@@ -8,6 +8,7 @@ use App\Models\ProfileModel;
 use App\Models\CollectionModel;
 use App\Models\ShelterModel;
 use App\Models\SugargliderModel;
+use App\Models\AdoptionModel;
 
 class CollectionController extends Controller
 {
@@ -15,8 +16,7 @@ class CollectionController extends Controller
     {
         $data = [
             'collections' =>
-                CollectionModel::
-                join('sugargliders as sg', 'collections.sugarglider_id', '=', 'sg.id')
+            CollectionModel::join('sugargliders as sg', 'collections.sugarglider_id', '=', 'sg.id')
                 ->join('shelters as st', 'collections.shelter_id', '=', 'st.id')
                 ->select(
                     'collections.id as id',
@@ -29,7 +29,7 @@ class CollectionController extends Controller
                     'sg.jenis as sgJenis',
                     'st.nama as stNama',
                 )
-                ->whereIn('collections.status', [2,3])
+                ->whereIn('collections.status', [2, 3])
                 ->paginate(20)
         ];
 
@@ -39,14 +39,16 @@ class CollectionController extends Controller
     function backend_collection_index()
     {
         $profile = ProfileModel::where('user_id', Auth::id())->first();
+        $sugarglider = SugargliderModel::where('user_id', Auth::id())->first();
 
         if (is_null($profile)) {
             return view('profiles.v_profile_no');
+        } elseif (is_null($sugarglider)) {
+            return view('sugargliders.v_backend_sugarglider_no');
         } else {
             $data = [
                 'collections' =>
-                    CollectionModel::
-                    join('sugargliders as sg', 'collections.sugarglider_id', '=', 'sg.id')
+                CollectionModel::join('sugargliders as sg', 'collections.sugarglider_id', '=', 'sg.id')
                     ->join('shelters as st', 'collections.shelter_id', '=', 'st.id')
                     ->select(
                         'collections.id as id',
@@ -54,7 +56,7 @@ class CollectionController extends Controller
                         'sg.nama as sgNama',
                         'st.nama as stNama',
                     )
-                    ->whereIn('collections.status', [2,3])
+                    ->whereIn('collections.status', [2, 3])
                     ->where('collections.user_id', Auth::id())
                     ->paginate(10)
             ];
@@ -108,6 +110,13 @@ class CollectionController extends Controller
         $collection->shelter_id     = Request()->shelter_id;
         $collection->sugarglider_id = Request()->sugarglider_id;
         $collection->status         = Request()->status;
+
+        if ($collection->status == 0) {
+            $adoption           = AdoptionModel::where('collection_id', $request->id)->first();
+            $adoption->status   = 0;
+            $adoption->save();
+        }
+
         $collection->save();
 
         return redirect()->route('collection.index')->with('pesan', 'Data berhasil diperbaharui.');
@@ -120,5 +129,4 @@ class CollectionController extends Controller
 
         return redirect()->route('collection.index')->with('pesan', 'Data berhasil dihapus.');
     }
-
 }

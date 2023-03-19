@@ -45,6 +45,7 @@
                             <i class="bx bxs-quote-alt-right quote-icon-right"></i>
                         </p>
 
+
                         <div class="collection">
                             <div class="row">
                                 <div class="col-sm-12 col-md-12 col-lg-6">
@@ -95,8 +96,15 @@
                                                         @elseif ($collection->clStatus == '3')
                                                             Ya <br>
                                                             <small>Silakan hubungi
-                                                                <a
-                                                                    href="{{ route('shelter.show', $collection->stId) }}">{{ $collection->stNama }}</a>
+                                                                <a href="{{ route('shelter.show', $collection->stId) }}">
+                                                                    {{ $collection->stNama }}
+                                                                </a> atau
+                                                                @if (Auth::check())
+                                                                    <a href="{{ route('adoption.list') }}">masuk</a>
+                                                                @else
+                                                                    <a href="{{ route('login') }}">masuk</a>
+                                                                @endif
+                                                                untuk mulai mengajukan permohonan adopsi.
                                                             </small>
                                                         @endif
                                                     </td>
@@ -105,6 +113,7 @@
                                         </table>
                                     </div>
                                 </div>
+
                                 <div class="col-sm-12 col-md-12 col-lg-6">
                                     <h3>SILSILAH</h3>
                                     <div class="table-responsive">
@@ -148,9 +157,24 @@
                                             </tbody>
                                         </table>
                                     </div>
+
+
+                                    <h3>KETURUNAN</h3>
+                                    <ul>
+                                        @foreach ($keturunans as $keturunan)
+                                            <li>
+                                                @if ($keturunan->kelamin === 1)
+                                                    &#9794;
+                                                @else
+                                                    &#9792;
+                                                @endif
+                                                <a href="{{ $keturunan->id }}">{{ $keturunan->nama }}</a>
+                                                ({{ $keturunan->jenis }})
+                                            </li>
+                                        @endforeach
+                                    </ul>
                                 </div>
                             </div>
-
                         </div>
                     </div>
                 </div>

@@ -12,16 +12,23 @@
     <h1 class="auth-title">{{ __('text.login') }}.</h1>
     <p class="auth-subtitle mb-5">{{ __('text.login_subtitle') }}</p>
 
+    @if (session('error'))
+        <div class="alert alert-danger">
+            <strong>{{ __('text.suspended') }}</strong><br>
+            {{ session('error') }}
+        </div>
+    @endif
+
     @if ($errors->has('email'))
         <div class="alert alert-danger" role="alert">
-            <strong>GAGAL</strong><br>
+            <strong>{{ __('text.failed') }}</strong><br>
             {{ $errors->first('email') }}
         </div>
     @endif
 
     @if (session('pesan'))
         <div class="alert alert-success" role="alert">
-            <strong>SUKSES</strong><br>
+            <strong>{{ __('text.success') }}</strong><br>
             {{ session('pesan') }}
         </div>
     @endif
