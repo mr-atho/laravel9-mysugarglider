@@ -58,6 +58,7 @@ class AdoptionController extends Controller
     function create()
     {
         $sugarglidercollections = CollectionModel::select('sugarglider_id')->where('status', '3')->get();
+
         $adoption = AdoptionModel::where('status', 1)->pluck('collection_id')->all();
 
         $data = [
