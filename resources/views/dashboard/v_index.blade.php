@@ -37,6 +37,7 @@
                             </div>
                         </div>
                     </div>
+
                     <div class="col-6 col-lg-3 col-md-6">
                         <div class="card">
                             <div class="card-body px-4 py-4-5">
@@ -80,8 +81,53 @@
                             </div>
                         </div>
                     </div>
+
+                    <div class="col-6 col-lg-3 col-md-6">
+                        <div class="card">
+                            <div class="card-body px-4 py-4-5">
+                                <div class="row">
+                                    <div class="col-md-4 col-lg-12 col-xl-12 col-xxl-5 d-flex justify-content-start ">
+                                        <a href="{{ route('adoption.index') }}">
+                                            <div class="stats-icon green mb-2">
+                                                <i class="iconly-boldAdd-User"></i>
+                                            </div>
+                                        </a>
+                                    </div>
+                                    <div class="col-md-8 col-lg-12 col-xl-12 col-xxl-7">
+                                        <a href="{{ route('adoption.index') }}">
+                                            <h6 class="text-muted font-semibold">Siap diadopsi</h6>
+                                            <h6 class="font-extrabold mb-0">{{ $count_adoptions }}</h6>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-6 col-lg-3 col-md-6">
+                        <div class="card">
+                            <div class="card-body px-4 py-4-5">
+                                <div class="row">
+                                    <div class="col-md-4 col-lg-12 col-xl-12 col-xxl-5 d-flex justify-content-start ">
+                                        <a href="{{ route('adoption.list') }}">
+                                            <div class="stats-icon purple mb-2">
+                                                <i class="iconly-boldStar"></i>
+                                            </div>
+                                        </a>
+                                    </div>
+                                    <div class="col-md-8 col-lg-12 col-xl-12 col-xxl-7">
+                                        <a href="{{ route('adoption.list') }}">
+                                            <h6 class="text-muted font-semibold">Dapat diadopsi</h6>
+                                            <h6 class="font-extrabold mb-0">{{ $count_adoptable }}</h6>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
+
             <div class="col-12 col-md-12 col-xl-3 col-lg-3">
                 <div class="card">
                     <div class="card-body py-4 px-4">
@@ -100,6 +146,7 @@
                         </div>
                     </div>
                 </div>
+
             </div>
 
             <div class="col-12">
@@ -117,9 +164,15 @@
                                 <small>Lengkapi data indukan untuk setiap Sugar Glider agar dapat mendapatkan silsilah
                                     keturunan.</small>
                             </li>
-                            <li>Buatlah data koleksi dengan menggabungkan data
+                            <li>Buatlah data <a href="{{ route('collection.index') }}">koleksi</a> dengan menggabungkan
+                                data
                                 <a href="{{ route('sugarglider.index') }}">Sugar Glider</a> ke data
                                 <a href="{{ route('sugarglider.index') }}">kandang</a> Anda.
+                            </li>
+                            <li>
+                                Buatlah data <a href="{{ route('adoption.index') }}">adopsi</a> dari data <a
+                                    href="{{ route('collection.index') }}">koleksi</a> yang Anda
+                                dengan mengubah status koleksi terlebih dahulu.
                             </li>
                         </ol>
                     </div>
