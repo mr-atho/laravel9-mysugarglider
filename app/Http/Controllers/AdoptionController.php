@@ -58,7 +58,8 @@ class AdoptionController extends Controller
     function create()
     {
         $sugarglidercollections = CollectionModel::select('sugarglider_id')->where('status', '3')->get();
-        $adoption = AdoptionModel::pluck('collection_id')->all();
+
+        $adoption = AdoptionModel::where('status', 1)->pluck('collection_id')->all();
 
         $data = [
             'collections' => CollectionModel::select('collections.id', 'sugargliders.nama as nama')
@@ -67,6 +68,7 @@ class AdoptionController extends Controller
                 ->leftJoin('sugargliders', 'collections.sugarglider_id', '=', 'sugargliders.id')
                 ->leftJoin('adoptions', 'collections.id', '=', 'adoptions.collection_id')
                 ->where('sugargliders.user_id', Auth::id())
+                ->where('adoptions.status', 0)
                 ->orderBy('nama', 'asc')
                 ->get(),
         ];

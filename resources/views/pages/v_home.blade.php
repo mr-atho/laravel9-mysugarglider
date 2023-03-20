@@ -2,7 +2,7 @@
 
 @push('meta')
     <meta name="description"
-        content="Karena data silsilah begitu penting, maka MySugarGlider.id hadir sebagai solusi bagi pecinta, pemilik dan peternak Sugar Glider di Indonesia.">
+        content="Selamat datang di MySugarGlider.id, situs yang menyediakan database lengkap tentang hewan Sugar Glider di Indonesia. Temukan data silsilah, cara merawat, habitat dan kebiasaan hidup sugar glider, serta komunitas pecinta sugar glider di Indonesia. Dapatkan juga tips dan trik dalam merawat sugar glider, serta informasi tentang jenis-jenis sugar glider yang ada di Indonesia. Kunjungi situs kami sekarang untuk mengetahui lebih lanjut tentang sugar glider di Indonesia.">
 @endpush
 
 @section('title')
@@ -15,8 +15,10 @@
         <div class="container">
             <h1>Welcome <br>to Shelter</h1>
             <h2>
-                Selamat datang di website kami. <br>
-                Tempat dimana Sugar Glider berada.
+                Selamat datang di website<br>
+                database Sugar Glider di Indonesia. <br>
+                Tempat dimana data<br>
+                Sugar Glider Anda berada.
             </h2>
             <a href="#about-us" class="btn-get-started scrollto">Mulai</a>
         </div>
@@ -32,7 +34,7 @@
                         <div class="content">
                             <h3>Kenapa <br>MySugarGlider.id?</h3>
                             <p>
-                                Karena kami menyimpan data silsilah Sugar Glider Anda. Dengan data yang akurat, kita
+                                Karena kami menyimpan data Sugar Glider Anda. Dengan data yang akurat, kita
                                 bisa mendapatkan keturunan yang berkualitas.
                             </p>
                             <small>
