@@ -76,6 +76,8 @@ return [
     'close'                         =>  'Tutup',
     'delete'                        =>  'Hapus',
     'delete_data'                   =>  'Hapus Data',
+    'update'                        =>  'Perbaharui',
+    'update_data'                   =>  'Perbaharui Data',
     'edit'                          =>  'Sunting',
     'change'                        =>  'Ubah',
     'close'                         =>  'Tutup',

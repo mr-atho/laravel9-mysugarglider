@@ -38,6 +38,7 @@ class AdoptionController extends Controller
                         'adoptions.harga as harga',
                         'sugargliders.nama as nama',
                         'sugargliders.jenis as jenis',
+                        'collections.id as collection_id',
                         DB::raw('COUNT(adoption_requests.adoption_id) as total_permohonan')
                     )
                         ->leftJoin('collections', 'collections.id', '=', 'adoptions.collection_id')
@@ -46,7 +47,7 @@ class AdoptionController extends Controller
                         ->where('collections.status', 3)
                         ->where('adoptions.status', 1)
                         ->where('adoptions.user_id', Auth::id())
-                        ->groupBy('adoption_requests.adoption_id', 'adoptions.id', 'adoptions.harga', 'sugargliders.nama', 'sugargliders.jenis')
+                        ->groupBy('adoption_requests.adoption_id', 'adoptions.id', 'adoptions.harga', 'sugargliders.nama', 'sugargliders.jenis', 'collections.id')
                         ->paginate(10)
                 ];
 
@@ -135,6 +136,20 @@ class AdoptionController extends Controller
     }
     function destroy()
     {
+    }
+
+    function adopted(Request $request)
+    {
+        $adoption                   =   AdoptionModel::findOrFail($request->id);
+        $adoption->status           =   9;
+        $adoption->save();
+
+        $collection                 =   CollectionModel::find($request->collection_id);
+        $collection->user_id        =   0;
+        $collection->status         =   9;
+        $collection->save();
+
+        return redirect()->route('adoption.index')->with('pesan', 'Data berhasil diperbaharui.');
     }
 
     function backend_adoption_list()

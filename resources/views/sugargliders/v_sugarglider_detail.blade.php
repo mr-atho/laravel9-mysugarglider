@@ -36,8 +36,11 @@
 
                         <h2>{{ $collection->sgNama }}</h2>
                         <h4>
-                            <a href="{{ route('shelter.show', $collection->stId) }}">{{ $collection->stNama }}</a>
-                            | {{ $collection->sgKode }}
+                            @if ($collection->clUser != '0')
+                                <a href="{{ route('shelter.show', $collection->stId) }}">{{ $collection->stNama }}</a>
+                                | {{ $collection->sgKode }}
+                            @endif
+
                         </h4>
                         <p>
                             <i class="bx bxs-quote-alt-left quote-icon-left"></i>
@@ -88,27 +91,30 @@
                                                     <th scope="row">Fenotype</th>
                                                     <td>{{ $collection->sgFenotype }}</td>
                                                 </tr>
-                                                <tr>
-                                                    <th scope="row">Dapat Diadopsi?</th>
-                                                    <td>
-                                                        @if ($collection->clStatus == '2')
-                                                            {{ __('text.not_adopted') }}
-                                                        @elseif ($collection->clStatus == '3')
-                                                            Ya <br>
-                                                            <small>Silakan hubungi
-                                                                <a href="{{ route('shelter.show', $collection->stId) }}">
-                                                                    {{ $collection->stNama }}
-                                                                </a> atau
-                                                                @if (Auth::check())
-                                                                    <a href="{{ route('adoption.list') }}">masuk</a>
-                                                                @else
-                                                                    <a href="{{ route('login') }}">masuk</a>
-                                                                @endif
-                                                                untuk mulai mengajukan permohonan adopsi.
-                                                            </small>
-                                                        @endif
-                                                    </td>
-                                                </tr>
+                                                @if ($collection->clUser != '0')
+                                                    <tr>
+                                                        <th scope="row">Dapat Diadopsi?</th>
+                                                        <td>
+                                                            @if ($collection->clStatus == '2')
+                                                                {{ __('text.not_adopted') }}
+                                                            @elseif ($collection->clStatus == '3')
+                                                                Ya <br>
+                                                                <small>Silakan hubungi
+                                                                    <a
+                                                                        href="{{ route('shelter.show', $collection->stId) }}">
+                                                                        {{ $collection->stNama }}
+                                                                    </a> atau
+                                                                    @if (Auth::check())
+                                                                        <a href="{{ route('adoption.list') }}">masuk</a>
+                                                                    @else
+                                                                        <a href="{{ route('login') }}">masuk</a>
+                                                                    @endif
+                                                                    untuk mulai mengajukan permohonan adopsi.
+                                                                </small>
+                                                            @endif
+                                                        </td>
+                                                    </tr>
+                                                @endif
                                             </tbody>
                                         </table>
                                     </div>

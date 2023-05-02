@@ -115,6 +115,7 @@ Route::group(['middleware' => ['auth']], function () {
         Route::get('/dashboard/adoptions/{id}/request', [AdoptionController::class, 'backend_adoption_request'])->name('adoption.request');
         Route::get('/dashboard/adoptions/{id}/edit', [AdoptionController::class, 'edit'])->name('adoption.edit');
         Route::put('/dashboard/adoptions/{id}', [AdoptionController::class, 'update'])->name('adoption.update');
+        Route::put('/dashboard/adoptions/{id}', [AdoptionController::class, 'adopted'])->name('adoption.adopted');
 
 
         /**

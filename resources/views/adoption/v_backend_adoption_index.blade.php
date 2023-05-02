@@ -142,6 +142,60 @@
                                                                         <span
                                                                             class="d-none d-sm-block">{{ __('text.delete') }}</span>
                                                                     </button>
+                                                                </form>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <button type="button" class="btn icon icon-left btn-success"
+                                                    data-bs-toggle="modal" data-bs-target="#adopted{{ $adoption->id }}">
+                                                    <i class="bi bi-house-heart-fill"></i>
+                                                    Telah Diadopsi
+                                                </button>
+
+                                                <div class="modal fade text-left" id="adopted{{ $adoption->id }}"
+                                                    tabindex="-1" role="dialog"
+                                                    aria-labelledby="myModalLabel{{ $adoption->id }}" aria-hidden="true">
+                                                    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable"
+                                                        role="document">
+                                                        <div class="modal-content">
+                                                            <div class="modal-header bg-success">
+                                                                <h5 class="modal-title white" id="myModalLabel120">
+                                                                    {{ __('text.update_data') }}
+                                                                </h5>
+                                                                <button type="button" class="close"
+                                                                    data-bs-dismiss="modal" aria-label="Close">
+                                                                    <i data-feather="x"></i>
+                                                                </button>
+                                                            </div>
+                                                            <div class="modal-body">
+                                                                Apakah Anda yakin Sugar Glider ini telah diadopsi dan
+                                                                memperbaharui data ini?
+                                                            </div>
+                                                            <div class="modal-footer">
+                                                                <button type="button" class="btn btn-light-secondary"
+                                                                    data-bs-dismiss="modal">
+                                                                    <i class="bx bx-x d-block d-sm-none"></i>
+                                                                    <span
+                                                                        class="d-none d-sm-block">{{ __('text.close') }}</span>
+                                                                </button>
+
+                                                                <form method="POST"
+                                                                    action="{{ route('adoption.adopted', $adoption->id) }}">
+                                                                    @csrf
+                                                                    <input type="hidden" name="_method" value="PUT">
+                                                                    <input type="hidden" name="id"
+                                                                        value="{{ $adoption->id }}">
+                                                                    <input type="hidden" name="collection_id"
+                                                                        value="{{ $adoption->collection_id }}">
+                                                                    <button type="submit" id="delete"
+                                                                        class="btn btn-success ml-1"
+                                                                        data-bs-dismiss="modal">
+                                                                        <i class="bx bx-check d-block d-sm-none"></i>
+                                                                        <span
+                                                                            class="d-none d-sm-block">{{ __('text.update') }}</span>
+                                                                    </button>
 
 
                                                                 </form>
@@ -149,7 +203,6 @@
                                                         </div>
                                                     </div>
                                                 </div>
-
                                             </td>
                                         </tr>
                                     @endforeach

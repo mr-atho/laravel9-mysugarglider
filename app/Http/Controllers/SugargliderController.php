@@ -129,7 +129,8 @@ class SugargliderController extends Controller
                     'sugargliders.keterangan as sgKeterangan',
                     'shelters.id as stId',
                     'shelters.nama as stNama',
-                    'collections.status as clStatus'
+                    'collections.status as clStatus',
+                    'collections.user_id as clUser'
                 )
                 ->where('sugargliders.id', '=', $id)
                 ->first(),
